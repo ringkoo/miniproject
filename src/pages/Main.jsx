@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../redux/componant/navbar/Navbar";
+import Navbar from "../redux/componants/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 
 

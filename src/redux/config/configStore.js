@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todos from "../modules/todosSlice";
+import postList from "../modules/postListSlice";
 
 const store = configureStore({
     reducer: { postList: postList },
