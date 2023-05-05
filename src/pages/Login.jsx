@@ -1,18 +1,16 @@
 import React from "react";
 import Navbar from "../redux/componants/navbar/Navbar";
-import Mainmap from "../redux/componants/mainmap/maps";
 import { useNavigate } from "react-router-dom";
 
 
 
-function Main() {
-
+function Login() {
+    
     return (
         <>
-            <Navbar />
-            <Mainmap />
+            로그인 페이지
         </>
     );
 }
 
-export default Main;
+export default Login;
