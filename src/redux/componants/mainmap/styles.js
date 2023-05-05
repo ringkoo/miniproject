@@ -29,7 +29,7 @@ const SeoulButton = styled.div`
     &:hover {
         background-color: skyblue;
     }
-    pointer-events:cusor;
+    cursor: pointer;
 `;
 
 const KIButton = styled.div`
@@ -49,8 +49,8 @@ const KIButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 const KangwonButton = styled.div`
@@ -70,8 +70,8 @@ const KangwonButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 const ChungcyungButton = styled.div`
@@ -91,8 +91,8 @@ const ChungcyungButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 const KyungsangButton = styled.div`
@@ -112,8 +112,8 @@ const KyungsangButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 const JyunlaButton = styled.div`
@@ -133,8 +133,8 @@ const JyunlaButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 const JejuButton = styled.div`
@@ -154,8 +154,8 @@ const JejuButton = styled.div`
     transition: background-color 0.5s ease;
     &:hover {
         background-color: skyblue;
-        
     }
+    cursor: pointer;
 `;
 
 

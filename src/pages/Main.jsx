@@ -7,7 +7,6 @@ import { Logintext } from "../redux/componants/navbar/styles";
 
 
 function Main() {
-    const navigate = useNavigate();
     return (
         <>
             <Navbar isActive={true} >동네 어때?</Navbar>
