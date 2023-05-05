@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 
 
-function Navbar() {
+function Navbar(props) {
     const navigate = useNavigate();
     return (
         <>
             <Navhead>
-                <Navtext>동네 어때?</Navtext>
-                <Logintext onClick={() => { navigate('/login') }}>로그인</Logintext>
+                <Navtext>{props.children}</Navtext>
+                {
+                    props.isActive === true ?
+                        <Logintext onClick={() => { navigate('/login') }}>로그인</Logintext> :
+                        <Logintext onClick={() => { navigate('/login') }}>로그아웃</Logintext>
+                }
             </Navhead>
 
 
