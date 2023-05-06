@@ -36,7 +36,7 @@ function Sginbox(props) {
                             <Inputs type="password" label='PW2' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                         </div>
                         <div style={{ display: 'flex', gap: '10px' }} >
-                            <div>관리자  <input
+                            <div style={{position:'absolute', left: '42%' }}>관리자  <input
                                 type="checkbox"
                                 id="cb1"
                                 checked={isChecked}
