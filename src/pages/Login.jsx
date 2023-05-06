@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Inputs from "../redux/componants/inputs/inputs";
+import Sginbox from "../redux/componants/login/login";
 
 
 
@@ -8,9 +9,8 @@ function Login() {
 
     return (
         <>
-            <div>로그인</div>
-            <Inputs label="ID" minLength={10} maxLength={100} width="300px" height='20px' />
-            <Inputs label="PW" minLength={10} maxLength={100} width="300px" height='20px' />
+            <Sginbox title='로그인' label='ID' width='200px' />
+            
         </>
     );
 }

@@ -1,15 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Inputs from "../redux/componants/inputs/inputs";
+import Sginbox from "../redux/componants/login/login";
 
 
 
-function Signup() {
-    
+function Login() {
+
     return (
         <>
-            회원가입 페이지
+            <Sginbox title='회원가입' label='ID' width='200px' />
+            
         </>
     );
 }
 
-export default Signup;
+export default Login;

@@ -1,26 +1,29 @@
 import styled from "styled-components"
 
 const InputStyle = styled.input`
-  width: 100%;
-  height: 100%;
+  width: ${props => props.widthinput};
+  height: ${props => props.height};
   border: none;
+  background-color:darkgray;
+  border-radius: 5px;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: right;
   width: ${props => props.width};
-  height: ${props => props.height};
-  background-color: green;
+  height: auto;
   border: 1px solid gray;
   border-radius: 5px;
-  padding: 0.5em;
+  margin-bottom: ${props => props.marginbottom};
 `;
 
 const Label = styled.span`
   display: flex;
   align-items: center;
   margin-right: 0.5em;
+  font-weight:700;
 `;
 
 export { InputStyle, InputWrapper, Label }
