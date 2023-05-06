@@ -1,4 +1,4 @@
-// import styled from "styled-components";
+import React from "react";
 import Navbar from "../redux/componants/navbar/Navbar";
 import { useState } from "react";
 import {
@@ -14,7 +14,7 @@ import {
   Button,
 } from "../redux/componants/write/styles";
 
-function Write() {
+function UpdateArticle() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
@@ -36,7 +36,7 @@ function Write() {
 
   return (
     <>
-      <Navbar isActive={false}>게시글 작성</Navbar>
+      <Navbar isActive={false}>게시글 수정</Navbar>
 
       <Container>
         <LeftContainer>
@@ -87,6 +87,8 @@ function Write() {
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                // 카테고리는 수정불가하게
+                disabled
               >
                 <option value="">카테고리 선택</option>
                 <option value="food">맛집</option>
@@ -108,7 +110,7 @@ function Write() {
               onChange={(e) => setContent(e.target.value)}
             />
 
-            <Button type="submit">작성</Button>
+            <Button type="submit">수정 완료</Button>
           </Form>
         </RightContainer>
       </Container>
@@ -116,4 +118,4 @@ function Write() {
   );
 }
 
-export default Write;
+export default UpdateArticle;
