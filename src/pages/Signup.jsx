@@ -5,14 +5,13 @@ import Sginbox from "../redux/componants/login/login";
 
 
 
-function Login() {
+function Signup() {
 
     return (
         <>
-            <Sginbox title='회원가입' label='ID' width='200px' />
-            
+            <Sginbox title='회원가입' loginPage={false}/>
         </>
     );
 }
 
-export default Login;
+export default Signup;

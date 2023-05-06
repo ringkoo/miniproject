@@ -20,8 +20,8 @@ const InputWrapper = styled.div`
 `;
 
 const Label = styled.span`
-  display: flex;
-  align-items: center;
+  position:absolute;
+  left : 42%;
   margin-right: 0.5em;
   font-weight:700;
 `;

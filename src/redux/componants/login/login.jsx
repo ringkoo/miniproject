@@ -1,26 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputStyle, InputWrapper, Label, Titlestyle, Wrapbox, Backgroundbox } from './styles'
 import styled from "styled-components";
 import Inputs from "../inputs/inputs";
 import Buttons from "../buttons/Buttons";
+import { useNavigate } from "react-router-dom";
 
 
 
-function Sginbox() {
+function Sginbox(props) {
+    const navigate = useNavigate();
+    const [isChecked, setIsChecked] = useState(false);
     return (
+
         <Backgroundbox>
-            <Wrapbox>
-                <Titlestyle>로그인</Titlestyle>
-                <div>
-                    <Inputs label='ID' widthinput='200px' width='200px' height='30px' marginbottom='30px' />
-                    <Inputs label='PW' widthinput='200px' width='200px' height='30px' marginbottom='30px' />
-                </div>
-                <div style={{display:'flex', gap:'10px'}}>
-                    <Buttons backgroundcolor='darkgray'>회원가입</Buttons>
-                    <Buttons backgroundcolor='darkgray'>로그인</Buttons>
-                </div>
-            </Wrapbox>
-        </Backgroundbox>
+            {
+                props.loginPage === true ?
+                    <Wrapbox>
+                        <Titlestyle>{props.title}</Titlestyle>
+                        <div>
+                            <Inputs label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                        </div>
+                        <div style={{ display: 'flex', gap: '10px' }} >
+                            <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/Signup') }} >회원가입</Buttons>
+                            <Buttons backgroundcolor='darkgray'>로그인</Buttons>
+                        </div>
+                    </Wrapbox>
+                    :
+                    <Wrapbox>
+                        <Titlestyle>{props.title}</Titlestyle>
+                        <div>
+                            <Inputs label='Name' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs label='PW Ck' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                        </div>
+                        <div style={{ display: 'flex', gap: '10px' }} >
+                            <div>관리자  <input
+                                type="checkbox"
+                                id="cb1"
+                                checked={isChecked}
+                                onChange={(e) => setIsChecked(e.target.checked)}
+                            />
+                                {isChecked && <Inputs widthinput='60px' />}</div>
+                            <Buttons backgroundcolor='darkgray'>가입</Buttons>
+                        </div>
+                    </Wrapbox>
+            }
+        </Backgroundbox >
     );
 }
 

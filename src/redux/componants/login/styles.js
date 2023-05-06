@@ -4,7 +4,7 @@ const Titlestyle = styled.div`
     display:flex;
     justify-content:center;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 30px;
 `
 
 const Wrapbox = styled.div`

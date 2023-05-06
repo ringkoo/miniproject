@@ -4,6 +4,7 @@ import Main from "../pages/Main";
 import Login from "../pages/Login";
 import Write from "../pages/Write";
 import Areadetail from "../pages/Areadetail";
+import Signup from "../pages/Signup";
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/write" element={<Write />} />
         <Route path="/Areadetail" element={<Areadetail />} />
       </Routes>
