@@ -9,9 +9,9 @@ const InputStyle = styled.input`
 `;
 
 const InputWrapper = styled.div`
-  display: flex;
+  display:flex;
+  justify-content: center;
   align-items: center;
-  justify-content: right;
   width: ${props => props.width};
   height: auto;
   border: 1px solid gray;
@@ -20,8 +20,6 @@ const InputWrapper = styled.div`
 `;
 
 const Label = styled.span`
-  position:absolute;
-  left : 42%;
   margin-right: 0.5em;
   font-weight:700;
 `;

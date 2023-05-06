@@ -8,7 +8,7 @@ const Titlestyle = styled.div`
 `
 
 const Wrapbox = styled.div`
-    width: 500px;
+    width: 400px;
     height: 500px;
     background-color: gray;
     display: flex;
@@ -19,6 +19,7 @@ const Wrapbox = styled.div`
 `
 
 const Backgroundbox = styled.div`
+    position:absolute;
     display:flex;
     justify-content: center;
     align-items: center;

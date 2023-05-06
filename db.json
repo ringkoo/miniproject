@@ -6,7 +6,7 @@
             "author": "typicode"
         }
     ],
-    "signup": [
+    "users": [
         {
             "username": "아이디",
             "password": "비밀번호",
