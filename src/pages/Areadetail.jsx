@@ -27,17 +27,7 @@ function Areadetail() {
       <Navbar isActive={true}>서울</Navbar>
       {/* <NavbarSecond /> */}
       <button onClick={() => navigate("/write")}>글쓰기</button>
-      {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper> */}
+
       <Swiper
         style={{
           marginTop: "200px",
@@ -70,15 +60,20 @@ function Areadetail() {
         ]}
         className="mySwiper"
       >
-        <SwiperSlide>14</SwiperSlide>
-        <SwiperSlide>1</SwiperSlide>
-        <SwiperSlide>21</SwiperSlide>
+        <SwiperSlide>
+          <div style={{ border: "1px solid black", width: "400px" }}>
+            <div>Title</div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>2</SwiperSlide>
         <SwiperSlide>3</SwiperSlide>
-        <SwiperSlide>good</SwiperSlide>
-        <SwiperSlide>hi</SwiperSlide>
-        <SwiperSlide>hello</SwiperSlide>
-        <SwiperSlide>nice</SwiperSlide>
-        <SwiperSlide>wow</SwiperSlide>
+        <SwiperSlide>4</SwiperSlide>
+        <SwiperSlide>5</SwiperSlide>
+        <SwiperSlide>6</SwiperSlide>
+        <SwiperSlide>7</SwiperSlide>
+        <SwiperSlide>8</SwiperSlide>
+        <SwiperSlide>9</SwiperSlide>
+        <SwiperSlide>10</SwiperSlide>
       </Swiper>
     </>
   );
