@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { InputStyle, InputWrapper, Label, Titlestyle, Wrapbox, Backgroundbox } from './styles'
-import styled from "styled-components";
+import Secects from "../selects/Selects";
 import Inputs from "../inputs/inputs";
 import Buttons from "../buttons/Buttons";
 import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -18,7 +19,9 @@ function Sginbox(props) {
                     <Wrapbox>
                         <Titlestyle>{props.title}</Titlestyle>
                         <div>
+                            {/* ID input */}
                             <Inputs label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            {/* PW input */}
                             <Inputs type="password" label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                         </div>
                         <div style={{ display: 'flex', gap: '10px' }} >
@@ -34,6 +37,7 @@ function Sginbox(props) {
                             <Inputs type="text" label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                             <Inputs type="password" label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                             <Inputs type="password" label='PW2' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Secects>지역 선택</Secects>
                         </div>
                         <div style={{ display: 'flex', gap: '10px' }} >
                             <div style={{position:'absolute', left: '42%' }}>관리자  <input
