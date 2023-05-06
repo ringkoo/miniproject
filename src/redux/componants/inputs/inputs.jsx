@@ -3,7 +3,7 @@ import { InputStyle, InputWrapper, Label } from "./styles";
 
 
 
-function Inputs({ label, value, onChange, width, height, minLength, maxLength, marginbottom, widthinput, type, massage, position, top, left }) {
+function Inputs({ id, label, value, onChange, width, height, minLength, maxLength, marginbottom, widthinput, type, massage, position, top, left }) {
     return (
         <InputWrapper
             width={width}
@@ -16,6 +16,7 @@ function Inputs({ label, value, onChange, width, height, minLength, maxLength, m
                     {label}
                 </Label>
                 <InputStyle
+                    id={id}
                     value={value}
                     onChange={onChange}
                     minLength={minLength}
