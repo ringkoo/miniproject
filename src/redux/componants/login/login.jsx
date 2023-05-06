@@ -19,7 +19,7 @@ function Sginbox(props) {
                         <Titlestyle>{props.title}</Titlestyle>
                         <div>
                             <Inputs label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
-                            <Inputs label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs type="password" label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                         </div>
                         <div style={{ display: 'flex', gap: '10px' }} >
                             <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/Signup') }} >회원가입</Buttons>
@@ -30,10 +30,10 @@ function Sginbox(props) {
                     <Wrapbox>
                         <Titlestyle>{props.title}</Titlestyle>
                         <div>
-                            <Inputs label='Name' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
-                            <Inputs label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
-                            <Inputs label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
-                            <Inputs label='PW Ck' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs type="text" label='Name' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs type="text" label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs type="password" label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                            <Inputs type="password" label='PW2' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
                         </div>
                         <div style={{ display: 'flex', gap: '10px' }} >
                             <div>관리자  <input
