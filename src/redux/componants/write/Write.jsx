@@ -1,5 +1,5 @@
 // import styled from "styled-components";
-import Navbar from "../redux/componants/navbar/Navbar";
+// import Navbar from "../redux/componants/navbar/Navbar";
 import { useState } from "react";
 import {
   Container,
@@ -12,7 +12,7 @@ import {
   Textarea,
   Select,
   Button,
-} from "../redux/componants/write/styles";
+} from "./styles";
 
 function Write() {
   const [title, setTitle] = useState("");
@@ -36,7 +36,7 @@ function Write() {
 
   return (
     <>
-      <Navbar isActive={false}>게시글 작성</Navbar>
+      {/* <Navbar isActive={false}>게시글 작성</Navbar> */}
 
       <Container>
         <LeftContainer>
