@@ -1,17 +1,22 @@
 import axios from "axios";
 
-//조회
+// 데이터 조회
 export const getUsers = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
-    return response.data;
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
+    return data;
 };
 
-//추가
+//회원 가입
 export const addUsers = async (newUsers) => {
     await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, newUsers);
 };
 
-//삭제
-export const deletePostlist = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${id}`);
+//로그인
+export const loginUsers = async (inUsers) => {
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, inUsers);
 };
+
+// //삭제
+// export const deletePostlist = async (id) => {
+//     await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${id}`);
+// };

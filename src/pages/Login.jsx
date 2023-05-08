@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Sginbox from "../redux/componants/login/login";
+import Loginbox from "../redux/componants/login/login";
 
 
 
@@ -8,7 +8,7 @@ function Login() {
 
     return (
         <>
-            <Sginbox title='로그인' loginPage={true} />
+            <Loginbox title='로그인'/>
         </>
     );
 }

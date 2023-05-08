@@ -1,31 +1,22 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "test123@test.com",
-      "password": "test123",
-      "nickname": "테스트",
+      "username": "asdf@asdf",
+      "password": "asdf",
+      "nickname": "asdf",
       "address": "서울",
       "isAdmin": false,
-      "authKey": ""
+      "authKey": "",
+      "id": 1
     },
     {
       "username": "asdf@asdf",
       "password": "asdf",
       "nickname": "asdf",
-      "address": "seoul",
+      "address": "서울",
       "isAdmin": false,
-      "authKey": "asdf",
+      "authKey": "",
       "id": 2
-    },
-    {
-      "username": "asdf@asdf",
-      "password": "asdf",
-      "nickname": "asdf",
-      "address": "서울",
-      "isAdmin": false,
-      "authKey": "asdf",
-      "id": 3
     }
   ]
 }
