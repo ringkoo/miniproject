@@ -1,27 +1,13 @@
 {
-    "postlist": [
-        {
-            "id": 1,
-            "title": "json-server",
-            "author": "typicode"
-        }
-    ],
     "users": [
         {
-            "username": "아이디",
-            "password": "비밀번호",
-            "nickname": "닉네임",
-            "address": "주소",
-            "isAdmin": "boolean",
-            "authKey": "String"
-        }
-    ],
-    "profile": {
-        "name": "typicode"
-    },
-    "login": [
-        {
-            "name": "typicode"
+            "id": 1 ,
+            "username": "test123@test.com",
+            "password": "test123",
+            "nickname": "테스트",
+            "address": "서울",
+            "isAdmin": false,
+            "authKey": ""
         }
     ]
 }

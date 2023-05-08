@@ -13,14 +13,15 @@ import { addUsers } from "../../../api/users";
 
 function Sginbox(props) {
   const navigate = useNavigate();
-  const [isChecked, setIsChecked] = useState(false);
 
-  // 컴포넌트 내부에서 사용할 state 정의
+
+  //입력값을 받을 state
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [nickname, setNickname] = useState("");
   const [address, setAddress] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const [authKey, setAuthKey] = useState("");
 
   const queryClient = useQueryClient();
@@ -57,6 +58,31 @@ function Sginbox(props) {
     setPassword(event.target.value);
   };
 
+  // password 변경을 감지하는 함수
+  const changePassword2 = (event) => {
+    setPassword2(event.target.value);
+  };
+
+  // nickname 변경을 감지하는 함수
+  const changeNickname = (event) => {
+    setNickname(event.target.value);
+  };
+
+  // address 변경을 감지하는 함수
+  const changeAddress = (event) => {
+    setPassword(event.target.value);
+  };
+
+  // isChecked 변경을 감지하는 함수
+  const changeIsChecked = (event) => {
+    setIsChecked(event.target.value);
+  };
+
+  // authKey 변경을 감지하는 함수
+  const changeAuthKey = (event) => {
+    setPassword(event.target.value);
+  };
+
   // form 태그 내부에서의 submit이 실행된 경우 호출되는 함수
   const handleSubmitButtonClick = (event) => {
     // submit의 고유 기능인, 새로고침(refresh)을 막아주는 역함
@@ -64,14 +90,9 @@ function Sginbox(props) {
 
     // 제목과 내용이 모두 존재해야만 정상처리(하나라도 없는 경우 오류 발생)
     // "01" : 필수 입력값 검증 실패 안내
-    if (!username || !password || !nickname || !address || isAdmin === true || !authKey) {
-      return getErrorMsg("01", { username });
-    }
-
-    // // 이미 존재하는 todo 항목이면 오류
-    // const validationArr = todos.filter(
-    //   (item) => item.title === title && item.contents === contents
-    // );
+    // if (!username || !password || !nickname || !address || isAdmin === true || !authKey) {
+    //   return getErrorMsg("01", { username });
+    // }
 
     // // "02" : 내용 중복 안내
     // if (validationArr.length > 0) {
@@ -92,9 +113,10 @@ function Sginbox(props) {
 
     setUsername("");
     setPassword("");
+    setPassword2("");
     setNickname("");
     setAddress("");
-    setIsAdmin("");
+    setIsChecked("");
     setAuthKey("");
   }
   return (
@@ -126,31 +148,32 @@ function Sginbox(props) {
               <div>
                 {/* ID */}
                 <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
-                  <Inputs type="email" label='ID' widthinput='250px' width='250px' height='30px' marginbottom='30px'></Inputs>
+                  <Inputs value={username} onChange={changeUsername} type="email" label='ID' widthinput='250px' width='250px' height='30px' marginbottom='30px'></Inputs>
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* ID 중복확인 버튼*/}
                     <Exbuttons>확인</Exbuttons>
                   </div>
                 </div>
                 {/* 비밀번호 */}
-                <Inputs type="password" label='Password' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                <Inputs value={password} onChange={changePassword} type="password" label='Password' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
                 {/* 비밀번호 확인 */}
-                <Inputs type="password" label='Password Check' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                <Inputs value={password2} onChange={changePassword2} type="password" label='Password Check' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
                 {/* 닉네임 */}
                 <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
-                  <Inputs type="text" label='Nickname' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                  <Inputs value={nickname} onChange={changeNickname} type="text" label='Nickname' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* 닉네임 중복확인 버튼 */}
                     <Exbuttons>확인</Exbuttons>
                   </div>
                 </div>
                 {/* 지역 선택 */}
-                <Secects>City</Secects>
+                <Secects value={address} onChange={changeAddress} >City</Secects>
               </div>
               {/* 관리자 선택 */}
               <div  >
                 <div style={{ position: 'relative', top: '20%', right: '100%' }}>관리자
                   <input
+
                     style={{ position: 'relative' }}
                     type="checkbox"
                     id="cb1"
@@ -159,9 +182,9 @@ function Sginbox(props) {
 
                   />
                   {/* 관리자 인증 키 */}
-                  {isChecked && <Inputs width='70px' widthinput='70px' />}</div>
+                  {isChecked && <Inputs type='text' value={authKey} onChange={changeAuthKey} width='70px' widthinput='70px' />}</div>
                 {/* 가입 버튼 */}
-                <Buttons backgroundcolor='darkgray'>가입</Buttons>
+                <Buttons backgroundcolor='darkgray' type="submit" onClick={() => console.log('가입버튼눌림')}>가입</Buttons>
               </div>
             </Wrapbox>
           </form>

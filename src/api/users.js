@@ -1,8 +1,8 @@
 import axios from "axios";
 
 //조회
-export const getPostlist = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/postlist`);
+export const getUsers = async () => {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
     return response.data;
 };
 
@@ -13,8 +13,5 @@ export const addUsers = async (newUsers) => {
 
 //삭제
 export const deletePostlist = async (id) => {
-    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/postlist/${id}`);
+    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${id}`);
 };
-
-
-
