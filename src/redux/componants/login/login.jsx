@@ -70,7 +70,8 @@ function Sginbox(props) {
 
   // address 변경을 감지하는 함수
   const changeAddress = (event) => {
-    setAddress(event.currentTarget.value);
+    setAddress(event.target.value);
+    console.log(event.target.value)
   };
 
   // // isChecked 변경을 감지하는 함수

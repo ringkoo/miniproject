@@ -9,7 +9,7 @@ const Titlestyle = styled.div`
 
 const Wrapbox = styled.div`
     width: 400px;
-    height: 500px;
+    height: 550px;
     background-color: gray;
     display: flex;
     flex-direction: column;

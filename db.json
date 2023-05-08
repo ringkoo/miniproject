@@ -8,6 +8,24 @@
       "address": "서울",
       "isAdmin": false,
       "authKey": ""
+    },
+    {
+      "username": "asdf@asdf",
+      "password": "asdf",
+      "nickname": "asdf",
+      "address": "seoul",
+      "isAdmin": false,
+      "authKey": "asdf",
+      "id": 2
+    },
+    {
+      "username": "asdf@asdf",
+      "password": "asdf",
+      "nickname": "asdf",
+      "address": "서울",
+      "isAdmin": false,
+      "authKey": "asdf",
+      "id": 3
     }
   ]
 }
