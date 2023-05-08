@@ -118,7 +118,8 @@ function Loginbox(props) {
               widthinput='200px'
               width='210px'
               height='30px'
-              marginbottom='30px' />
+              marginbottom='30px'
+              maxLength='30' />
             {/* PW input */}
             <Inputs
               value={password}
@@ -128,7 +129,8 @@ function Loginbox(props) {
               widthinput='200px'
               width='210px'
               height='30px'
-              marginbottom='30px' />
+              marginbottom='30px'
+              maxLength='20' />
           </div>
           <div style={{ display: 'flex', gap: '10px' }} >
             <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>

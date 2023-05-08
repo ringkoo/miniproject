@@ -19,6 +19,7 @@ function Signbox(props) {
   const [nickname, setNickname] = useState("");
   const [address, setAddress] = useState("");
   const [authKey, setAuthKey] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(addUsers, {
@@ -44,7 +45,23 @@ function Signbox(props) {
     switch (errorCode) {
       case "01":
         return alert(
-          `비어있는 칸을 입력해주세요(Admin 제외)`
+          `이메일 형식의 아이디를 입력해주세요`
+        );
+      case "02":
+        return alert(
+          `비밀번호를 입력해주세요`
+        );
+      case "03":
+        return alert(
+          `비밀번호가 같지 않습니다`
+        );
+      case "04":
+        return alert(
+          `한글 단어 10자 이내로 닉네임을 입력해주세요. `
+        );
+      case "05":
+        return alert(
+          `도시를 선택해주세요`
         );
       default:
         return `시스템 내부 오류가 발생하였습니다.`;
@@ -76,8 +93,7 @@ function Signbox(props) {
   // nickname 변경을 감지하는 함수
   const changeNickname = (event) => {
     const { value } = event.target
-    const format = value.replace(/[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*$/g, "")
-    console.log(format)
+    const format = value.replace(/[^ㄱ-힣]+$/, "")
     setNickname(format);
   };
 
@@ -86,10 +102,11 @@ function Signbox(props) {
     setAddress(event.target.value);
   };
 
-  // // isChecked 변경을 감지하는 함수
-  // const changeIsChecked = (event) => {
-  //   setIsChecked(event.target.value);
-  // };
+  // isAdmin 변경을 감지하는 함수
+  const changeIsAdmin = (event) => {
+    setIsAdmin(event.target.checked);
+    console.log(event.target.checked)
+  };
 
   // authKey 변경을 감지하는 함수
   const changeAuthKey = (event) => {
@@ -103,8 +120,20 @@ function Signbox(props) {
 
     // 제목과 내용이 모두 존재해야만 정상처리(하나라도 없는 경우 오류 발생)
     // "01" : 필수 입력값 검증 실패 안내
-    if (!username || !password || !nickname || !address) {
+    if (!username) {
       return getErrorMsg("01");
+    }
+    if (!password) {
+      return getErrorMsg("02");
+    }
+    if (password !== password2) {
+      return getErrorMsg("03")
+    }
+    if (!nickname) {
+      return getErrorMsg("04");
+    }
+    if (!address) {
+      return getErrorMsg("05");
     }
 
 
@@ -113,7 +142,7 @@ function Signbox(props) {
       password,
       nickname,
       address,
-      isAdmin: false,
+      isAdmin,
       authKey,
     };
 
@@ -124,7 +153,7 @@ function Signbox(props) {
     setPassword2("");
     setNickname("");
     setAddress("");
-    // setIsChecked("");
+    setIsAdmin("");
     setAuthKey("");
   }
 
@@ -145,10 +174,22 @@ function Signbox(props) {
                 widthinput='250px'
                 width='250px'
                 height='30px'
-                marginbottom='30px' />
+                marginbottom='30px'
+                maxLength='30' />
               <div style={{ position: 'relative', left: '40%' }}>
                 {/* ID 중복확인 버튼*/}
-                <Exbuttons>확인</Exbuttons>
+                <Exbuttons onClick={() => {
+                  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                  if (data.map((item) => item.username !== username)) {
+                    if (emailRegex.test(username)) {
+                      return alert('사용 가능한 이메일 입니다.')
+                    } else {
+                      return alert('이메일 형식을 확인해주세요. ex)test@test.com')
+                    }
+                  } else {
+                    return alert('이미 가입된 이메일 입니다')
+                  }
+                }}>확인</Exbuttons>
               </div>
             </div>
             {/* 비밀번호 */}
@@ -160,7 +201,8 @@ function Signbox(props) {
               widthinput='250px'
               width='250px'
               height='30px'
-              marginbottom='30px' />
+              marginbottom='30px'
+              maxLength='20' />
             {/* 비밀번호 확인 */}
             <Inputs
               value={password2}
@@ -181,10 +223,22 @@ function Signbox(props) {
                 widthinput='250px'
                 width='250px'
                 height='30px'
-                marginbottom='30px' />
+                marginbottom='30px'
+                maxLength='10' />
               <div style={{ position: 'relative', left: '40%' }}>
                 {/* 닉네임 중복확인 버튼 */}
-                <Exbuttons>확인</Exbuttons>
+                <Exbuttons onClick={() => {
+                  const nickNameRegex = /^[가-힣]+$/;
+                  if (data.map((item) => item.nickname !== nickname)) {
+                    if (nickNameRegex.test(nickname)) {
+                      return alert('사용 가능한 닉네임 입니다.')
+                    } else {
+                      return alert('닉네임은 한글 단어만 입력 가능합니다.')
+                    }
+                  } else {
+                    return alert('이미 가입된 닉네임 입니다')
+                  }
+                }}>확인</Exbuttons>
               </div>
             </div>
             {/* 지역 선택 */}
@@ -196,23 +250,27 @@ function Signbox(props) {
           <div  >
             <div style={{ position: 'relative', top: '20%', right: '130%' }}>
               {/* 체크박스 */}
-              {/* <input
-                    style={{ position: 'relative' }}
-                    type="checkbox"
-                    id="cb1"
-                    checked={isChecked}
-                    onChange={(e) => setIsChecked(e.target.checked)}
-                  /> */}
+              <input
+                style={{ position: 'relative' }}
+                type="checkbox"
+                id="cb1"
+                checked={isAdmin}
+                onChange={changeIsAdmin}
+              // onClick={changeIsAdmin}
+              />
               {/* 관리자 인증 키 */}
-              <Inputs
-                value={authKey}
-                onChange={changeAuthKey}
-                type="text"
-                label='Admin'
-                widthinput='70px'
-                width='70px'
-                height='20px'
-                marginbottom='30px' /></div>
+              {
+                isAdmin === true ? <Inputs
+                  value={authKey}
+                  onChange={changeAuthKey}
+                  type="text"
+                  label='Admin'
+                  widthinput='70px'
+                  width='70px'
+                  height='20px'
+                  marginbottom='30px' /> : null
+              }
+            </div>
             {/* 가입 버튼 */}
             <Buttons
               backgroundcolor='darkgray'
