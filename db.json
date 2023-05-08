@@ -1,13 +1,13 @@
 {
-    "users": [
-        {
-            "id": 1 ,
-            "username": "test123@test.com",
-            "password": "test123",
-            "nickname": "테스트",
-            "address": "서울",
-            "isAdmin": false,
-            "authKey": ""
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "test123@test.com",
+      "password": "test123",
+      "nickname": "테스트",
+      "address": "서울",
+      "isAdmin": false,
+      "authKey": ""
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Buttonstyle = styled.div`
+const Buttonstyle = styled.button`
     background-color:${props => props.backgroundcolor};
     border-radius: 5px;
     width: 80px;

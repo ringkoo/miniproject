@@ -21,32 +21,32 @@ function Sginbox(props) {
   const [password2, setPassword2] = useState("");
   const [nickname, setNickname] = useState("");
   const [address, setAddress] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
   const [authKey, setAuthKey] = useState("");
+  // const [isChecked, setIsChecked] = useState(false);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(addUsers, {
     onSuccess: () => {
-      queryClient.invalidateQueries("newUsers")
+      queryClient.invalidateQueries("users")
       console.log("성공하였습니다!")
     }
   });
 
   // 에러 메시지 발생 함수
-  const getErrorMsg = (errorCode, params) => {
-    switch (errorCode) {
-      case "01":
-        return alert(
-          `오류 내용`
-        );
-      case "02":
-        return alert(
-          `오류 내용`
-        );
-      default:
-        return `시스템 내부 오류가 발생하였습니다.`;
-    }
-  };
+  // const getErrorMsg = (errorCode, params) => {
+  //   switch (errorCode) {
+  //     case "01":
+  //       return alert(
+  //         `오류 내용`
+  //       );
+  //     case "02":
+  //       return alert(
+  //         `오류 내용`
+  //       );
+  //     default:
+  //       return `시스템 내부 오류가 발생하였습니다.`;
+  //   }
+  // };
 
   // username 변경을 감지하는 함수
   const changeUsername = (event) => {
@@ -70,17 +70,17 @@ function Sginbox(props) {
 
   // address 변경을 감지하는 함수
   const changeAddress = (event) => {
-    setPassword(event.target.value);
+    setAddress(event.currentTarget.value);
   };
 
-  // isChecked 변경을 감지하는 함수
-  const changeIsChecked = (event) => {
-    setIsChecked(event.target.value);
-  };
+  // // isChecked 변경을 감지하는 함수
+  // const changeIsChecked = (event) => {
+  //   setIsChecked(event.target.value);
+  // };
 
   // authKey 변경을 감지하는 함수
   const changeAuthKey = (event) => {
-    setPassword(event.target.value);
+    setAuthKey(event.target.value);
   };
 
   // form 태그 내부에서의 submit이 실행된 경우 호출되는 함수
@@ -110,17 +110,16 @@ function Sginbox(props) {
     };
 
     mutation.mutate(newUsers);
-
     setUsername("");
     setPassword("");
     setPassword2("");
     setNickname("");
     setAddress("");
-    setIsChecked("");
+    // setIsChecked("");
     setAuthKey("");
   }
-  return (
 
+  return (
     <Backgroundbox>
       {
         props.loginPage === true ?
@@ -130,9 +129,25 @@ function Sginbox(props) {
               <Titlestyle>{props.title}</Titlestyle>
               <div>
                 {/* ID input */}
-                <Inputs value={username} onChange={changeUsername} type='email' label='ID' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                <Inputs
+                  value={username}
+                  onChange={changeUsername}
+                  type='email'
+                  label='ID'
+                  widthinput='200px'
+                  width='210px'
+                  height='30px'
+                  marginbottom='30px' />
                 {/* PW input */}
-                <Inputs value={password} onChange={changePassword} type="password" label='PW' widthinput='200px' width='210px' height='30px' marginbottom='30px' />
+                <Inputs
+                  value={password}
+                  onChange={changePassword}
+                  type="password"
+                  label='PW'
+                  widthinput='200px'
+                  width='210px'
+                  height='30px'
+                  marginbottom='30px' />
               </div>
               <div style={{ display: 'flex', gap: '10px' }} >
                 <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/Signup') }} >회원가입</Buttons>
@@ -148,43 +163,87 @@ function Sginbox(props) {
               <div>
                 {/* ID */}
                 <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
-                  <Inputs value={username} onChange={changeUsername} type="email" label='ID' widthinput='250px' width='250px' height='30px' marginbottom='30px'></Inputs>
+                  <Inputs
+                    value={username}
+                    onChange={changeUsername}
+                    type="email"
+                    label='ID'
+                    widthinput='250px'
+                    width='250px'
+                    height='30px'
+                    marginbottom='30px' />
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* ID 중복확인 버튼*/}
                     <Exbuttons>확인</Exbuttons>
                   </div>
                 </div>
                 {/* 비밀번호 */}
-                <Inputs value={password} onChange={changePassword} type="password" label='Password' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                <Inputs
+                  value={password}
+                  onChange={changePassword}
+                  type="password"
+                  label='Password'
+                  widthinput='250px'
+                  width='250px'
+                  height='30px'
+                  marginbottom='30px' />
                 {/* 비밀번호 확인 */}
-                <Inputs value={password2} onChange={changePassword2} type="password" label='Password Check' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                <Inputs
+                  value={password2}
+                  onChange={changePassword2}
+                  type="password"
+                  label='Password Check'
+                  widthinput='250px'
+                  width='250px'
+                  height='30px'
+                  marginbottom='30px' />
                 {/* 닉네임 */}
                 <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
-                  <Inputs value={nickname} onChange={changeNickname} type="text" label='Nickname' widthinput='250px' width='250px' height='30px' marginbottom='30px' />
+                  <Inputs
+                    value={nickname}
+                    onChange={changeNickname}
+                    type="text"
+                    label='Nickname'
+                    widthinput='250px'
+                    width='250px'
+                    height='30px'
+                    marginbottom='30px' />
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* 닉네임 중복확인 버튼 */}
                     <Exbuttons>확인</Exbuttons>
                   </div>
                 </div>
                 {/* 지역 선택 */}
-                <Secects value={address} onChange={changeAddress} >City</Secects>
+                <Secects
+                  value={address}
+                  onChange={changeAddress} >City</Secects>
               </div>
               {/* 관리자 선택 */}
               <div  >
-                <div style={{ position: 'relative', top: '20%', right: '100%' }}>관리자
-                  <input
-
+                <div style={{ position: 'relative', top: '20%', right: '130%' }}>
+                  {/* 체크박스 */}
+                  {/* <input
                     style={{ position: 'relative' }}
                     type="checkbox"
                     id="cb1"
                     checked={isChecked}
                     onChange={(e) => setIsChecked(e.target.checked)}
-
-                  />
+                  /> */}
                   {/* 관리자 인증 키 */}
-                  {isChecked && <Inputs type='text' value={authKey} onChange={changeAuthKey} width='70px' widthinput='70px' />}</div>
+                  <Inputs
+                    value={authKey}
+                    onChange={changeAuthKey}
+                    type="text"
+                    label='Admin'
+                    widthinput='70px'
+                    width='70px'
+                    height='20px'
+                    marginbottom='30px' /></div>
                 {/* 가입 버튼 */}
-                <Buttons backgroundcolor='darkgray' type="submit" onClick={() => console.log('가입버튼눌림')}>가입</Buttons>
+                <Buttons
+                  backgroundcolor='darkgray'
+                  type="submit"
+                >가입</Buttons>
               </div>
             </Wrapbox>
           </form>

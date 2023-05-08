@@ -20,6 +20,7 @@ const SelectBox = (props) => {
                         <option
                             key={option.id}
                             value={option.value}
+                            onChange={option.onChange}
                             defaultValue={props.defaultValue === option.value}
                         >
                             {option.name}
