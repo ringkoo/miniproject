@@ -4,17 +4,14 @@ const InputStyle = styled.input`
   width: ${props => props.widthinput};
   height: ${props => props.height};
   border: none;
-  background-color:darkgray;
+  background-color:#CEE1F2;
   border-radius: 5px;
 `;
 
 const InputWrapper = styled.div`
   display:flex;
-  justify-content: center;
-  align-items: center;
   width: ${props => props.width};
   height: auto;
-  border: 1px solid gray;
   border-radius: 5px;
   margin-bottom: ${props => props.marginbottom};
 `;

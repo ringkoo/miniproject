@@ -1,25 +1,29 @@
 import styled from "styled-components"
 
 const Buttonstyle = styled.button`
-    background-color:${props => props.backgroundcolor};
+    background-color:#A1BEFF;
+    border:none;
+    color:black;
     border-radius: 5px;
     width: 80px;
     height: 40px;
     font-weight: bold;
-    color: ${props => props.color};
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 0.5s ease;
     &:hover {
-    background-color: skyblue;
-}
+      background-color: skyblue;
+    }
 cursor: pointer;
+
 `
 
 const Exambtstyle = styled.div`
   font-weight:700;
-  background-color: darkgray;
+  background-color: #CEE1F2;
+  color: black;
   transition: background-color 0.5s ease;
   position: relative;
   right: 300%;
@@ -32,8 +36,9 @@ const Exambtstyle = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:1px;
   &:hover {
-    background-color: skyblue;
+    background-color: lightgray;
   }
 `
 

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Navhead = styled.div`
     width: auto;
-    background-color: gray;
+    background-color: #A1BEFF;
     height: 50px;
     
     display:flex;
@@ -17,14 +17,16 @@ const Navtext = styled.span`
 
 const Logintext = styled.span`
     display:flex;
+    font-weight:700;
     align-items:center;
-    border-radius:50px;
+    border-radius:5px;
     margin-top: 10px;
     margin-right: 10px;
     height: 30px;
-    transition: color 0.3s ease;
+    background-color: #A1BEFF;
+    transition: background-color 0.3s ease;
     &:hover {
-        color: skyblue;
+        background-color: lightgray;
     }
 `
 

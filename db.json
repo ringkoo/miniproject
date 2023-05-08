@@ -10,22 +10,40 @@
       "id": 1
     },
     {
-      "username": "asdf@asdf123.com",
+      "username": "asdf@asdf.asdf",
       "password": "asdf",
-      "nickname": "으으잉",
-      "address": "경기",
+      "nickname": "아아",
+      "address": "서울",
       "isAdmin": true,
-      "authKey": "asdf1234",
+      "authKey": "",
       "id": 2
     },
     {
-      "username": "asdf@asdf.asdf",
+      "username": "asdf@asdf.com",
       "password": "asdf",
-      "nickname": "아",
+      "nickname": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
       "address": "서울",
       "isAdmin": false,
-      "authKey": "ㅁㄴㅇㄹ",
+      "authKey": "",
       "id": 3
+    },
+    {
+      "username": "asdf@asdf.com",
+      "password": "asdf",
+      "nickname": "종훈님이망쳤어요",
+      "address": "서울",
+      "isAdmin": true,
+      "authKey": " 종훈님바보에요",
+      "id": 4
+    },
+    {
+      "username": "test@test.com",
+      "password": "1234",
+      "nickname": "테스트",
+      "address": "서울",
+      "isAdmin": true,
+      "authKey": "테스트",
+      "id": 5
     }
   ],
   "posts": [

@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
 const Titlestyle = styled.div`
-    display:flex;
+    position:relative;
     justify-content:center;
     font-weight: 700;
     font-size: 30px;
 `
 
 const Wrapbox = styled.div`
+    padding:25px 0px 25px 0px;
     width: 400px;
-    height: 550px;
-    background-color: gray;
+    height: 600px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-evenly;
-    padding-bottom: 100px;
+    justify-content:space-between;
 `
 
 const Backgroundbox = styled.div`
-    position:absolute;
     display:flex;
-    justify-content: center;
+    flex-direction:column;
+    justify-content: space-between;
     align-items: center;
     width:100%;
     padding-top:150px;

@@ -35,18 +35,25 @@ function Loginbox(props) {
     return <h1>오류가 발생하였습니다...!</h1>
   }
 
+  const usernamecheck = data.find(item => item.username === username)
+  const userpasswordcheck = data.find(item => item.password === password)
+
   // 에러 메시지 발생 함수
   const getErrorMsg = (errorCode) => {
     switch (errorCode) {
       case "01":
         return alert(
-          `비어있는 칸을 입력해주세요`
+          `이메일을 입력해주세요.`
         );
       case "02":
         return alert(
-          `가입되지 않은 이메일 입니다.`
+          `비밀번호를 입력해주세요.`
         );
       case "03":
+        return alert(
+          `가입되지 않은 이메일 입니다.`
+        );
+      case "04":
         return alert(
           `비밀번호가 일치하지 않습니다.`
         );
@@ -73,8 +80,23 @@ function Loginbox(props) {
 
     // 제목과 내용이 모두 존재해야만 정상처리(하나라도 없는 경우 오류 발생)
     // "01" : 필수 입력값 검증 실패 안내
-    if (!username || !password) {
+    if (!username) {
       return getErrorMsg("01");
+    }
+    if (!password) {
+      return getErrorMsg("02");
+    }
+
+    if (!usernamecheck) {
+      return getErrorMsg("03");
+    }
+
+    if (usernamecheck && !userpasswordcheck) {
+      return getErrorMsg("04");
+    }
+
+    if (usernamecheck && userpasswordcheck) {
+      return alert("로그인 성공")
     }
 
     const inUsers = {
@@ -82,15 +104,12 @@ function Loginbox(props) {
       password,
     };
 
-    if (data.map((item) => item.username !== inUsers.username)) {
-      console.log(data.map((item,i) => item[i].username))
-      console.log(inUsers.username)
-      return getErrorMsg("02");
+
+
+    const loginHandler = (event) => {
+      event.preventDefault();
     }
 
-    if (data.map((item) => item.password !== inUsers.password)) {
-      return getErrorMsg("03");
-    }
 
 
 
