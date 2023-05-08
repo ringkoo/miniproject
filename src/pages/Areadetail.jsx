@@ -73,33 +73,38 @@ function Areadetail() {
         modules={[Keyboard, Navigation, Pagination]}
         className="mySwiper"
       >
-        {data.map((posts) => (
-          <SwiperSlide>
-            <div
-              style={{
-                border: "1px solid black",
-                width: "400px",
-                height: "500px",
-                borderRadius: "8px",
-              }}
-              onClick={() => {
-                navigate(`/detailpage/${posts.id}`);
-              }}
-            >
-              <h1 style={{ marginLeft: "10px" }}>{posts.title}</h1>
+        {/* slice() 함수를 사용해서 배열을 복사하여 새로운 배열을 반환
+        reverse() 함수로 새 배열의 순서를 뒤집기. 그 후 map() 함수를 호출해서 최신순으로 정렬함 */}
+        {data
+          .slice()
+          .reverse()
+          .map((posts) => (
+            <SwiperSlide>
               <div
                 style={{
-                  height: "300px",
+                  border: "1px solid black",
+                  width: "400px",
+                  height: "500px",
+                  borderRadius: "8px",
+                }}
+                onClick={() => {
+                  navigate(`/detailpage/${posts.id}`);
                 }}
               >
-                <img src="" alt="Article Image" />
+                <h1 style={{ marginLeft: "10px" }}>{posts.title}</h1>
+                <div
+                  style={{
+                    height: "300px",
+                  }}
+                >
+                  <img src="" alt="Article Image" />
+                </div>
+                <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p>
+                <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
+                <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>
-              <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p>
-              <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
-              <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </>
   );

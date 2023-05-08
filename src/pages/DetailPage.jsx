@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getArticle } from "../api/articles";
+import { postComment, getComments, deleteComments } from "../api/comments";
+import { useState } from "react";
 import {
   WrapperTop,
   SecondWrapper,
@@ -16,25 +18,55 @@ import {
   CommentContent,
   DeleteButtonWrapper,
 } from "../redux/componants/detailPage/styles";
-import { useQuery } from "react-query";
-
-// import { useParams } from "react-router-dom";
+import { useQuery, useMutation, queryClient } from "react-query";
 
 function DetailPage() {
   const params = useParams();
   const navigate = useNavigate();
-  const { isLoading, isError, data } = useQuery(["getArticle", params.id], () =>
+  const { isLoading, isError, data } = useQuery("getArticle", () =>
     getArticle(params.id)
   );
+  const [commentContent, setCommentContent] = useState("");
+  const { mutate } = useMutation((content) => postComment(params.id, content), {
+    onSuccess: () => {
+      // setCommentContent("");
+      queryClient.invalidateQueries(["getArticle", params.id]);
+      queryClient.invalidateQueries(["getComments", params.id]);
+    },
+  });
 
-  if (isLoading) {
+  const {
+    isLoading: isLoadingComments,
+    isError: isErrorComments,
+    data: comments,
+    refetch: refetchComments,
+  } = useQuery(["getComments", params.id], () => getComments(params.id));
+
+  const handleDeleteComment = async (commentId) => {
+    await deleteComments(commentId);
+    refetchComments();
+  };
+  const handleSubmitComment = (e) => {
+    e.preventDefault();
+    mutate(commentContent);
+    // ,
+
+    // {
+    // onSuccess: () => {
+    setCommentContent("");
+    // queryClient.invalidateQueries(["getArticle", params.id]);
+    // queryClient.invalidateQueries(["getComments", params.id]);
+    // },
+    // }
+    // );
+  };
+  if (isLoading || isLoadingComments) {
     return <div>로딩중입니다...</div>;
   }
-  if (isError) {
+  if (isError || isErrorComments) {
     return <div>오류가 발생했습니다.</div>;
   }
 
-  // console.log(params.id);
   return (
     <>
       <WrapperTop>
@@ -50,8 +82,8 @@ function DetailPage() {
           </ArticleBody>
         </SecondWrapper>
         <ArticleBottom>
-          <p style={{ marginLeft: "10px" }}>좋아요 수 {data.goodCount} </p>
-          <p>작성 시간 {data.createdAt}</p>
+          {/* <p style={{ marginLeft: "10px" }}>좋아요 수 {data.goodCount} </p> */}
+          <p>&nbsp;작성 시간 {data.createdAt}</p>
           <p>작성자{data.nickname} </p>
 
           <div
@@ -78,25 +110,46 @@ function DetailPage() {
         {/* 댓글 쓸 때마다 늘어나게 하기*/}
         <PostComment>
           {/* 댓 작성 공간 */}
-          <p style={{ marginLeft: "10px" }}>프로필 </p>
+          <p style={{ marginLeft: "10px" }}>지역 </p>
           <p style={{ marginLeft: "10px" }}>닉네임 </p>
-          <CommentInput placeholder="&nbsp;내용을 입력해주세요."></CommentInput>
-          <p style={{ marginRight: "20px" }}>작성 시간</p>
-          <button style={{ margin: "10px" }}>작성</button>
+          <CommentInput
+            placeholder="&nbsp;내용을 입력해주세요."
+            value={commentContent}
+            onChange={(e) => setCommentContent(e.target.value)}
+          ></CommentInput>
+          <p style={{ marginRight: "20px" }}></p>
+          <button
+            type="submit"
+            style={{ margin: "10px" }}
+            onClick={handleSubmitComment}
+          >
+            작성
+          </button>
         </PostComment>
-        <CommentWrapper>
-          {/* 댓글  작성자 정보 */}
-          <p style={{ marginLeft: "10px" }}>프로필 </p>
-          <p style={{ marginLeft: "10px", flexGrow: 1 }}>닉네임 </p>
-          {/* 댓글 내용 */}
-          <CommentContent>&nbsp;댓 내용</CommentContent>
-          {/* 작성시간 */}
-          <p style={{ marginRight: "20px" }}>작성 시간 </p>
-          {/* 삭제 버튼 */}
-          <DeleteButtonWrapper>
-            <button style={{ margin: "10px" }}>삭제</button>
-          </DeleteButtonWrapper>
-        </CommentWrapper>
+        {comments &&
+          comments.map((comment) => (
+            <CommentWrapper key={comment.id}>
+              {/* 댓글  작성자 정보 */}
+              <p style={{ marginLeft: "10px" }}>지역 </p>
+              <p style={{ marginLeft: "10px", flexGrow: 1 }}>닉네임 </p>
+              {/* 댓글 내용 */}
+              <CommentContent>&nbsp; {comment.content}</CommentContent>
+              {/* 작성시간 */}
+              <p style={{ marginRight: "20px" }}>{comment.createdAt}</p>
+              {/* 삭제 버튼 */}
+              <DeleteButtonWrapper>
+                <button
+                  style={{ margin: "10px" }}
+                  onClick={() => {
+                    handleDeleteComment(comment.id);
+                    // console.log(comment.id);
+                  }}
+                >
+                  삭제
+                </button>
+              </DeleteButtonWrapper>
+            </CommentWrapper>
+          ))}
       </WrapperBottom>
     </>
   );

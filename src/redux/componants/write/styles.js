@@ -56,6 +56,16 @@ const Input = styled.input`
   border-radius: 8px;
 `;
 
+const ImageBox = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #999595;
+`;
+
 const Textarea = styled.textarea`
   margin-left: 180px;
   margin-top: 20px;
@@ -112,4 +122,5 @@ export {
   Textarea,
   Select,
   Button,
+  ImageBox,
 };
