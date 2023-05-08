@@ -1,6 +1,7 @@
-// import styled from "styled-components";
-// import Navbar from "../redux/componants/navbar/Navbar";
 import { useState } from "react";
+import { useMutation } from "react-query";
+import { addArticle } from "../../../api/articles";
+import { useQueryClient } from "react-query";
 import {
   Container,
   LeftContainer,
@@ -15,29 +16,42 @@ import {
 } from "./styles";
 
 function Write() {
+  const queryClient = useQueryClient();
+  const mutation = useMutation(addArticle, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("getArticle");
+      console.log("성공하였습니다!");
+    },
+  });
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  //이미지 업로드를 처리하기 위한 핸들러 함수
-  // input 요소에서 파일 선택이 발생했을 때 호출, 선택된 파일 정보가 event 객체로 전달
-
   const handleImageChange = (event) => {
-    //event.target.files는 파일 선택 대화상자에서 선택된 파일 목록을 나타내는 FileList 객체
-    //FileList 객체의 첫 번째 파일을 가져와서 file 변수에 할당
     const file = event.target.files[0];
     setImage(file);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title || !content || !category || !image) {
+      alert("제목, 내용, 카테고리, 이미지를 모두 입력해주세요.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
+    formData.append("image", image);
+
+    mutation.mutate(formData);
+  };
+
   return (
     <>
-      {/* <Navbar isActive={false}>게시글 작성</Navbar> */}
-
       <Container>
         <LeftContainer>
           {/* 이미지 추가 버튼 숨기고 div박스 추가해서 클릭 시 파일 추가 가능하게 함  */}
@@ -89,9 +103,9 @@ function Write() {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option value="">카테고리 선택</option>
-                <option value="food">맛집</option>
-                <option value="travel">관광지</option>
-                <option value="fashion">축제</option>
+                <option value="맛집">맛집</option>
+                <option value="관광지">관광지</option>
+                <option value="축제">축제</option>
               </Select>
               <Input
                 id="title"

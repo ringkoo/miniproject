@@ -18,5 +18,85 @@
       "authKey": "",
       "id": 2
     }
+  ],
+  "posts": [
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "food",
+      "id": 1
+    },
+    {
+      "title": "00",
+      "content": null,
+      "category": null,
+      "id": 2
+    },
+    {
+      "title": "1",
+      "content": null,
+      "category": null,
+      "id": 3
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": "null",
+      "id": 4
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": "null",
+      "id": 5
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": "null",
+      "id": 6
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": null,
+      "id": 7
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": null,
+      "id": 8
+    },
+    {
+      "title": null,
+      "content": null,
+      "category": null,
+      "image": null,
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    }
   ]
 }

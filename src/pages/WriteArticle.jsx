@@ -1,6 +1,7 @@
 import React from "react";
 import Write from "../redux/componants/write/Write";
 import Navbar from "../redux/componants/navbar/Navbar";
+
 function WriteArticle() {
   return (
     <>

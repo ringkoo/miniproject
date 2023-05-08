@@ -10,23 +10,19 @@ import "swiper/css/pagination";
 import "../redux/componants/slide/styles.css";
 import Menu from "../redux/componants/menu/menu";
 import { Keyboard, Navigation, Pagination } from "swiper";
+import { getArticles } from "../api/articles";
+import { useQuery } from "react-query";
 
 function Areadetail() {
   const navigate = useNavigate();
+  const { isLoading, isError, data } = useQuery("getArticles", getArticles);
 
-  // const [articles, setArticles] = useState([]); // 글 목록 상태
-
-  // // 글 작성 후, 상태에 글을 추가.
-  // const handleArticleSubmit = (article) => {
-  //   setArticles([...articles, article]);
-  // };
-
-  //  useEffect(() => {
-  //    fetch("/api/posts") // 스프링에서 작성한 API endpoint를 호출하여 데이터 가져오는 예시..react query 사용할거임
-  //      .then((res) => res.json())
-  //      .then((data) => setPosts(data))
-  //      .catch((error) => console.error(error));
-  //  }, []);
+  if (isLoading) {
+    return <div>로딩중입니다...</div>;
+  }
+  if (isError) {
+    return <div>오류가 발생했습니다.</div>;
+  }
 
   return (
     <>
@@ -77,128 +73,33 @@ function Areadetail() {
         modules={[Keyboard, Navigation, Pagination]}
         className="mySwiper"
       >
-        {/* 글 목록 상태를 바인딩
-        // 맵으로 글 쓴 거 자동으로 slide 생성 
-        {articles.map((article) => (
+        {data.map((posts) => (
           <SwiperSlide>
-            <div style={{ border: "1px solid black", width: "400px" }}>
-              <h1 style={{ marginLeft: "10px" }}>{article.title}</h1>
-              <p>{article.content}</p>
+            <div
+              style={{
+                border: "1px solid black",
+                width: "400px",
+                height: "500px",
+                borderRadius: "8px",
+              }}
+              onClick={() => {
+                navigate(`/detailpage/${posts.id}`);
+              }}
+            >
+              <h1 style={{ marginLeft: "10px" }}>{posts.title}</h1>
+              <div
+                style={{
+                  height: "300px",
+                }}
+              >
+                <img src="" alt="Article Image" />
+              </div>
+              <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p>
+              <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
+              <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
             </div>
           </SwiperSlide>
         ))}
-      </Swiper> */}
-
-        <SwiperSlide>
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 1{/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-            <div
-              style={{ height: "300px", marginLeft: "10px" }}
-              onClick={() => {
-                navigate("/detailpage");
-              }}
-            >
-              이미지
-            </div>
-            <p style={{ marginLeft: "10px" }}>좋아요 수 223</p>
-            <p style={{ marginLeft: "10px" }}>작성시간 2023-05-06-11:37</p>
-            <p style={{ marginLeft: "10px" }}>작성자 은빈</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 2 {/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 3{/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 4{/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 5 {/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <div
-            style={{
-              border: "1px solid black",
-              width: "400px",
-              height: "500px",
-              borderRadius: "8px",
-            }}
-          >
-            <h1 style={{ marginLeft: "10px" }}>
-              title 6{/* {article.title} */}
-            </h1>
-            {/* <img src="" alt="Article Image" /> */}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>7</SwiperSlide>
-        <SwiperSlide>8</SwiperSlide>
-        <SwiperSlide>9</SwiperSlide>
-        <SwiperSlide>10</SwiperSlide>
       </Swiper>
     </>
   );
