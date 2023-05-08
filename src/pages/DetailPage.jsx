@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getArticle } from "../api/articles";
 import {
   WrapperTop,
   SecondWrapper,
@@ -15,25 +16,43 @@ import {
   CommentContent,
   DeleteButtonWrapper,
 } from "../redux/componants/detailPage/styles";
+import { useQuery } from "react-query";
+
+// import { useParams } from "react-router-dom";
 
 function DetailPage() {
+  const params = useParams();
   const navigate = useNavigate();
+  const { isLoading, isError, data } = useQuery(["getArticle", params.id], () =>
+    getArticle(params.id)
+  );
+
+  if (isLoading) {
+    return <div>로딩중입니다...</div>;
+  }
+  if (isError) {
+    return <div>오류가 발생했습니다.</div>;
+  }
+
+  // console.log(params.id);
   return (
     <>
       <WrapperTop>
-        <ArticleTitle>카테고리 이름/ 글 제목</ArticleTitle>
+        <ArticleTitle>
+          {data.category} / {data.title}
+        </ArticleTitle>
         <SecondWrapper>
           <ArticleImage>
             <img src="" alt="Article" />
           </ArticleImage>
           <ArticleBody>
-            <div>본문</div>
+            <div>{data.content}</div>
           </ArticleBody>
         </SecondWrapper>
         <ArticleBottom>
-          <p style={{ marginLeft: "10px" }}>좋아요 </p>
-          <p>작성 시간 </p>
-          <p>작성자 닉네임 </p>
+          <p style={{ marginLeft: "10px" }}>좋아요 수 {data.goodCount} </p>
+          <p>작성 시간 {data.createdAt}</p>
+          <p>작성자{data.nickname} </p>
 
           <div
             style={{
