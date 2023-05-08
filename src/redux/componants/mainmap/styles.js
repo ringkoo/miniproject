@@ -7,8 +7,8 @@ const Map = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   top: 6%;
-  left : 35%;
-  width: 600px;
+  left : 33%;
+  width: 650px;
   height: 1000px;
 `;
 
@@ -24,8 +24,8 @@ const SeoulButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -36,7 +36,7 @@ const SeoulButton = styled.div`
 const KIButton = styled.div`
     position: absolute;
     top: 20%;
-    left: 30%;
+    left: 35%;
     font-size: 18px;
     font-weight: 700;
     display:flex;
@@ -45,8 +45,8 @@ const KIButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -66,8 +66,8 @@ const KangwonButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -77,7 +77,7 @@ const KangwonButton = styled.div`
 
 const ChungcyungButton = styled.div`
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 35%;
     font-size: 18px;
     font-weight: 700;
@@ -87,8 +87,8 @@ const ChungcyungButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -98,7 +98,7 @@ const ChungcyungButton = styled.div`
 
 const KyungsangButton = styled.div`
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 60%;
     font-size: 18px;
     font-weight: 700;
@@ -108,8 +108,8 @@ const KyungsangButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -119,8 +119,8 @@ const KyungsangButton = styled.div`
 
 const JyunlaButton = styled.div`
     position: absolute;
-    top: 50%;
-    left: 20%;
+    top: 55%;
+    left: 22%;
     font-size: 18px;
     font-weight: 700;
     display:flex;
@@ -129,8 +129,8 @@ const JyunlaButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;
@@ -140,7 +140,7 @@ const JyunlaButton = styled.div`
 
 const JejuButton = styled.div`
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 25%;
     font-size: 18px;
     font-weight: 700;
@@ -150,8 +150,8 @@ const JejuButton = styled.div`
     border: 2px solid black;
     background-color: white;
     border-radius:50px;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     transition: background-color 0.5s ease;
     &:hover {
         background-color: #BFADFF;

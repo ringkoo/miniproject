@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "username": "asdfasdf@asdf.com",
+      "username": "asdf@asdf.com",
       "password": "1234",
       "nickname": "아아아아",
       "address": "서울",
@@ -10,40 +10,13 @@
       "id": 1
     },
     {
-      "username": "asdf@asdf.asdf",
-      "password": "asdf",
-      "nickname": "아아",
-      "address": "서울",
-      "isAdmin": true,
-      "authKey": "",
-      "id": 2
-    },
-    {
-      "username": "asdf@asdf.com",
-      "password": "asdf",
-      "nickname": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
-      "address": "서울",
-      "isAdmin": false,
-      "authKey": "",
-      "id": 3
-    },
-    {
-      "username": "asdf@asdf.com",
-      "password": "asdf",
-      "nickname": "종훈님이망쳤어요",
-      "address": "서울",
-      "isAdmin": true,
-      "authKey": " 종훈님바보에요",
-      "id": 4
-    },
-    {
       "username": "test@test.com",
-      "password": "1234",
+      "password": "test",
       "nickname": "테스트",
       "address": "서울",
       "isAdmin": true,
-      "authKey": "테스트",
-      "id": 5
+      "authKey": "dkdkdk",
+      "id": 2
     }
   ],
   "posts": [

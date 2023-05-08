@@ -8,7 +8,7 @@ function Mainmap() {
     const navigate = useNavigate();
     return (
         <>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", backgroundColor:'white', width:"1000px"}}>
                 <Map>
                     <SeoulButton onClick={() => { navigate('/Areadetail') }}>서울</SeoulButton>
                     <KIButton onClick={() => { navigate('/Areadetail') }}>경기</KIButton>

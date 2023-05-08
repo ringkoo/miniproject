@@ -238,6 +238,7 @@ function Signbox(props) {
                       if (nickNameRegex.test(nickname)) {
                         return alert('사용 가능한 닉네임 입니다.')
                       } else {
+                        setNickname("")
                         return alert('닉네임은 한글 단어만 입력 가능합니다.')
                       }
                     } else {
