@@ -7,6 +7,7 @@ import Exbuttons from "../buttons/examinebt";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { addUsers, getUsers } from "../../../api/users";
+import SelectBox from "../selects/Selects";
 
 function Signbox(props) {
   const navigate = useNavigate();
@@ -187,9 +188,9 @@ function Signbox(props) {
               </div>
             </div>
             {/* 지역 선택 */}
-            <Secects
+            <SelectBox
               value={address}
-              onChange={changeAddress} >City</Secects>
+              onChange={changeAddress} >City</SelectBox>
           </div>
           {/* 관리자 선택 */}
           <div  >

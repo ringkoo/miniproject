@@ -17,6 +17,15 @@
       "isAdmin": false,
       "authKey": "",
       "id": 2
+    },
+    {
+      "username": "asdf@asdf",
+      "password": "asdf",
+      "nickname": "진짜왜돼이ㅣㅣ",
+      "address": "서울",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 3
     }
   ],
   "posts": [
