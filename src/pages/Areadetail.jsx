@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
-import "./styles.css";
+import "../redux/componants/slide/styles.css";
 import Menu from "../redux/componants/menu/menu";
 import { Keyboard, Navigation, Pagination } from "swiper";
 
@@ -50,7 +50,7 @@ function Areadetail() {
       </div>
       <Swiper
         style={{
-          marginTop: "100px",
+          marginTop: "50px",
           height: "600px",
           // border: "1px solid black",
         }}

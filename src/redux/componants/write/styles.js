@@ -45,20 +45,21 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  margin-left: 58px;
-  width: 45%;
+  margin: 0 auto 0 46px;
+  width: 46%;
   padding: 10px;
   font-size: 16px;
   /* border: none; */
   border: 1px solid #ccc;
   /* border-bottom: 1px solid #ccc; */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-radius: 8px;
 `;
 
 const Textarea = styled.textarea`
   margin-left: 180px;
   margin-top: 20px;
+  margin-right: auto;
   width: 70%;
   height: 500px;
   padding: 10px;
@@ -83,10 +84,11 @@ const Select = styled.select`
 
 const Button = styled.button`
   width: 120px;
-  margin-right: 160px;
+  margin-right: 150px;
   padding: 5px 10px;
   font-size: 18px;
   background-color: #4e5257;
+  /* float: right; */
   color: #fff;
   border: none;
   cursor: pointer;
