@@ -10,6 +10,7 @@ function Buttons(props) {
                 backgroundcolor={props.backgroundcolor}
                 color={props.color}
                 onClick={props.onClick}
+                
             >{props.children}</Buttonstyle>
         </>
     );

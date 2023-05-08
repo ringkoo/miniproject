@@ -14,18 +14,19 @@ const OPTIONS = [
 const SelectBox = (props) => {
     return (
         <SelectBoxWrapper>
-            <span style={{fontWeight:'700'}}>City&nbsp;</span>
-            <Select>
-                {OPTIONS.map((option) => (
-                    <option
-                        key={option.id}
-                        value={option.value}
-                        defaultValue={props.defaultValue === option.value}
-                    >
-                        {option.name}
-                    </option>
-                ))}
-            </Select>
+            <div style={{ fontWeight: '700', position: 'relative', width: '50px', marginLeft: '8%' }}><span style={{ position:'relative', left:'40%' }}>{props.children}&nbsp;</span>
+                <Select>
+                    {OPTIONS.map((option) => (
+                        <option
+                            key={option.id}
+                            value={option.value}
+                            defaultValue={props.defaultValue === option.value}
+                        >
+                            {option.name}
+                        </option>
+                    ))}
+                </Select>
+            </div>
         </SelectBoxWrapper>
     );
 };

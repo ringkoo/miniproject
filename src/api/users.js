@@ -7,8 +7,8 @@ export const getPostlist = async () => {
 };
 
 //추가
-export const addPostlist = async (newTodo) => {
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/postlist`, newTodo);
+export const addUsers = async (newUsers) => {
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, newUsers);
 };
 
 //삭제
