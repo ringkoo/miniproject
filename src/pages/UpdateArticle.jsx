@@ -19,6 +19,8 @@ import {
   ImageBox,
 } from "../redux/componants/write/styles";
 
+// 깃터짐 테스트용 주석
+
 function UpdateArticle() {
   const params = useParams();
   const navigate = useNavigate();
@@ -70,7 +72,7 @@ function UpdateArticle() {
   }
   return (
     <>
-      <Navbar isActive={false}>게시글 수정</Navbar>
+      <Navbar isActive={false} >게시글 수정</Navbar>
 
       <Container>
         <LeftContainer>

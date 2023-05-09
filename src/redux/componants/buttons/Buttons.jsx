@@ -1,7 +1,7 @@
 import React from "react";
 import { Buttonstyle } from "./styles";
 
-
+// 깃터짐 테스트용 주석
 
 function Buttons(props) {
     return (

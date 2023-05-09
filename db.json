@@ -15,95 +15,15 @@
       "title": " l ",
       "content": " articles",
       "category": "food",
-      "id": 1
-    },
-    {
-      "title": "00",
-      "content": null,
-      "category": null,
-      "id": 2
-    },
-    {
-      "title": "1",
-      "content": null,
-      "category": null,
-      "id": 3
-    },
-    {
-      "title": "1",
-      "content": null,
-      "category": null,
-      "id": 4
-    },
-    {
-      "title": "1",
-      "content": null,
-      "category": null,
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
+      "id": 1,
+      "address": "서울"
     },
     {
       "title": " l ",
       "content": " articles",
-      "category": "맛집",
-      "region": "경기",
-      "id": 15
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "관광지",
-      "region": "경기",
-      "id": 16
-    },
-    {
-      "title": " ㄳㄷ ",
-      "content": " articles",
-      "category": "맛집",
-      "region": "전라",
-      "id": 17
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "관광지",
-      "region": "전라",
-      "id": 16
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "축제",
-      "region": "서울",
-      "id": 16
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "관광지",
-      "region": "충청",
-      "id": 16
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "region": "경기",
-      "id": 16
+      "category": "food",
+      "id": 2,
+      "address": "경기"
     }
   ],
   "comments": [
