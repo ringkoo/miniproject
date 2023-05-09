@@ -143,7 +143,7 @@ function Loginbox(props) {
               maxLength='20' />
           </div>
           <div style={{ display: 'flex', gap: '10px' }} >
-            <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
+            <Buttons type='button' backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
             <Buttons
               backgroundcolor='darkgray'
               type='submit'

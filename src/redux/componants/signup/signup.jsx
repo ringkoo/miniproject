@@ -106,7 +106,6 @@ function Signbox(props) {
   // isAdmin 변경을 감지하는 함수
   const changeIsAdmin = (event) => {
     setIsAdmin(event.target.checked);
-    console.log(event.target.checked)
   };
 
   // authKey 변경을 감지하는 함수
@@ -181,13 +180,15 @@ function Signbox(props) {
                 />
                 <div style={{ position: 'relative', left: '40%' }}>
                   {/* ID 중복확인 버튼*/}
-                  <Exbuttons onClick={() => {
-                    try {
-                      axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, username);
-                    } catch (error) {
-                      console.log(error)
-                    }
-                  }}
+                  <Exbuttons
+                    type='button'
+                    onClick={() => {
+                      try {
+                        axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, username);
+                      } catch (error) {
+                        console.log(error)
+                      }
+                    }}
                   //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                   //   const userExists = data.find(item => item.username === username);
                   //   if (!userExists) {
@@ -239,7 +240,7 @@ function Signbox(props) {
                   maxLength='10' />
                 <div style={{ position: 'relative', left: '40%' }}>
                   {/* 닉네임 중복확인 버튼 */}
-                  <Exbuttons
+                  <Exbuttons type='button'
                   // onClick={() => {
                   //   const nickNameRegex = /^[가-힣]+$/;
                   //   const nickExists = data.find(item => item.nickname === nickname);
