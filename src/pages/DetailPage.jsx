@@ -81,14 +81,14 @@ function DetailPage() {
 
   return (
     <>
-    <Navbar isActive={false}>게시글 상세페이지</Navbar>
+      <Navbar isActive={false}>게시글 상세페이지</Navbar>
       <WrapperTop>
         <ArticleTitle>
           {data.category} / {data.title}
         </ArticleTitle>
         <SecondWrapper>
           <ArticleImage>
-            <img src="http://서버주소/uploads/example.jpg" alt="example" />
+            {/* <img src="http://서버주소/uploads/example.jpg" alt="example" /> */}
           </ArticleImage>
           <ArticleBody>
             <div>
@@ -145,8 +145,11 @@ function DetailPage() {
           comments.map((comment) => (
             <CommentWrapper key={comment.id}>
               {/* 댓글  작성자 정보 */}
-              <p style={{ marginLeft: "10px" }}>지역 </p>
-              <p style={{ marginLeft: "10px", flexGrow: 1 }}>닉네임 </p>
+              <p style={{ marginLeft: "10px" }}>지역{comment.region} </p>
+              <p style={{ marginLeft: "10px", flexGrow: 1 }}>
+                작성자
+                {comment.nickname}{" "}
+              </p>
               {/* 댓글 내용 */}
               <CommentContent>&nbsp; {comment.content}</CommentContent>
               {/* 작성시간 */}

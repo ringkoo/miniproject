@@ -12,11 +12,7 @@
   ],
   "posts": [
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 1,
-      "region": "서울"
+      "id": 1
     },
     {
       "title": " l ",
@@ -54,11 +50,7 @@
       "region": "서울"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "축제",
-      "id": 7,
-      "region": "서울"
+      "id": 7
     },
     {
       "title": " l ",
@@ -68,11 +60,7 @@
       "region": "전라"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 9,
-      "region": "충청"
+      "id": 9
     },
     {
       "title": " l ",
@@ -94,6 +82,12 @@
       "category": "맛집",
       "id": 12,
       "region": "경상"
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
     }
   ],
   "comments": [
@@ -126,6 +120,11 @@
       "content": "ㅣ;ㅏㅣ;ㅏ;ㅣ",
       "detailpageId": "7",
       "id": 78
+    },
+    {
+      "content": "강은빈",
+      "detailpageId": "6",
+      "id": 79
     }
   ]
 }

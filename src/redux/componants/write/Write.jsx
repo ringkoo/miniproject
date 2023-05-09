@@ -51,7 +51,7 @@ function Write() {
     // }
 
     if (!title || !content || !category || !image || !region) {
-      alert("제목, 내용, 카테고리,지역, 이미지를 모두 입력해주세요.");
+      alert("제목, 내용, 분야,지역, 이미지를 모두 입력해주세요.");
       return;
     }
 
@@ -64,22 +64,14 @@ function Write() {
 
     mutation.mutate(formData);
 
-    // for (let data of formData) {
-    //   console.log(data);
-    // }
+    for (let data of formData) {
+      console.log(data);
+    }
 
-    // const confirmed = window.confirm("정말로 게시하시겠습니까?");
-    // if (confirmed) {
-    //   await addArticle();
     navigate("/areadetail");
     // }
   };
 
-  // useEffect(() => {
-  //   if (!auth.isAuthenticated) {
-  //     navigate.push("/login");
-  //   }
-  // }, [auth.isAuthenticated, navigate]);
   return (
     <>
       <Container>
@@ -126,7 +118,7 @@ function Write() {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">장르</option>
+                <option value="">분야</option>
                 <option value="맛집">맛집</option>
                 <option value="관광지">관광지</option>
                 <option value="축제">축제</option>
