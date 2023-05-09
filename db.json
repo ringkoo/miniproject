@@ -74,29 +74,143 @@
       "id": 8
     },
     {
-      "title": null,
-      "content": null,
-      "category": null,
-      "image": null,
-      "id": 9
+      "id": 13
+    }
+  ],
+  "comments": [
+    {
+      "content": "",
+      "id": 1
     },
     {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
+      "content": "jㅏㅘㅓㅗ",
+      "postId": "13",
       "id": 12
     },
     {
+      "content": "ㅓㅗㅎ러ㅗㅎㄹ",
+      "postId": "13",
       "id": 13
     },
     {
+      "content": "ㅓ롷러ㅗㅎㄹ",
+      "postId": "13",
       "id": 14
     },
     {
+      "content": "ㅓㅏㅘㅓㅘㅓㅗ",
+      "postId": "13",
       "id": 15
+    },
+    {
+      "content": "ㅗㅗㅗㅗㅗㅗ",
+      "postId": "13",
+      "id": 16
+    },
+    {
+      "content": "호롷ㄹ홀",
+      "postId": "13",
+      "id": 17
+    },
+    {
+      "content": "랑나아",
+      "postId": "13",
+      "id": 18
+    },
+    {
+      "content": "hㅎ롷ㄹ호",
+      "postId": "13",
+      "id": 19
+    },
+    {
+      "content": "ㅗㅎ롷ㄹ",
+      "postId": "13",
+      "id": 20
+    },
+    {
+      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
+      "postId": "13",
+      "id": 21
+    },
+    {
+      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
+      "postId": "13",
+      "id": 22
+    },
+    {
+      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
+      "postId": "13",
+      "id": 23
+    },
+    {
+      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
+      "postId": "13",
+      "id": 24
+    },
+    {
+      "content": "ㅓㅏㅘㅓㅗㅓㅏ",
+      "postId": "13",
+      "id": 25
+    },
+    {
+      "content": "ㅓㅏㅘㅓㅗㅓㅏㅓㅏㅘㅓㅗ",
+      "postId": "13",
+      "id": 26
+    },
+    {
+      "content": "ㅓㅏㅣㅓㅏㅣㅏ",
+      "postId": "13",
+      "id": 30
+    },
+    {
+      "content": "ㅡ.,ㅡ,.",
+      "postId": "13",
+      "id": 31
+    },
+    {
+      "content": "ㅡ.,ㅡ,.",
+      "postId": "13",
+      "id": 32
+    },
+    {
+      "content": "ㅡ.,ㅡ,.ㅏㅣ;ㅏㅣ",
+      "postId": "13",
+      "id": 33
+    },
+    {
+      "content": "ㅏㅏㅏㅏ",
+      "postId": "13",
+      "id": 34
+    },
+    {
+      "content": "ㅏㅓㅣㅗㅓㅏㅚㅏㅓㅗ",
+      "postId": "13",
+      "id": 35
+    },
+    {
+      "content": "ㅏㅓㅣㅗㅓㅏㅚㅏㅓㅗ",
+      "postId": "13",
+      "id": 36
+    },
+    {
+      "content": "홀홀호",
+      "detailpageId": "13",
+      "id": 37
+    },
+    {
+      "content": "ㄹ호롷롷ㄹ",
+      "detailpageId": "13",
+      "id": 38
+    },
+    {
+      "content": "호롷롷ㄹ",
+      "detailpageId": "8",
+      "id": 39
+    },
+    {
+      "content": "ㅏㅣㅓㅏㅣㅓㅣㅏ",
+      "detailpageId": "8",
+      "id": 40
     }
   ]
 }

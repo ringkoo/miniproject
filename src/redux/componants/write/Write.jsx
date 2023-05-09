@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { useMutation } from "react-query";
+import { useState, useEffect } from "react";
+import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
-import { useQueryClient } from "react-query";
+// import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import {
   Container,
   LeftContainer,
@@ -13,9 +14,12 @@ import {
   Textarea,
   Select,
   Button,
+  ImageBox,
 } from "./styles";
 
 function Write() {
+  // const auth = useSelector((state) => state.auth);
+  // const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(addArticle, {
     onSuccess: () => {
@@ -36,6 +40,12 @@ function Write() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // if (!auth.isAuthenticated) {
+    //   alert("로그인 후 글 작성이 가능합니다.");
+    //   return;
+    // }
+
     if (!title || !content || !category || !image) {
       alert("제목, 내용, 카테고리, 이미지를 모두 입력해주세요.");
       return;
@@ -50,6 +60,11 @@ function Write() {
     mutation.mutate(formData);
   };
 
+  // useEffect(() => {
+  //   if (!auth.isAuthenticated) {
+  //     navigate.push("/login");
+  //   }
+  // }, [auth.isAuthenticated, navigate]);
   return (
     <>
       <Container>
@@ -70,19 +85,7 @@ function Write() {
                 }}
               />
             ) : (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  color: "#999595",
-                }}
-              >
-                이미지 추가
-              </div>
+              <ImageBox>이미지 추가</ImageBox>
             )}
             <input
               id="image"
@@ -120,8 +123,7 @@ function Write() {
               placeholder="내용을 입력하세요."
               value={content}
               onChange={(e) => setContent(e.target.value)}
-            />
-
+            />{" "}
             <Button type="submit">작성</Button>
           </Form>
         </RightContainer>
