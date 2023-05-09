@@ -18,6 +18,8 @@ import {
   ImageBox,
 } from "./styles";
 
+// 깃터짐 테스트용 주석
+
 function Write() {
   // const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();

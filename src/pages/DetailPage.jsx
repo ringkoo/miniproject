@@ -19,6 +19,9 @@ import {
   DeleteButtonWrapper,
 } from "../redux/componants/detailPage/styles";
 import { useQuery, useMutation } from "react-query";
+import Navbar from "../redux/componants/navbar/Navbar";
+
+// 깃터짐 테스트용 주석
 
 function DetailPage() {
   const params = useParams();
@@ -78,6 +81,7 @@ function DetailPage() {
 
   return (
     <>
+    <Navbar isActive={false}>게시글 상세페이지</Navbar>
       <WrapperTop>
         <ArticleTitle>
           {data.category} / {data.title}

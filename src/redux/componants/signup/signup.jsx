@@ -10,6 +10,8 @@ import { addUsers, getUsers } from "../../../api/users";
 import SelectBox from "../selects/Selects";
 import axios from "axios";
 
+// 깃터짐 테스트용 주석
+
 function Signbox(props) {
   const navigate = useNavigate();
 
@@ -118,20 +120,24 @@ function Signbox(props) {
     // submit의 고유 기능인, 새로고침(refresh)을 막아주는 역함
     event.preventDefault();
 
-    // 제목과 내용이 모두 존재해야만 정상처리(하나라도 없는 경우 오류 발생)
-    // "01" : 필수 입력값 검증 실패 안내
+    
+    // "01" : 아이디 입력 없을 시 경고
     // if (!username) {
     //   return getErrorMsg("01");
     // }
+    // "02" : 비밀번호 입력 없을 시 경고
     // if (!password) {
     //   return getErrorMsg("02");
     // }
+    // "03" : 비밀번호 확인 다를 시 경고
     // if (password !== password2) {
     //   return getErrorMsg("03")
     // }
+    // "04" : 닉네임 입력 없을 시 경고
     // if (!nickname) {
     //   return getErrorMsg("04");
     // }
+    // "05" : 지역 입력 안할 시 경고
     // if (!address) {
     //   return getErrorMsg("05");
     // }
