@@ -58,6 +58,10 @@ function Write() {
     formData.append("image", image);
 
     mutation.mutate(formData);
+
+    // for (let data of formData) {
+    //   console.log(data);
+    // }
   };
 
   // useEffect(() => {
