@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { addUsers, getUsers } from "../../../api/users";
 import SelectBox from "../selects/Selects";
+import axios from "axios";
 
 function Signbox(props) {
   const navigate = useNavigate();
@@ -30,17 +31,17 @@ function Signbox(props) {
     }
   });
 
-  const { isLoading, isError, data } = useQuery("users", getUsers)
+  // const { isLoading, isError, data } = useQuery("users", getUsers)
 
-  if (isLoading) {
-    return <h1>로딩중입니다...!</h1>
-  }
+  // if (isLoading) {
+  //   return <h1>로딩중입니다...!</h1>
+  // }
 
-  if (isError) {
-    return <h1>오류가 발생하였습니다...!</h1>
-  }
+  // if (isError) {
+  //   return <h1>오류가 발생하였습니다...!</h1>
+  // }
 
-  // 에러 메시지 발생 함수
+  // // 에러 메시지 발생 함수
   const getErrorMsg = (errorCode) => {
     switch (errorCode) {
       case "01":
@@ -120,21 +121,21 @@ function Signbox(props) {
 
     // 제목과 내용이 모두 존재해야만 정상처리(하나라도 없는 경우 오류 발생)
     // "01" : 필수 입력값 검증 실패 안내
-    if (!username) {
-      return getErrorMsg("01");
-    }
-    if (!password) {
-      return getErrorMsg("02");
-    }
-    if (password !== password2) {
-      return getErrorMsg("03")
-    }
-    if (!nickname) {
-      return getErrorMsg("04");
-    }
-    if (!address) {
-      return getErrorMsg("05");
-    }
+    // if (!username) {
+    //   return getErrorMsg("01");
+    // }
+    // if (!password) {
+    //   return getErrorMsg("02");
+    // }
+    // if (password !== password2) {
+    //   return getErrorMsg("03")
+    // }
+    // if (!nickname) {
+    //   return getErrorMsg("04");
+    // }
+    // if (!address) {
+    //   return getErrorMsg("05");
+    // }
 
 
     const newUsers = {
@@ -181,19 +182,26 @@ function Signbox(props) {
                 <div style={{ position: 'relative', left: '40%' }}>
                   {/* ID 중복확인 버튼*/}
                   <Exbuttons onClick={() => {
-                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                    const userExists = data.find(item => item.username === username);
-                    if (!userExists) {
-                      if (emailRegex.test(username)) {
-                        return alert('사용 가능한 이메일 입니다.')
-                      } else {
-                        return alert('이메일 형식을 확인해주세요. ex)test@test.com')
-                      }
-                    } else {
-                      setUsername('')
-                      return alert('이미 가입된 이메일 입니다')
+                    try {
+                      axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, username);
+                    } catch (error) {
+                      console.log(error)
                     }
-                  }}>확인</Exbuttons>
+                  }}
+                  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                  //   const userExists = data.find(item => item.username === username);
+                  //   if (!userExists) {
+                  //     if (emailRegex.test(username)) {
+                  //       return alert('사용 가능한 이메일 입니다.')
+                  //     } else {
+                  //       return alert('이메일 형식을 확인해주세요. ex)test@test.com')
+                  //     }
+                  //   } else {
+                  //     setUsername('')
+                  //     return alert('이미 가입된 이메일 입니다')
+                  //   }
+                  // }}
+                  >확인</Exbuttons>
                 </div>
               </div>
               {/* 비밀번호 */}
@@ -231,21 +239,23 @@ function Signbox(props) {
                   maxLength='10' />
                 <div style={{ position: 'relative', left: '40%' }}>
                   {/* 닉네임 중복확인 버튼 */}
-                  <Exbuttons onClick={() => {
-                    const nickNameRegex = /^[가-힣]+$/;
-                    const nickExists = data.find(item => item.nickname === nickname);
-                    if (!nickExists) {
-                      if (nickNameRegex.test(nickname)) {
-                        return alert('사용 가능한 닉네임 입니다.')
-                      } else {
-                        setNickname("")
-                        return alert('닉네임은 한글 단어만 입력 가능합니다.')
-                      }
-                    } else {
-                      setNickname("");
-                      return alert('이미 가입된 닉네임 입니다')
-                    }
-                  }}>확인</Exbuttons>
+                  <Exbuttons
+                  // onClick={() => {
+                  //   const nickNameRegex = /^[가-힣]+$/;
+                  //   const nickExists = data.find(item => item.nickname === nickname);
+                  //   if (!nickExists) {
+                  //     if (nickNameRegex.test(nickname)) {
+                  //       return alert('사용 가능한 닉네임 입니다.')
+                  //     } else {
+                  //       setNickname("")
+                  //       return alert('닉네임은 한글 단어만 입력 가능합니다.')
+                  //     }
+                  //   } else {
+                  //     setNickname("");
+                  //     return alert('이미 가입된 닉네임 입니다')
+                  //   }
+                  // }}
+                  >확인</Exbuttons>
                 </div>
               </div>
               {/* 지역 선택 */}
