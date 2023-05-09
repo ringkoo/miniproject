@@ -99,7 +99,7 @@ function Areadetail() {
                 >
                   <img src="" alt="Article Image" />
                 </div>
-                <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p>
+                {/* <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p> */}
                 <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>

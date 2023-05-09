@@ -1,13 +1,13 @@
 import axios from "axios";
 
-// 조회
+// 게시글 조회
 const getArticles = async () => {
   const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts`);
   //   console.log(response.data);
   return response.data;
 };
 
-// 상세 데이터 조회
+// 게시글 상세 데이터 조회
 const getArticle = async (id) => {
   const response = await axios.get(
     `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
