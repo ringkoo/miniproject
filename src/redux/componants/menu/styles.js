@@ -5,7 +5,7 @@ const TopMenu = styled.div`
   display: flex;
 `;
 
-const MenuLink = styled(Link)`
+const MenuLink = styled.div`
   text-decoration: none;
   color: white;
 `;

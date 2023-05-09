@@ -26,6 +26,7 @@ function Mainmap() {
         <Map>
           <SeoulButton
             onClick={() => {
+              //Mainmap 컴포넌트에서 클릭한 지역 정보를 route state에 담아서 Areadetail로 전달
               navigate("/Areadetail", { state: { region: "서울" } });
             }}
           >

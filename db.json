@@ -59,26 +59,51 @@
     {
       "title": " l ",
       "content": " articles",
-      "category": "food",
+      "category": "맛집",
       "region": "경기",
       "id": 15
     },
     {
       "title": " l ",
       "content": " articles",
-      "category": "food",
+      "category": "관광지",
       "region": "경기",
       "id": 16
     },
     {
       "title": " ㄳㄷ ",
       "content": " articles",
-      "category": "food",
-      "region": "경기",
+      "category": "맛집",
+      "region": "전라",
       "id": 17
     },
     {
-      "id": 18
+      "title": " l ",
+      "content": " articles",
+      "category": "관광지",
+      "region": "전라",
+      "id": 16
+    },
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "축제",
+      "region": "서울",
+      "id": 16
+    },
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "관광지",
+      "region": "충청",
+      "id": 16
+    },
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "맛집",
+      "region": "경기",
+      "id": 16
     }
   ],
   "comments": [

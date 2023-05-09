@@ -15,7 +15,9 @@ import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 function Areadetail() {
   const location = useLocation();
+  ////  route state를 받아옴. 전달된 region 정보가 있는지 확인
   const region = location.state?.region;
+  const category = location.state?.category;
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);
 
@@ -25,7 +27,19 @@ function Areadetail() {
   if (isError) {
     return <div>오류가 발생했습니다.</div>;
   }
-  const filteredData = data.filter((posts) => posts.region === region);
+  let filteredData = data;
+  if (region) {
+    filteredData = data.filter((posts) => posts.region === region);
+  }
+  if (category) {
+    filteredData = data.filter((posts) => posts.category === category);
+  }
+  //  if(region && category) {
+  //     filteredData = data.filter(
+  //       (posts) => posts.region === region && posts.category === category
+  //     );
+  //   }
+
   return (
     <>
       <Navbar isActive={true}>서울</Navbar>
@@ -77,6 +91,8 @@ function Areadetail() {
       >
         {/* slice() 함수를 사용해서 배열을 복사하여 새로운 배열을 반환
         reverse() 함수로 새 배열의 순서를 뒤집기. 그 후 map() 함수를 호출해서 최신순으로 정렬함 */}
+
+        {/* 받아온 region 정보를 이용해서 data를 필터링 */}
         {filteredData
           .slice()
           .reverse()
@@ -93,7 +109,10 @@ function Areadetail() {
                   navigate(`/detailpage/${posts.id}`);
                 }}
               >
-                <h1 style={{ marginLeft: "10px" }}>{posts.title}</h1>
+                <h1 style={{ marginLeft: "10px" }}>
+                  {" "}
+                  {posts.category} /{posts.title}
+                </h1>
                 <div
                   style={{
                     height: "300px",

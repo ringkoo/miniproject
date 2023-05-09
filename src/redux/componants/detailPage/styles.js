@@ -32,6 +32,7 @@ const ArticleImage = styled.div`
 
 const ArticleBody = styled.div`
   border: 2px solid #a1beff;
+  background-color: #eee;
   margin-top: 50px;
   height: 500px;
   width: 50%;
