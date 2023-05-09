@@ -25,18 +25,18 @@ function Loginbox(props) {
 
 
 
-  const { isLoading, isError, data } = useQuery("users", getUsers)
+  // const { isLoading, isError, data } = useQuery("users", getUsers)
 
-  if (isLoading) {
-    return <h1>로딩중입니다...!</h1>
-  }
+  // if (isLoading) {
+  //   return <h1>로딩중입니다...!</h1>
+  // }
 
-  if (isError) {
-    return <h1>오류가 발생하였습니다...!</h1>
-  }
+  // if (isError) {
+  //   return <h1>오류가 발생하였습니다...!</h1>
+  // }
 
-  const usernamecheck = data.find(item => item.username === username)
-  const userpasswordcheck = data.find(item => item.password === password)
+  // const usernamecheck = data.find(item => item.username === username)
+  // const userpasswordcheck = data.find(item => item.password === password)
 
   // 에러 메시지 발생 함수
   const getErrorMsg = (errorCode) => {
@@ -87,31 +87,22 @@ function Loginbox(props) {
       return getErrorMsg("02");
     }
 
-    if (!usernamecheck) {
-      return getErrorMsg("03");
-    }
+    // if (!usernamecheck) {
+    //   return getErrorMsg("03");
+    // }
 
-    if (usernamecheck && !userpasswordcheck) {
-      return getErrorMsg("04");
-    }
+    // if (usernamecheck && !userpasswordcheck) {
+    //   return getErrorMsg("04");
+    // }
 
-    if (usernamecheck && userpasswordcheck) {
-      return alert("로그인 성공")
-    }
+    // if (usernamecheck && userpasswordcheck) {
+    //   return 
+    // }
 
     const inUsers = {
       username,
       password,
     };
-
-
-
-    const loginHandler = (event) => {
-      event.preventDefault();
-    }
-
-
-
 
 
     //로그인을 위한 mutation 메소드
@@ -152,8 +143,11 @@ function Loginbox(props) {
               maxLength='20' />
           </div>
           <div style={{ display: 'flex', gap: '10px' }} >
-            <Buttons backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
-            <Buttons backgroundcolor='darkgray' type='submit'>로그인</Buttons>
+            <Buttons type='button' backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
+            <Buttons
+              backgroundcolor='darkgray'
+              type='submit'
+              >로그인</Buttons>
           </div>
         </Wrapbox>
       </form>

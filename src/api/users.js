@@ -1,19 +1,29 @@
 import axios from "axios";
 
 // 데이터 조회
-export const getUsers = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
-    return data;
-};
+// export const getUsers = async () => {
+//     const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
+//     return data;
+// };
 
 //회원 가입
 export const addUsers = async (newUsers) => {
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, newUsers);
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, newUsers);
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 //로그인
 export const loginUsers = async (inUsers) => {
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, inUsers);
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, inUsers);
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 // //삭제

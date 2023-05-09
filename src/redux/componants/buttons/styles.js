@@ -20,7 +20,7 @@ cursor: pointer;
 
 `
 
-const Exambtstyle = styled.div`
+const Exambtstyle = styled.button`
   font-weight:700;
   background-color: #CEE1F2;
   color: black;
