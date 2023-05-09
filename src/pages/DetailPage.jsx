@@ -27,11 +27,18 @@ function DetailPage() {
     getArticle(params.id)
   );
   const [commentContent, setCommentContent] = useState("");
+
+  //useMutation : 서버와 상호작용하는 함수를 실행하면서 mutation 상태를 관리
+  //첫 번째 매개변수는 mutation 함수이고, 두 번째 매개변수는 mutation에 대한 설정 객체.
+  //postComment 함수는 첫 번째 인자로 게시물 ID를 받고, 두 번째 인자로는 작성한 댓글 내용을 받는다.
   const { mutate } = useMutation((content) => postComment(params.id, content), {
+    //mutation 상태 관리
+    //성공했을 때 쿼리 무효화, 댓글 작성란 비우기
     onSuccess: () => {
-      // setCommentContent("");
-      queryClient.invalidateQueries(["getArticle", params.id]);
-      queryClient.invalidateQueries(["getComments", params.id]);
+      // queryClient.invalidateQueries("getArticle");
+      // queryClient.invalidateQueries("getComments");
+      setCommentContent("");
+      refetchComments();
     },
   });
 
@@ -40,15 +47,17 @@ function DetailPage() {
     isError: isErrorComments,
     data: comments,
     refetch: refetchComments,
-  } = useQuery(["getComments", params.id], () => getComments(params.id));
+  } = useQuery("getComments", () => getComments(params.id));
 
   const handleDeleteComment = async (commentId) => {
     await deleteComments(commentId);
+    // 댓글목록 다시 가져오기
     refetchComments();
   };
   const handleSubmitComment = (e) => {
     e.preventDefault();
     mutate(commentContent);
+
     // ,
 
     // {
