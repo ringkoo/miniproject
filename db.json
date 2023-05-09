@@ -8,51 +8,6 @@
       "isAdmin": true,
       "authKey": "ㅁㄴㅇㄹ1234",
       "id": 1
-    },
-    {
-      "username": "test@test.com",
-      "password": "test",
-      "nickname": "테스트",
-      "address": "서울",
-      "isAdmin": true,
-      "authKey": "dkdkdk",
-      "id": 2
-    },
-    {
-      "username": "",
-      "password": "",
-      "nickname": "",
-      "address": "",
-      "isAdmin": false,
-      "authKey": "",
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "username": "",
-      "password": "",
-      "nickname": "",
-      "address": "",
-      "isAdmin": true,
-      "authKey": "",
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "username": "",
-      "password": "",
-      "nickname": "",
-      "address": "",
-      "isAdmin": false,
-      "authKey": "",
-      "id": 7
-    },
-    {
-      "id": 8
     }
   ],
   "posts": [

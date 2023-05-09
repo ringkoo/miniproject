@@ -237,6 +237,7 @@ function Signbox(props) {
                   width='250px'
                   height='30px'
                   marginbottom='30px'
+                  minLength='4'
                   maxLength='10' />
                 <div style={{ position: 'relative', left: '40%' }}>
                   {/* 닉네임 중복확인 버튼 */}
