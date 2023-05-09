@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../redux/componants/navbar/Navbar";
-import { getArticle } from "../api/articles";
+import { getArticle, updateArticle } from "../api/articles";
 // import { updateArticle, getArticle } from "../api/articles";
 import { useQuery, useMutation } from "react-query";
 import { useParams, useNavigate } from "react-router";
@@ -16,11 +16,12 @@ import {
   Textarea,
   Select,
   Button,
+  ImageBox,
 } from "../redux/componants/write/styles";
 
 function UpdateArticle() {
   const params = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [title, setTitle] = useState(params.title);
   const [content, setContent] = useState(params.content);
   const [image, setImage] = useState(params.image);
@@ -29,20 +30,17 @@ function UpdateArticle() {
   const { isLoading, isError, data } = useQuery("getArticle", () =>
     getArticle(params.id)
   );
-  // const { isLoading, isError, data } = useQuery(["article", id], () =>
-  // getArticle(id)
-  // );
 
-  // const mutate = useMutation(updateArticle, {
-  //   onSuccess: () => {
-  //     navigate(`/detailpage/${id}`);
-  //   },
-  // });
+  const { mutate } = useMutation(updateArticle, {
+    onSuccess: () => {
+      navigate(`/detailpage/${params.id}`);
+    },
+  });
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   mutate({ id, title, content, image, category });
-  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    mutate({ id: params.id, title, content, image, category });
+  };
 
   //이미지 업로드를 처리하기 위한 핸들러 함수
   // input 요소에서 파일 선택이 발생했을 때 호출, 선택된 파일 정보가 event 객체로 전달
@@ -82,19 +80,9 @@ function UpdateArticle() {
                 }}
               />
             ) : (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  color: "#999595",
-                }}
-              >
+              <ImageBox>
                 <img src="http://서버주소/uploads/example.jpg" alt="example" />
-              </div>
+              </ImageBox>
             )}
             <input
               id="image"
@@ -108,9 +96,7 @@ function UpdateArticle() {
         </LeftContainer>
 
         <RightContainer>
-          <Form
-          // onSubmit={handleSubmit}
-          >
+          <Form onSubmit={handleSubmit}>
             <div style={{ marginTop: "40px" }}>
               <Select
                 id="category"
