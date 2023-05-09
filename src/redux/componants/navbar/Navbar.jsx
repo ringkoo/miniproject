@@ -1,6 +1,3 @@
-import React from "react";
-import { Navhead, Logintext, Navtext } from "./styles";
-import { useNavigate } from "react-router-dom";
 import { AiTwotoneHome, AiFillCaretLeft } from "react-icons/ai";
 
 function Navbar(props) {

@@ -1,26 +1,83 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Map, SeoulButton, KIButton, KangwonButton, JejuButton, JyunlaButton, KyungsangButton, ChungcyungButton } from "./styles";
+import {
+  Map,
+  SeoulButton,
+  KIButton,
+  KangwonButton,
+  JejuButton,
+  JyunlaButton,
+  KyungsangButton,
+  ChungcyungButton,
+} from "./styles";
 
-// 깃터짐 테스트용 주석
-
-function Mainmap(props) {
-    const navigate = useNavigate();
-    return (
-        <>
-            <div style={{ display: "flex", alignItems: "center", backgroundColor: 'white', width: "1000px" }}>
-                <Map>
-                    <SeoulButton name='서울' onClick={() => { navigate('/Areadetail') }}>서울</SeoulButton>
-                    <KIButton name='경기' onClick={() => { navigate('/Areadetail') }}>경기</KIButton>
-                    <KangwonButton name='강원' onClick={() => { navigate('/Areadetail') }}>강원</KangwonButton>
-                    <JyunlaButton name='전라' onClick={() => { navigate('/Areadetail') }}>전라</JyunlaButton>
-                    <KyungsangButton name='경상' onClick={() => { navigate('/Areadetail') }}>경상</KyungsangButton>
-                    <ChungcyungButton name='충청' onClick={() => { navigate('/Areadetail') }}>충청</ChungcyungButton>
-                    <JejuButton name='제주' onClick={() => { navigate('/Areadetail') }}>제주</JejuButton>
-                </Map>
-            </div>
-        </>
-    );
+function Mainmap() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "white",
+          width: "1000px",
+        }}
+      >
+        <Map>
+          <SeoulButton
+            onClick={() => {
+              //Mainmap 컴포넌트에서 클릭한 지역 정보를 route state에 담아서 Areadetail로 전달
+              navigate("/Areadetail", { state: { region: "서울" } });
+            }}
+          >
+            서울
+          </SeoulButton>
+          <KIButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "경기" } });
+            }}
+          >
+            경기
+          </KIButton>
+          <KangwonButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "강원" } });
+            }}
+          >
+            강원
+          </KangwonButton>
+          <JyunlaButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "전라" } });
+            }}
+          >
+            전라
+          </JyunlaButton>
+          <KyungsangButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "경상" } });
+            }}
+          >
+            경상
+          </KyungsangButton>
+          <ChungcyungButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "충청" } });
+            }}
+          >
+            충청
+          </ChungcyungButton>
+          <JejuButton
+            onClick={() => {
+              navigate("/Areadetail", { state: { region: "제주" } });
+            }}
+          >
+            제주
+          </JejuButton>
+        </Map>
+      </div>
+    </>
+  );
 }
 
 export default Mainmap;

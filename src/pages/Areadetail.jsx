@@ -13,9 +13,12 @@ import { Keyboard, Navigation, Pagination } from "swiper";
 import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
 
-// 깃터짐 테스트용 주석
-
+import { useLocation } from "react-router-dom";
 function Areadetail() {
+  const location = useLocation();
+  ////  route state를 받아옴. 전달된 region 정보가 있는지 확인
+  const region = location.state?.region;
+  const category = location.state?.category;
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);
 
@@ -25,6 +28,18 @@ function Areadetail() {
   if (isError) {
     return <div>오류가 발생했습니다.</div>;
   }
+  let filteredData = data;
+  if (region) {
+    filteredData = data.filter((posts) => posts.region === region);
+  }
+  if (category) {
+    filteredData = data.filter((posts) => posts.category === category);
+  }
+  //  if(region && category) {
+  //     filteredData = data.filter(
+  //       (posts) => posts.region === region && posts.category === category
+  //     );
+  //   }
 
   return (
     <>
@@ -77,7 +92,8 @@ function Areadetail() {
       >
         {/* slice() 함수를 사용해서 배열을 복사하여 새로운 배열을 반환
         reverse() 함수로 새 배열의 순서를 뒤집기. 그 후 map() 함수를 호출해서 최신순으로 정렬함 */}
-        {(data)
+        {/* 받아온 region 정보를 이용해서 data를 필터링 */}
+        {filteredData
           .slice()
           .reverse()
           .map((posts) => (
@@ -93,7 +109,10 @@ function Areadetail() {
                   navigate(`/detailpage/${posts.id}`);
                 }}
               >
-                <h1 style={{ marginLeft: "10px" }}>{posts.title}</h1>
+                <h1 style={{ marginLeft: "10px" }}>
+                  {" "}
+                  {posts.category} /{posts.title}
+                </h1>
                 <div
                   style={{
                     height: "300px",
@@ -105,6 +124,7 @@ function Areadetail() {
                   />
                 </div>
                 {/* <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p> */}
+                <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
                 <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>
