@@ -2,6 +2,11 @@ import axios from "axios";
 
 // 댓글 작성
 export const postComment = async (id, content) => {
+  if (!content) {
+    alert("댓글 내용을 입력해주세요.");
+    return;
+  }
+
   const response = await axios.post(
     `${process.env.REACT_APP_SERVER_URL}/detailpage/${id}/comments`,
     { content }

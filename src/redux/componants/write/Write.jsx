@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
 // import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ import {
 
 function Write() {
   // const auth = useSelector((state) => state.auth);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(addArticle, {
     onSuccess: () => {
@@ -61,6 +62,12 @@ function Write() {
 
     // for (let data of formData) {
     //   console.log(data);
+    // }
+
+    // const confirmed = window.confirm("정말로 게시하시겠습니까?");
+    // if (confirmed) {
+    //   await addArticle();
+    navigate("/areadetail");
     // }
   };
 

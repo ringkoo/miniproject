@@ -75,38 +75,24 @@
       "id": 3
     },
     {
-      "title": null,
+      "title": "1",
       "content": null,
       "category": null,
-      "image": "null",
       "id": 4
     },
     {
-      "title": null,
+      "title": "1",
       "content": null,
       "category": null,
-      "image": "null",
       "id": 5
     },
     {
-      "title": null,
-      "content": null,
-      "category": null,
-      "image": "null",
       "id": 6
     },
     {
-      "title": null,
-      "content": null,
-      "category": null,
-      "image": null,
       "id": 7
     },
     {
-      "title": null,
-      "content": null,
-      "category": null,
-      "image": null,
       "id": 8
     },
     {
@@ -114,227 +100,43 @@
     },
     {
       "id": 14
-    },
-    {
-      "id": 15
     }
   ],
   "comments": [
     {
-      "content": "",
+      "content": "댓글 2",
+      "detailpageId": "14",
       "id": 1
     },
     {
-      "content": "jㅏㅘㅓㅗ",
-      "postId": "13",
-      "id": 12
-    },
-    {
-      "content": "ㅓㅗㅎ러ㅗㅎㄹ",
-      "postId": "13",
-      "id": 13
-    },
-    {
-      "content": "ㅓ롷러ㅗㅎㄹ",
-      "postId": "13",
-      "id": 14
-    },
-    {
-      "content": "ㅓㅏㅘㅓㅘㅓㅗ",
-      "postId": "13",
-      "id": 15
-    },
-    {
-      "content": "ㅗㅗㅗㅗㅗㅗ",
-      "postId": "13",
-      "id": 16
-    },
-    {
-      "content": "호롷ㄹ홀",
-      "postId": "13",
-      "id": 17
-    },
-    {
-      "content": "랑나아",
-      "postId": "13",
-      "id": 18
-    },
-    {
-      "content": "hㅎ롷ㄹ호",
-      "postId": "13",
-      "id": 19
-    },
-    {
-      "content": "ㅗㅎ롷ㄹ",
-      "postId": "13",
-      "id": 20
-    },
-    {
-      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
-      "postId": "13",
-      "id": 21
-    },
-    {
-      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
-      "postId": "13",
-      "id": 22
-    },
-    {
-      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
-      "postId": "13",
-      "id": 23
-    },
-    {
-      "content": "ㅓㅏㅗㅓㅏㅗㅓㅏㅗ",
-      "postId": "13",
-      "id": 24
-    },
-    {
-      "content": "ㅓㅏㅘㅓㅗㅓㅏ",
-      "postId": "13",
-      "id": 25
-    },
-    {
-      "content": "ㅓㅏㅘㅓㅗㅓㅏㅓㅏㅘㅓㅗ",
-      "postId": "13",
-      "id": 26
-    },
-    {
-      "content": "ㅓㅏㅣㅓㅏㅣㅏ",
-      "postId": "13",
-      "id": 30
-    },
-    {
-      "content": "ㅡ.,ㅡ,.",
-      "postId": "13",
-      "id": 31
-    },
-    {
-      "content": "ㅡ.,ㅡ,.",
-      "postId": "13",
-      "id": 32
-    },
-    {
-      "content": "ㅡ.,ㅡ,.ㅏㅣ;ㅏㅣ",
-      "postId": "13",
-      "id": 33
-    },
-    {
-      "content": "ㅏㅏㅏㅏ",
-      "postId": "13",
-      "id": 34
-    },
-    {
-      "content": "ㅏㅓㅣㅗㅓㅏㅚㅏㅓㅗ",
-      "postId": "13",
-      "id": 35
-    },
-    {
-      "content": "ㅏㅓㅣㅗㅓㅏㅚㅏㅓㅗ",
-      "postId": "13",
-      "id": 36
-    },
-    {
-      "content": "홀홀호",
+      "content": "안녕하세요",
       "detailpageId": "13",
-      "id": 37
+      "id": 2
     },
     {
-      "content": "ㄹ호롷롷ㄹ",
-      "detailpageId": "13",
-      "id": 38
+      "content": "테스트 입니다",
+      "detailpageId": "6",
+      "id": 3
     },
     {
-      "content": "호롷롷ㄹ",
-      "detailpageId": "8",
-      "id": 39
+      "content": ";ㅣㅏ;ㅣㅏㅣ;ㅏㅣ;",
+      "detailpageId": "5",
+      "id": 4
     },
     {
-      "content": "ㅏㅣㅓㅏㅣㅓㅣㅏ",
-      "detailpageId": "8",
-      "id": 40
+      "content": "ㅏ;ㅣㅏ;ㅣㅏ;ㅣㅏㅣ;ㅏ;ㅣㅏ",
+      "detailpageId": "4",
+      "id": 5
     },
     {
-      "content": "ㅏㅣㅡㅏㅡㅏ",
-      "detailpageId": "13",
-      "id": 41
+      "content": "ㅣ;ㅏㅣ;ㅏ;ㅣ",
+      "detailpageId": "7",
+      "id": 78
     },
     {
-      "content": " uighjghjg",
-      "detailpageId": "13",
-      "id": 42
-    },
-    {
-      "content": "jhgjhgjhg",
-      "detailpageId": "15",
-      "id": 43
-    },
-    {
-      "detailpageId": ";ㅣㅏ;ㅣㅏ",
-      "id": 48
-    },
-    {
-      "detailpageId": "ㅣㅏ;;ㅣㅏ",
-      "id": 49
-    },
-    {
-      "detailpageId": "ㅏㅣ;ㅏㅣ;ㅏㅣ",
-      "id": 50
-    },
-    {
-      "content": "ㅗㅎㅎ포허",
+      "content": "댓글 하나",
       "detailpageId": "14",
-      "id": 60
-    },
-    {
-      "content": ";;;;",
-      "detailpageId": "14",
-      "id": 61
-    },
-    {
-      "content": "ㅇㄴㄹㄴㄹㅇ",
-      "detailpageId": "14",
-      "id": 62
-    },
-    {
-      "content": "ㅗㅓ허ㅗ",
-      "detailpageId": "14",
-      "id": 63
-    },
-    {
-      "content": "ㅗㅓ허ㅗㅎ",
-      "detailpageId": "14",
-      "id": 64
-    },
-    {
-      "content": "ㅎㅎㅎㅎ",
-      "detailpageId": "14",
-      "id": 65
-    },
-    {
-      "content": "ㅎㅎㅎㅎㅎㅎㅎ",
-      "detailpageId": "14",
-      "id": 66
-    },
-    {
-      "content": "ㅘ허ㅗ허ㅗ",
-      "detailpageId": "14",
-      "id": 67
-    },
-    {
-      "content": ";;;;",
-      "detailpageId": "13",
-      "id": 69
-    },
-    {
-      "content": "ㅕㅛ셔ㅛㅅ",
-      "detailpageId": "14",
-      "id": 70
-    },
-    {
-      "content": "ㅅㅅㅅㅅ",
-      "detailpageId": "14",
-      "id": 71
+      "id": 79
     }
   ]
 }
