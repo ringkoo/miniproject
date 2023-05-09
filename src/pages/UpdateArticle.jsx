@@ -60,7 +60,7 @@ function UpdateArticle() {
   }
   return (
     <>
-      <Navbar isActive={false}>게시글 수정</Navbar>
+      <Navbar isActive={false} navigate='/areadetail'>게시글 수정</Navbar>
 
       <Container>
         <LeftContainer>

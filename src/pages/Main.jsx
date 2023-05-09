@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Main() {
     return (
         <>
-            <Navbar isActive={true} >동네 어때?</Navbar>
+            <Navbar isActive={true} navigate='/'>동네 어때?</Navbar>
             <Mainmap />
         </>
     );

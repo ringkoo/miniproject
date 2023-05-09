@@ -26,7 +26,7 @@ function Areadetail() {
 
   return (
     <>
-      <Navbar isActive={true}>서울</Navbar>
+      <Navbar isActive={false} >동네 게시판</Navbar>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Menu />
@@ -75,7 +75,7 @@ function Areadetail() {
       >
         {/* slice() 함수를 사용해서 배열을 복사하여 새로운 배열을 반환
         reverse() 함수로 새 배열의 순서를 뒤집기. 그 후 map() 함수를 호출해서 최신순으로 정렬함 */}
-        {data
+        {(data)
           .slice()
           .reverse()
           .map((posts) => (
@@ -107,7 +107,8 @@ function Areadetail() {
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>
             </SwiperSlide>
-          ))}
+          ))
+          }
       </Swiper>
     </>
   );

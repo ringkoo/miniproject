@@ -4,10 +4,9 @@ const Navhead = styled.div`
     width: auto;
     background-color: #A1BEFF;
     height: 50px;
-    
     display:flex;
     justify-content: space-between;
-    padding-left: 45%;
+    padding-left: 0%;
 `
 
 const Navtext = styled.span`
