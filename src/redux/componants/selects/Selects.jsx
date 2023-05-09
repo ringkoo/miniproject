@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SelectBoxWrapper, Select } from "./styles";
 
+// 깃터짐 테스트용 주석
+
 const OPTIONS = [
     { id: 0, value: "", name: "" },
     { id: 1, value: "서울", name: "서울" },

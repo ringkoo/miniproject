@@ -8,6 +8,8 @@ import DetailPage from "../pages/DetailPage";
 import UpdateArticle from "../pages/UpdateArticle";
 import Areadetail from "../pages/Areadetail";
 
+// 깃터짐 테스트용 주석
+
 const Router = () => {
   return (
     <BrowserRouter>

@@ -25,8 +25,6 @@ function Navbar(props) {
                         <Logintext onClick={() => { navigate('/login') }}>로그아웃</Logintext>
                 }
             </Navhead>
-
-
         </>
     )
 }

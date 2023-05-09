@@ -2,6 +2,8 @@ import React from "react";
 import Write from "../redux/componants/write/Write";
 import Navbar from "../redux/componants/navbar/Navbar";
 
+// 깃터짐 테스트용 주석
+
 function WriteArticle() {
   return (
     <>

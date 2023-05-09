@@ -13,6 +13,8 @@ import { Keyboard, Navigation, Pagination } from "swiper";
 import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
 
+// 깃터짐 테스트용 주석
+
 function Areadetail() {
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);

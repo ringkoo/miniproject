@@ -21,6 +21,8 @@ import {
 import { useQuery, useMutation } from "react-query";
 import Navbar from "../redux/componants/navbar/Navbar";
 
+// 깃터짐 테스트용 주석
+
 function DetailPage() {
   const params = useParams();
   const navigate = useNavigate();
