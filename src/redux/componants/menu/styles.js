@@ -14,7 +14,7 @@ const MenuButton = styled.button`
   margin-top: 50px;
   margin-left: 20px;
   color: white;
-  background-color: #009774;
+  background-color: #a1beff;
   font-size: 16px;
   border-radius: 5px;
   border: none;
@@ -24,7 +24,7 @@ const MenuButton = styled.button`
   text-align: center;
   &:hover {
     color: #ffffff;
-    background-color: #016a52;
+    background-color: #c2beff;
     cursor: pointer;
   }
 `;

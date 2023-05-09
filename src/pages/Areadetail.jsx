@@ -82,7 +82,7 @@ function Areadetail() {
             <SwiperSlide>
               <div
                 style={{
-                  border: "1px solid black",
+                  border: "3px solid  #a1beff",
                   width: "400px",
                   height: "500px",
                   borderRadius: "8px",
@@ -97,7 +97,10 @@ function Areadetail() {
                     height: "300px",
                   }}
                 >
-                  <img src="" alt="Article Image" />
+                  <img
+                    src={`http://서버주소/uploads/${data.id}.jpg`}
+                    alt="example"
+                  />
                 </div>
                 {/* <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p> */}
                 <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>

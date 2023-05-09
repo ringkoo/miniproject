@@ -84,10 +84,12 @@ function DetailPage() {
         </ArticleTitle>
         <SecondWrapper>
           <ArticleImage>
-            <img src="" alt="Article" />
+            <img src="http://서버주소/uploads/example.jpg" alt="example" />
           </ArticleImage>
           <ArticleBody>
-            <div>{data.content}</div>
+            <div>
+              <h2>&nbsp;{data.content}</h2>
+            </div>
           </ArticleBody>
         </SecondWrapper>
         <ArticleBottom>
@@ -105,7 +107,7 @@ function DetailPage() {
             <Button
               style={{ marginRight: "10px" }}
               onClick={() => {
-                navigate("/updatearticle");
+                navigate(`/detailpage/${params.id}/update`);
               }}
             >
               수정

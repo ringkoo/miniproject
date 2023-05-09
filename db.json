@@ -100,6 +100,19 @@
     },
     {
       "id": 14
+    },
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "food",
+      "id": 15
+    },
+
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "food",
+      "id": 16
     }
   ],
   "comments": [
@@ -132,11 +145,6 @@
       "content": "ㅣ;ㅏㅣ;ㅏ;ㅣ",
       "detailpageId": "7",
       "id": 78
-    },
-    {
-      "content": "댓글 하나",
-      "detailpageId": "14",
-      "id": 79
     }
   ]
 }

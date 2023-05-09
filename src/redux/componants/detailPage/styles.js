@@ -5,6 +5,7 @@ const WrapperTop = styled.div`
   width: 80%;
   margin: 50px auto;
   min-height: 400px;
+  border: 3px solid #a1beff;
   background-color: #ddd;
   border-radius: 5px;
   display: flex;
@@ -21,7 +22,7 @@ const SecondWrapper = styled.div`
 `;
 
 const ArticleImage = styled.div`
-  border: 1px solid green;
+  border: 2px solid #a1beff;
   height: 400px;
 
   width: 40%;
@@ -30,7 +31,7 @@ const ArticleImage = styled.div`
 `;
 
 const ArticleBody = styled.div`
-  border: 1px solid red;
+  border: 2px solid #a1beff;
   margin-top: 50px;
   height: 500px;
   width: 50%;
@@ -69,7 +70,7 @@ const CommentInput = styled.input`
 
 const Button = styled.button`
   color: white;
-  background-color: #009774;
+  background-color: #a1beff;
   font-size: 16px;
   border-radius: 5px;
   margin-right: 10px;
@@ -80,13 +81,13 @@ const Button = styled.button`
   text-align: center;
   &:hover {
     color: #ffffff;
-    background-color: #016a52;
+    background-color: #c1beff;
     cursor: pointer;
   }
 `;
 
 const PostComment = styled.div`
-  background-color: #ccc;
+  background-color: #a1beff;
   border-radius: 5px;
   display: flex;
   margin-bottom: 10px;
@@ -94,7 +95,7 @@ const PostComment = styled.div`
 
 const CommentWrapper = styled.div`
   display: flex;
-  background-color: #ccc;
+  background-color: #a1beff;
 
   border-radius: 5px;
   margin-bottom: 10px;
