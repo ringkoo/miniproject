@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getArticle } from "../api/articles";
+import { getArticle, deleteArticle } from "../api/articles";
 import { postComment, getComments, deleteComments } from "../api/comments";
 import { useState } from "react";
 import {

@@ -25,4 +25,17 @@ const addArticle = async (formData) => {
   await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, formData);
 };
 
-export { getArticle, getArticles, addArticle };
+//게시글 삭제
+const deleteArticle = async (id) => {
+  const confirmed = window.confirm("정말로 삭제하시겠습니까?");
+  if (!confirmed) {
+    return; // 삭제 취소
+  }
+  // console.log(id);
+  const response = await axios.delete(
+    `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
+  );
+  return response.data;
+};
+
+export { getArticle, getArticles, addArticle, deleteArticle };
