@@ -18,7 +18,7 @@ import {
   CommentContent,
   DeleteButtonWrapper,
 } from "../redux/componants/detailPage/styles";
-import { useQuery, useMutation, queryClient } from "react-query";
+import { useQuery, useMutation } from "react-query";
 
 function DetailPage() {
   const params = useParams();
@@ -54,20 +54,20 @@ function DetailPage() {
     // 댓글목록 다시 가져오기
     refetchComments();
   };
+
+  const handleDeleteArticle = async () => {
+    const confirmed = window.confirm("정말로 삭제하시겠습니까?");
+    if (confirmed) {
+      await deleteArticle(params.id);
+      navigate("/areadetail");
+    }
+  };
+
   const handleSubmitComment = (e) => {
     e.preventDefault();
     mutate(commentContent);
 
-    // ,
-
-    // {
-    // onSuccess: () => {
     setCommentContent("");
-    // queryClient.invalidateQueries(["getArticle", params.id]);
-    // queryClient.invalidateQueries(["getComments", params.id]);
-    // },
-    // }
-    // );
   };
   if (isLoading || isLoadingComments) {
     return <div>로딩중입니다...</div>;
@@ -110,7 +110,7 @@ function DetailPage() {
             >
               수정
             </Button>
-            <Button>삭제</Button>
+            <Button onClick={handleDeleteArticle}>삭제</Button>
           </div>
         </ArticleBottom>
       </WrapperTop>
