@@ -46,7 +46,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   margin: 0 auto 0 46px;
-  width: 46%;
+  width: 45%;
   padding: 10px;
   font-size: 16px;
   /* border: none; */
@@ -82,8 +82,8 @@ const Textarea = styled.textarea`
 `;
 
 const Select = styled.select`
-  width: 20%;
-  margin-left: 180px;
+  width: 13%;
+  margin-left: 40px;
   padding: 10px;
   font-size: 16px;
   /* border: none; */

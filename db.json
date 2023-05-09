@@ -60,13 +60,25 @@
       "title": " l ",
       "content": " articles",
       "category": "food",
+      "region": "경기",
       "id": 15
     },
     {
       "title": " l ",
       "content": " articles",
       "category": "food",
+      "region": "경기",
       "id": 16
+    },
+    {
+      "title": " ㄳㄷ ",
+      "content": " articles",
+      "category": "food",
+      "region": "경기",
+      "id": 17
+    },
+    {
+      "id": 18
     }
   ],
   "comments": [

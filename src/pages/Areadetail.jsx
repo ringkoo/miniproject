@@ -12,8 +12,10 @@ import Menu from "../redux/componants/menu/menu";
 import { Keyboard, Navigation, Pagination } from "swiper";
 import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
-
+import { useLocation } from "react-router-dom";
 function Areadetail() {
+  const location = useLocation();
+  const region = location.state?.region;
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);
 
@@ -23,7 +25,7 @@ function Areadetail() {
   if (isError) {
     return <div>오류가 발생했습니다.</div>;
   }
-
+  const filteredData = data.filter((posts) => posts.region === region);
   return (
     <>
       <Navbar isActive={true}>서울</Navbar>
@@ -75,7 +77,7 @@ function Areadetail() {
       >
         {/* slice() 함수를 사용해서 배열을 복사하여 새로운 배열을 반환
         reverse() 함수로 새 배열의 순서를 뒤집기. 그 후 map() 함수를 호출해서 최신순으로 정렬함 */}
-        {data
+        {filteredData
           .slice()
           .reverse()
           .map((posts) => (
@@ -103,6 +105,7 @@ function Areadetail() {
                   />
                 </div>
                 {/* <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p> */}
+                <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
                 <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>

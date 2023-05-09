@@ -33,6 +33,7 @@ function Write() {
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
+  const [region, setRegion] = useState("");
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -47,8 +48,8 @@ function Write() {
     //   return;
     // }
 
-    if (!title || !content || !category || !image) {
-      alert("제목, 내용, 카테고리, 이미지를 모두 입력해주세요.");
+    if (!title || !content || !category || !image || !region) {
+      alert("제목, 내용, 카테고리,지역, 이미지를 모두 입력해주세요.");
       return;
     }
 
@@ -56,6 +57,7 @@ function Write() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("category", category);
+    formData.append("region", region);
     formData.append("image", image);
 
     mutation.mutate(formData);
@@ -110,17 +112,38 @@ function Write() {
 
         <RightContainer>
           <Form onSubmit={handleSubmit}>
-            <div style={{ marginTop: "40px" }}>
+            <div
+              style={{
+                marginTop: "40px",
+
+                marginLeft: "145px",
+              }}
+            >
               <Select
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">카테고리 선택</option>
+                <option value="">장르</option>
                 <option value="맛집">맛집</option>
                 <option value="관광지">관광지</option>
                 <option value="축제">축제</option>
               </Select>
+              <Select
+                id="region"
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+              >
+                <option value="">지역</option>
+                <option value="서울">서울</option>
+                <option value="경기">경기</option>
+                <option value="강원">강원</option>
+                <option value="충청">충청</option>
+                <option value="경상">경상</option>
+                <option value="전라">전라</option>
+                <option value="제주">제주</option>
+              </Select>
+
               <Input
                 id="title"
                 type="text"

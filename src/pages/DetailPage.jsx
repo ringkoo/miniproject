@@ -93,7 +93,7 @@ function DetailPage() {
           </ArticleBody>
         </SecondWrapper>
         <ArticleBottom>
-          {/* <p style={{ marginLeft: "10px" }}>좋아요 수 {data.goodCount} </p> */}
+          <p style={{ marginLeft: "10px" }}>지역 {data.region} </p>
           <p>&nbsp;작성 시간 {data.createdAt}</p>
           <p>작성자{data.nickname} </p>
 

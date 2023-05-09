@@ -26,6 +26,7 @@ function UpdateArticle() {
   const [content, setContent] = useState(params.content);
   const [image, setImage] = useState(params.image);
   const [category, setCategory] = useState(params.category);
+  const [region, setRegion] = useState(params.region);
 
   const { isLoading, isError, data } = useQuery("getArticle", () =>
     getArticle(params.id)
@@ -39,8 +40,17 @@ function UpdateArticle() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    mutate({ id: params.id, title, content, image, category });
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
+    formData.append("image", image);
+
+    mutate({ id: params.id, formData });
   };
+  //   mutate({ id: params.id, title, content, image, category });
+  //   // console.log(title);
+  // };
 
   //이미지 업로드를 처리하기 위한 핸들러 함수
   // input 요소에서 파일 선택이 발생했을 때 호출, 선택된 파일 정보가 event 객체로 전달
@@ -97,7 +107,7 @@ function UpdateArticle() {
 
         <RightContainer>
           <Form onSubmit={handleSubmit}>
-            <div style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "40px", marginLeft: "145px" }}>
               <Select
                 id="category"
                 value={category}
@@ -106,10 +116,26 @@ function UpdateArticle() {
                 disabled
                 defaultValue={data.category}
               >
-                <option value="">카테고리 선택</option>
+                <option value="">장르</option>
                 <option value="food">맛집</option>
                 <option value="travel">관광지</option>
                 <option value="fashion">축제</option>
+              </Select>
+              <Select
+                id="region"
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+                disabled
+                defaultValue={data.region}
+              >
+                <option value="">지역</option>
+                <option value="서울">서울</option>
+                <option value="경기">경기</option>
+                <option value="강원">강원</option>
+                <option value="충청">충청</option>
+                <option value="경상">경상</option>
+                <option value="전라">전라</option>
+                <option value="제주">제주</option>
               </Select>
               <Input
                 id="title"
