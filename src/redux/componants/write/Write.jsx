@@ -21,9 +21,12 @@ function Write() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(addArticle, {
-    onSuccess: () => {
+    onSuccess: async () => {
       queryClient.invalidateQueries("getArticle");
-      console.log("성공하였습니다!");
+      if (window.confirm("작성한 글을 등록하시겠습니까?")) {
+        navigate("/areadetail");
+        alert("글이 정상적으로 등록되었습니다.");
+      }
     },
   });
 
@@ -54,8 +57,6 @@ function Write() {
     formData.append("image", image);
 
     mutation.mutate(formData);
-
-    navigate("/areadetail");
   };
 
   return (

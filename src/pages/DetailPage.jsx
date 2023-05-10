@@ -82,9 +82,11 @@ function DetailPage() {
 
   const handleSubmitComment = (e) => {
     e.preventDefault();
-    mutate(commentContent);
 
-    setCommentContent("");
+    if (window.confirm("댓글을 등록하시겠습니까?")) {
+      mutate(commentContent);
+      setCommentContent("");
+    }
   };
   if (isLoading || isLoadingComments) {
     return <div>로딩중입니다...</div>;
@@ -142,6 +144,7 @@ function DetailPage() {
       <WrapperBottom>
         <h2>댓글</h2>
 
+        {/* {localStorage.getItem("accessToken") ? ( */}
         <PostComment>
           <p style={{ marginLeft: "10px" }}>지역 </p>
           <p style={{ marginLeft: "10px" }}>닉네임 </p>
@@ -159,6 +162,7 @@ function DetailPage() {
             작성
           </button>
         </PostComment>
+        {/* ) : null} */}
         {comments &&
           comments.map((comment) => (
             <CommentWrapper key={comment.id}>
@@ -173,6 +177,9 @@ function DetailPage() {
               <p style={{ marginRight: "20px" }}>{comment.createdAt}</p>
 
               <DeleteButtonWrapper>
+                {/* {localStorage.getItem("accessToken") &&
+                data.userId ===
+                  JSON.parse(localStorage.getItem("userInfo")).id ? ( */}
                 <button
                   style={{ margin: "10px" }}
                   onClick={() => {
@@ -181,6 +188,7 @@ function DetailPage() {
                 >
                   삭제
                 </button>
+                {/* ) : null} */}
               </DeleteButtonWrapper>
             </CommentWrapper>
           ))}
