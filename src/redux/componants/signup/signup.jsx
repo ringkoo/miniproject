@@ -122,25 +122,25 @@ function Signbox(props) {
 
     
     // "01" : 아이디 입력 없을 시 경고
-    // if (!username) {
-    //   return getErrorMsg("01");
-    // }
+    if (!username) {
+      return getErrorMsg("01");
+    }
     // "02" : 비밀번호 입력 없을 시 경고
-    // if (!password) {
-    //   return getErrorMsg("02");
-    // }
+    if (!password) {
+      return getErrorMsg("02");
+    }
     // "03" : 비밀번호 확인 다를 시 경고
-    // if (password !== password2) {
-    //   return getErrorMsg("03")
-    // }
+    if (password !== password2) {
+      return getErrorMsg("03")
+    }
     // "04" : 닉네임 입력 없을 시 경고
-    // if (!nickname) {
-    //   return getErrorMsg("04");
-    // }
+    if (!nickname) {
+      return getErrorMsg("04");
+    }
     // "05" : 지역 입력 안할 시 경고
-    // if (!address) {
-    //   return getErrorMsg("05");
-    // }
+    if (!address) {
+      return getErrorMsg("05");
+    }
 
 
     const newUsers = {
