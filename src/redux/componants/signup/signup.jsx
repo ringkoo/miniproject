@@ -27,7 +27,7 @@ function Signbox(props) {
   const queryClient = useQueryClient();
   const mutation = useMutation(addUsers, {
     onSuccess: () => {
-      queryClient.invalidateQueries("users")
+      queryClient.invalidateQueries("signup")
       alert("회원가입이 완료되었습니다")
       navigate('/login')
     }
