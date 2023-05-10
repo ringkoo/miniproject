@@ -27,6 +27,7 @@ function DetailPage() {
   const { isLoading, isError, data } = useQuery("getArticle", () =>
     getArticle(params.id)
   );
+  // console.log(data.comments);
   const [commentContent, setCommentContent] = useState("");
   // const [currentUser, setCurrentUser] = useState(null); // 현재 사용자 정보
 
@@ -65,7 +66,7 @@ function DetailPage() {
     data: comments,
     refetch: refetchComments,
   } = useQuery("getComments", () => getComments(params.id));
-
+  // console.log(getComments);
   const handleDeleteComment = async (commentId) => {
     await deleteComments(commentId);
 
@@ -85,6 +86,9 @@ function DetailPage() {
 
     if (window.confirm("댓글을 등록하시겠습니까?")) {
       mutate(commentContent);
+
+      console.log(commentContent);
+
       setCommentContent("");
     }
   };
@@ -138,7 +142,7 @@ function DetailPage() {
             </Button>
             <Button onClick={handleDeleteArticle}>삭제</Button>
           </div>
-          {/* )} */}
+          {/* ) } */}
         </ArticleBottom>
       </WrapperTop>
       <WrapperBottom>
@@ -163,10 +167,10 @@ function DetailPage() {
           </button>
         </PostComment>
         {/* ) : null} */}
-        {comments &&
-          comments.map((comment) => (
+        {data.comments &&
+          data.comments.map((comment) => (
             <CommentWrapper key={comment.id}>
-              {console.log(data)}
+              {/* {console.log(data)} */}
               <p style={{ marginLeft: "10px" }}>지역{comment.region} </p>
               <p style={{ marginLeft: "10px", flexGrow: 1 }}>
                 작성자

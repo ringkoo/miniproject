@@ -12,7 +12,7 @@ const getArticle = async (id) => {
     `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
   );
 
-  return response.data.postList;
+  return response.data;
 };
 
 //입력(post요청)

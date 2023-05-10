@@ -8,7 +8,7 @@ export const postComment = async (id, content) => {
   }
 
   const response = await axios.post(
-    `${process.env.REACT_APP_SERVER_URL}/comments`,
+    `${process.env.REACT_APP_SERVER_URL}/comment/${id}`,
     { content }
   );
   return response.data;
@@ -17,7 +17,7 @@ export const postComment = async (id, content) => {
 // 댓글 조회
 export const getComments = async (id) => {
   const response = await axios.get(
-    `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
+    `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
   );
   return response.data;
 };
@@ -30,7 +30,7 @@ export const deleteComments = async (id) => {
   }
   // console.log(id);
   const response = await axios.delete(
-    `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
+    `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
   );
   return response.data;
 };
