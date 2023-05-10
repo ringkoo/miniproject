@@ -66,11 +66,7 @@
       "region": "전라"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "축제",
-      "id": 11,
-      "region": "충청"
+      "id": 11
     },
     {
       "title": " l ",
@@ -127,6 +123,11 @@
       "content": "강은빈",
       "detailpageId": "6",
       "id": 79
+    },
+    {
+      "content": "';ㅣ';ㅣ",
+      "detailpageId": "11",
+      "id": 80
     }
   ]
 }
