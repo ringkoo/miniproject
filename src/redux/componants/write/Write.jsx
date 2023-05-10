@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
-// import { useNavigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
+
 import {
   Container,
   LeftContainer,
@@ -18,10 +17,7 @@ import {
   ImageBox,
 } from "./styles";
 
-// 깃터짐 테스트용 주석
-
 function Write() {
-  // const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(addArticle, {
@@ -45,11 +41,6 @@ function Write() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!auth.isAuthenticated) {
-    //   alert("로그인 후 글 작성이 가능합니다.");
-    //   return;
-    // }
-
     if (!title || !content || !category || !image || !region) {
       alert("제목, 내용, 분야,지역, 이미지를 모두 입력해주세요.");
       return;
@@ -64,19 +55,13 @@ function Write() {
 
     mutation.mutate(formData);
 
-    for (let data of formData) {
-      console.log(data);
-    }
-
     navigate("/areadetail");
-    // }
   };
 
   return (
     <>
       <Container>
         <LeftContainer>
-          {/* 이미지 추가 버튼 숨기고 div박스 추가해서 클릭 시 파일 추가 가능하게 함  */}
           <ImageDiv
             className="image-upload"
             onClick={() => {
@@ -84,11 +69,10 @@ function Write() {
             }}
           >
             {image ? (
-              // div 박스를 클릭해서 추가했을 때 같은 크기의 프리뷰 창으로 이미지 미리보기 가능
               <ImagePreview
                 src={URL.createObjectURL(image)}
                 style={{
-                  objectFit: "cover", // 이미지 안잘리게 크기 맞춰서 축소
+                  objectFit: "cover",
                 }}
               />
             ) : (
@@ -98,7 +82,6 @@ function Write() {
               id="image"
               type="file"
               onChange={handleImageChange}
-              // 버튼 숨기기
               style={{ display: "none" }}
             />
           </ImageDiv>

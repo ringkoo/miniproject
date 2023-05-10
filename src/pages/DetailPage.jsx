@@ -7,8 +7,6 @@ import {  WrapperTop,  SecondWrapper,  ArticleImage,  ArticleBody,  ArticleTitle
 import { useQuery, useMutation } from "react-query";
 import Navbar from "../redux/componants/navbar/Navbar";
 
-// 깃터짐 테스트용 주석
-
 function DetailPage() {
   const params = useParams();
   const navigate = useNavigate();
@@ -17,15 +15,8 @@ function DetailPage() {
   );
   const [commentContent, setCommentContent] = useState("");
 
-  //useMutation : 서버와 상호작용하는 함수를 실행하면서 mutation 상태를 관리
-  //첫 번째 매개변수는 mutation 함수이고, 두 번째 매개변수는 mutation에 대한 설정 객체.
-  //postComment 함수는 첫 번째 인자로 게시물 ID를 받고, 두 번째 인자로는 작성한 댓글 내용을 받는다.
   const { mutate } = useMutation((content) => postComment(params.id, content), {
-    //mutation 상태 관리
-    //성공했을 때 쿼리 무효화, 댓글 작성란 비우기
     onSuccess: () => {
-      // queryClient.invalidateQueries("getArticle");
-      // queryClient.invalidateQueries("getComments");
       setCommentContent("");
       refetchComments();
     },
@@ -40,7 +31,7 @@ function DetailPage() {
 
   const handleDeleteComment = async (commentId) => {
     await deleteComments(commentId);
-    // 댓글목록 다시 가져오기
+
     refetchComments();
   };
 
@@ -108,9 +99,8 @@ function DetailPage() {
       </WrapperTop>
       <WrapperBottom>
         <h2>댓글</h2>
-        {/* 댓글 쓸 때마다 늘어나게 하기*/}
+
         <PostComment>
-          {/* 댓 작성 공간 */}
           <p style={{ marginLeft: "10px" }}>지역 </p>
           <p style={{ marginLeft: "10px" }}>닉네임 </p>
           <CommentInput
@@ -130,23 +120,21 @@ function DetailPage() {
         {comments &&
           comments.map((comment) => (
             <CommentWrapper key={comment.id}>
-              {/* 댓글  작성자 정보 */}
               <p style={{ marginLeft: "10px" }}>지역{comment.region} </p>
               <p style={{ marginLeft: "10px", flexGrow: 1 }}>
                 작성자
                 {comment.nickname}{" "}
               </p>
-              {/* 댓글 내용 */}
+
               <CommentContent>&nbsp; {comment.content}</CommentContent>
-              {/* 작성시간 */}
+
               <p style={{ marginRight: "20px" }}>{comment.createdAt}</p>
-              {/* 삭제 버튼 */}
+
               <DeleteButtonWrapper>
                 <button
                   style={{ margin: "10px" }}
                   onClick={() => {
                     handleDeleteComment(comment.id);
-                    // console.log(comment.id);
                   }}
                 >
                   삭제
