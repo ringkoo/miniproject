@@ -21,7 +21,7 @@ function Areadetail() {
   const category = location.state?.category;
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);
-
+  const localStorageRegion = localStorage.getItem("region");
   if (isLoading) {
     return <div>로딩중입니다...</div>;
   }
@@ -32,14 +32,18 @@ function Areadetail() {
   if (region) {
     filteredData = data.filter((posts) => posts.region === region);
   }
-  if (category) { // 누르면
-    filteredData = data.filter((posts) => posts.category === category)
+  if (category) {
+    filteredData = filteredData.filter(
+      (posts) =>
+        posts.category === category && posts.region === localStorageRegion
+    );
+    //   console.log(filteredData);
   }
-  //  if(region && category) {
-  //     filteredData = data.filter(
-  //       (posts) => posts.region === region && posts.category === category
-  //     );
-  //   }
+  if (category === "") {
+    filteredData = filteredData.filter(
+      (posts) => posts.region === localStorageRegion
+    );
+  }
 
   return (
     <>

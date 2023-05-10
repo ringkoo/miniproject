@@ -28,6 +28,7 @@ function Mainmap() {
             onClick={() => {
               //Mainmap 컴포넌트에서 클릭한 지역 정보를 route state에 담아서 Areadetail로 전달
               navigate("/Areadetail", { state: { region: "서울" } });
+              localStorage.setItem("region", "서울");
             }}
           >
             서울
@@ -35,6 +36,7 @@ function Mainmap() {
           <KIButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "경기" } });
+              localStorage.setItem("region", "경기");
             }}
           >
             경기
@@ -42,6 +44,7 @@ function Mainmap() {
           <KangwonButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "강원" } });
+              localStorage.setItem("region", "강원");
             }}
           >
             강원
@@ -49,6 +52,7 @@ function Mainmap() {
           <JyunlaButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "전라" } });
+              localStorage.setItem("region", "전라");
             }}
           >
             전라
@@ -56,6 +60,7 @@ function Mainmap() {
           <KyungsangButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "경상" } });
+              localStorage.setItem("region", "경상");
             }}
           >
             경상
@@ -63,6 +68,7 @@ function Mainmap() {
           <ChungcyungButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "충청" } });
+              localStorage.setItem("region", "충청");
             }}
           >
             충청
@@ -70,6 +76,7 @@ function Mainmap() {
           <JejuButton
             onClick={() => {
               navigate("/Areadetail", { state: { region: "제주" } });
+              localStorage.setItem("region", "제주");
             }}
           >
             제주
