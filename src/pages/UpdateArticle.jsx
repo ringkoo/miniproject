@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../redux/componants/navbar/Navbar";
 import { getArticle, updateArticle } from "../api/articles";
-// import { updateArticle, getArticle } from "../api/articles";
 import { useQuery, useMutation } from "react-query";
 import { useParams, useNavigate } from "react-router";
 
@@ -18,8 +17,6 @@ import {
   Button,
   ImageBox,
 } from "../redux/componants/write/styles";
-
-// 깃터짐 테스트용 주석
 
 function UpdateArticle() {
   const params = useParams();
@@ -49,21 +46,9 @@ function UpdateArticle() {
     formData.append("image", image);
 
     mutate({ id: params.id, formData });
-
-    // for (let data of formData) {
-    //   console.log(data);
-    // }
   };
-  //   mutate({ id: params.id, title, content, image, category });
-  //   // console.log(title);
-  // };
-
-  //이미지 업로드를 처리하기 위한 핸들러 함수
-  // input 요소에서 파일 선택이 발생했을 때 호출, 선택된 파일 정보가 event 객체로 전달
 
   const handleImageChange = (event) => {
-    //event.target.files는 파일 선택 대화상자에서 선택된 파일 목록을 나타내는 FileList 객체
-    //FileList 객체의 첫 번째 파일을 가져와서 file 변수에 할당
     const file = event.target.files[0];
     setImage(file);
   };
@@ -80,7 +65,6 @@ function UpdateArticle() {
 
       <Container>
         <LeftContainer>
-          {/* 이미지 추가 버튼 숨기고 div박스 추가해서 클릭 시 파일 추가 가능하게 함  */}
           <ImageDiv
             className="image-upload"
             onClick={() => {
@@ -88,11 +72,10 @@ function UpdateArticle() {
             }}
           >
             {image ? (
-              // div 박스를 클릭해서 추가했을 때 같은 크기의 프리뷰 창으로 이미지 미리보기 가능
               <ImagePreview
                 src={URL.createObjectURL(image)}
                 style={{
-                  objectFit: "cover", // 이미지 안잘리게 크기 맞춰서 축소
+                  objectFit: "cover",
                 }}
               />
             ) : (
@@ -104,7 +87,6 @@ function UpdateArticle() {
               id="image"
               type="file"
               onChange={handleImageChange}
-              // 버튼 숨기기
               defaultValue={data.image}
               style={{ display: "none" }}
             />
@@ -118,7 +100,6 @@ function UpdateArticle() {
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                // 카테고리는 수정불가하게
                 disabled
                 defaultValue={data.category}
               >

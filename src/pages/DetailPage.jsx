@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getArticle, deleteArticle } from "../api/articles";
 import { postComment, getComments, deleteComments } from "../api/comments";
 import { useState } from "react";
-import {  WrapperTop,  SecondWrapper,  ArticleImage,  ArticleBody,  ArticleTitle,  WrapperBottom,  ArticleBottom,  CommentInput,  Button,  PostComment,  CommentWrapper,  CommentContent,  DeleteButtonWrapper} from "../redux/componants/detailPage/styles";
+import {
+  WrapperTop,
+  SecondWrapper,
+  ArticleImage,
+  ArticleBody,
+  ArticleTitle,
+  WrapperBottom,
+  ArticleBottom,
+  CommentInput,
+  Button,
+  PostComment,
+  CommentWrapper,
+  CommentContent,
+  DeleteButtonWrapper,
+} from "../redux/componants/detailPage/styles";
 import { useQuery, useMutation } from "react-query";
 import Navbar from "../redux/componants/navbar/Navbar";
 
@@ -14,6 +28,29 @@ function DetailPage() {
     getArticle(params.id)
   );
   const [commentContent, setCommentContent] = useState("");
+  // const [currentUser, setCurrentUser] = useState(null); // 현재 사용자 정보
+
+  // // 현재 사용자 정보를 가져오는 함수
+  // const fetchCurrentUser = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `${process.env.REACT_APP_SERVER_URL}/current-user`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //         },
+  //       }
+  //     );
+  //     const user = await response.json();
+  //     setCurrentUser(user);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  // // 페이지가 처음 로드될 때 현재 사용자 정보를 가져옴
+  // useEffect(() => {
+  //   fetchCurrentUser();
+  // }, []);
 
   const { mutate } = useMutation((content) => postComment(params.id, content), {
     onSuccess: () => {
@@ -78,6 +115,10 @@ function DetailPage() {
           <p>&nbsp;작성 시간 {data.createdAt}</p>
           <p>작성자{data.nickname} </p>
 
+          {/* data.userId는 게시글 작성자의 ID를 의미,
+           currentUser.id는 현재 로그인한 사용자의 ID. 
+           두 값이 일치할 때에만 수정/삭제 버튼이 보이도록 구현 */}
+          {/* {data.userId === currentUser.id && ( */}
           <div
             style={{
               display: "flex",
@@ -95,6 +136,7 @@ function DetailPage() {
             </Button>
             <Button onClick={handleDeleteArticle}>삭제</Button>
           </div>
+          {/* )} */}
         </ArticleBottom>
       </WrapperTop>
       <WrapperBottom>
