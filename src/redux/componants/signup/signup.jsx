@@ -9,6 +9,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { addUsers, getUsers } from "../../../api/users";
 import SelectBox from "../selects/Selects";
 import axios from "axios";
+import Navbar from "../navbar/Navbar";
 
 // 깃터짐 테스트용 주석
 
@@ -120,7 +121,7 @@ function Signbox(props) {
     // submit의 고유 기능인, 새로고침(refresh)을 막아주는 역함
     event.preventDefault();
 
-    
+
     // "01" : 아이디 입력 없을 시 경고
     if (!username) {
       return getErrorMsg("01");
@@ -164,153 +165,155 @@ function Signbox(props) {
   }
 
   return (
-    <Backgroundbox>
-      <div>
-        {/* 회원가입 */}
-        <form onSubmit={handleSubmitButtonClick}>
-          <Wrapbox>
-            <Titlestyle>{props.title}</Titlestyle>
-            <div>
-              {/* ID */}
-              <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
+    <>
+      <Navbar />
+      <Backgroundbox>
+        <div>
+          {/* 회원가입 */}
+          <form onSubmit={handleSubmitButtonClick}>
+            <Wrapbox>
+              <Titlestyle>{props.title}</Titlestyle>
+              <div>
+                {/* ID */}
+                <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
+                  <Inputs
+                    value={username}
+                    onChange={changeUsername}
+                    type="email"
+                    label='ID'
+                    widthinput='250px'
+                    width='250px'
+                    height='30px'
+                    marginbottom='30px'
+                    maxLength='30'
+                  />
+                  <div style={{ position: 'relative', left: '40%' }}>
+                    {/* ID 중복확인 버튼*/}
+                    <Exbuttons
+                      type='button'
+                      onClick={() => {
+                        try {
+                          axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, username);
+                        } catch (error) {
+                          console.log(error)
+                        }
+                      }}
+                    //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    //   const userExists = data.find(item => item.username === username);
+                    //   if (!userExists) {
+                    //     if (emailRegex.test(username)) {
+                    //       return alert('사용 가능한 이메일 입니다.')
+                    //     } else {
+                    //       return alert('이메일 형식을 확인해주세요. ex)test@test.com')
+                    //     }
+                    //   } else {
+                    //     setUsername('')
+                    //     return alert('이미 가입된 이메일 입니다')
+                    //   }
+                    // }}
+                    >확인</Exbuttons>
+                  </div>
+                </div>
+                {/* 비밀번호 */}
                 <Inputs
-                  value={username}
-                  onChange={changeUsername}
-                  type="email"
-                  label='ID'
+                  value={password}
+                  onChange={changePassword}
+                  type="password"
+                  label='Password'
                   widthinput='250px'
                   width='250px'
                   height='30px'
                   marginbottom='30px'
-                  maxLength='30'
-                />
-                <div style={{ position: 'relative', left: '40%' }}>
-                  {/* ID 중복확인 버튼*/}
-                  <Exbuttons
-                    type='button'
-                    onClick={() => {
-                      try {
-                        axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, username);
-                      } catch (error) {
-                        console.log(error)
-                      }
-                    }}
-                  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                  //   const userExists = data.find(item => item.username === username);
-                  //   if (!userExists) {
-                  //     if (emailRegex.test(username)) {
-                  //       return alert('사용 가능한 이메일 입니다.')
-                  //     } else {
-                  //       return alert('이메일 형식을 확인해주세요. ex)test@test.com')
-                  //     }
-                  //   } else {
-                  //     setUsername('')
-                  //     return alert('이미 가입된 이메일 입니다')
-                  //   }
-                  // }}
-                  >확인</Exbuttons>
-                </div>
-              </div>
-              {/* 비밀번호 */}
-              <Inputs
-                value={password}
-                onChange={changePassword}
-                type="password"
-                label='Password'
-                widthinput='250px'
-                width='250px'
-                height='30px'
-                marginbottom='30px'
-                maxLength='20' />
-              {/* 비밀번호 확인 */}
-              <Inputs
-                value={password2}
-                onChange={changePassword2}
-                type="password"
-                label='Password Check'
-                widthinput='250px'
-                width='250px'
-                height='30px'
-                marginbottom='30px' />
-              {/* 닉네임 */}
-              <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
+                  maxLength='20' />
+                {/* 비밀번호 확인 */}
                 <Inputs
-                  value={nickname}
-                  onChange={changeNickname}
-                  type="text"
-                  label='Nickname'
+                  value={password2}
+                  onChange={changePassword2}
+                  type="password"
+                  label='Password Check'
                   widthinput='250px'
                   width='250px'
                   height='30px'
-                  marginbottom='30px'
-                  minLength='4'
-                  maxLength='10' />
-                <div style={{ position: 'relative', left: '40%' }}>
-                  {/* 닉네임 중복확인 버튼 */}
-                  <Exbuttons type='button'
-                  // onClick={() => {
-                  //   const nickNameRegex = /^[가-힣]+$/;
-                  //   const nickExists = data.find(item => item.nickname === nickname);
-                  //   if (!nickExists) {
-                  //     if (nickNameRegex.test(nickname)) {
-                  //       return alert('사용 가능한 닉네임 입니다.')
-                  //     } else {
-                  //       setNickname("")
-                  //       return alert('닉네임은 한글 단어만 입력 가능합니다.')
-                  //     }
-                  //   } else {
-                  //     setNickname("");
-                  //     return alert('이미 가입된 닉네임 입니다')
-                  //   }
-                  // }}
-                  >확인</Exbuttons>
-                </div>
-              </div>
-              {/* 지역 선택 */}
-              <SelectBox
-                value={address}
-                onChange={changeAddress} >City</SelectBox>
-            </div>
-            {/* 관리자 선택 */}
-            <div style={{ position: "relative", left: "-33%" }}>
-              <div style={{ position: "relative", left: "40%" }}>
-                {/* 체크박스 */}
-                <input
-                  style={{ position: 'relative' }}
-                  type="checkbox"
-                  id="cb1"
-                  checked={isAdmin}
-                  onChange={changeIsAdmin}
-                // onClick={changeIsAdmin}
-                />
-                {/* 관리자 인증 키 */}
-                {
-                  isAdmin === true ? <Inputs
-                    position='relative'
-                    value={authKey}
-                    onChange={changeAuthKey}
+                  marginbottom='30px' />
+                {/* 닉네임 */}
+                <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
+                  <Inputs
+                    value={nickname}
+                    onChange={changeNickname}
                     type="text"
-                    label='Admin'
-                    widthinput='70px'
-                    width='70px'
-                    height='20px'
-                    marginbottom='30px' /> : null
-                }
+                    label='Nickname'
+                    widthinput='250px'
+                    width='250px'
+                    height='30px'
+                    marginbottom='30px'
+                    minLength='4'
+                    maxLength='10' />
+                  <div style={{ position: 'relative', left: '40%' }}>
+                    {/* 닉네임 중복확인 버튼 */}
+                    <Exbuttons type='button'
+                    // onClick={() => {
+                    //   const nickNameRegex = /^[가-힣]+$/;
+                    //   const nickExists = data.find(item => item.nickname === nickname);
+                    //   if (!nickExists) {
+                    //     if (nickNameRegex.test(nickname)) {
+                    //       return alert('사용 가능한 닉네임 입니다.')
+                    //     } else {
+                    //       setNickname("")
+                    //       return alert('닉네임은 한글 단어만 입력 가능합니다.')
+                    //     }
+                    //   } else {
+                    //     setNickname("");
+                    //     return alert('이미 가입된 닉네임 입니다')
+                    //   }
+                    // }}
+                    >확인</Exbuttons>
+                  </div>
+                </div>
+                {/* 지역 선택 */}
+                <SelectBox
+                  value={address}
+                  onChange={changeAddress} >City</SelectBox>
               </div>
-            </div>
-            <div>
-              {/* 가입 버튼 */}
-              <Buttons
-                backgroundcolor='darkgray'
-                type="submit"
-              >가입</Buttons>
-            </div>
-          </Wrapbox>
+              {/* 관리자 선택 */}
+              <div style={{ position: "relative", left: "-33%" }}>
+                <div style={{ position: "relative", left: "40%" }}>
+                  {/* 체크박스 */}
+                  <input
+                    style={{ position: 'relative' }}
+                    type="checkbox"
+                    id="cb1"
+                    checked={isAdmin}
+                    onChange={changeIsAdmin}
+                  // onClick={changeIsAdmin}
+                  />
+                  {/* 관리자 인증 키 */}
+                  {
+                    isAdmin === true ? <Inputs
+                      position='relative'
+                      value={authKey}
+                      onChange={changeAuthKey}
+                      type="text"
+                      label='Admin'
+                      widthinput='70px'
+                      width='70px'
+                      height='20px'
+                      marginbottom='30px' /> : null
+                  }
+                </div>
+              </div>
+              <div>
+                {/* 가입 버튼 */}
+                <Buttons
+                  backgroundcolor='darkgray'
+                  type="submit"
+                >가입</Buttons>
+              </div>
+            </Wrapbox>
 
-        </form>
-      </div>
-
-    </Backgroundbox >
+          </form>
+        </div>
+      </Backgroundbox >
+      </>
   );
 }
 

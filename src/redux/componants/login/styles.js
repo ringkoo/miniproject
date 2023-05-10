@@ -22,7 +22,6 @@ const Wrapbox = styled.div`
 `
 
 const Backgroundbox = styled.div`
-    position:absolute;
     display:flex;
     justify-content: center;
     align-items: center;
