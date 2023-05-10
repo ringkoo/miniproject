@@ -116,7 +116,7 @@ function Loginbox(props) {
 
   return (
     <>
-      <Navbar />
+      <Navbar isActive={true}/>
       <Backgroundbox>
         {/* 로그인 */}
         <form onSubmit={handleSubmitButtonClick}>

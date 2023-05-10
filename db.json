@@ -48,15 +48,11 @@
       "region": "경상"
     },
     {
-<<<<<<< HEAD
-      "id": 11
-=======
       "title": " 제주제목 ",
       "content": " 제주내용",
       "category": "축제",
       "id": 11,
       "region": "충청"
->>>>>>> 0041c279d8384afb11d95c8b730d0d3e13921e3f
     },
     {
       "title": " l ",

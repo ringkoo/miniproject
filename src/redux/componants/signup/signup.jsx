@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { InputStyle, InputWrapper, Label, Titlestyle, Wrapbox, Backgroundbox } from './styles'
-import Secects from "../selects/Selects";
 import Inputs from "../inputs/inputs";
 import Buttons from "../buttons/Buttons";
 import Exbuttons from "../buttons/examinebt";
@@ -166,7 +165,7 @@ function Signbox(props) {
 
   return (
     <>
-      <Navbar />
+      <Navbar isActive={true}/>
       <Backgroundbox>
         <div>
           {/* 회원가입 */}
