@@ -12,7 +12,7 @@ import Menu from "../redux/componants/menu/menu";
 import { Keyboard, Navigation, Pagination } from "swiper";
 import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
-
+// import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function Areadetail() {
@@ -22,12 +22,27 @@ function Areadetail() {
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticles", getArticles);
   const localStorageRegion = localStorage.getItem("region");
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // function checkLogin() {
+  //   const token = localStorage.getItem("token");
+
+  //   if (token) {
+  //     setIsLoggedIn(true);
+  //     navigate("/write");
+  //   } else {
+  //     alert("로그인이 필요합니다.");
+  //     navigate("/login");
+  //   }
+  // }
+
   if (isLoading) {
     return <div>로딩중입니다...</div>;
   }
   if (isError) {
     return <div>오류가 발생했습니다.</div>;
   }
+
   let filteredData = data;
   if (region) {
     filteredData = data.filter((posts) => posts.region === region);
@@ -46,8 +61,7 @@ function Areadetail() {
 
   return (
     <>
-
-      <Navbar isActive={false} > {`${localStorageRegion} 게시판`}</Navbar>
+      <Navbar isActive={false}> {`${localStorageRegion} 게시판`}</Navbar>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Menu />
@@ -59,6 +73,7 @@ function Areadetail() {
             marginRight: "40px",
           }}
           onClick={() => {
+            // checkLogin();
             navigate("/write");
           }}
         >

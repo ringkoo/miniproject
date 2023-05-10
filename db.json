@@ -8,6 +8,33 @@
       "isAdmin": true,
       "authKey": "ㅁㄴㅇㄹ1234",
       "id": 1
+    },
+    {
+      "username": "kk@kk",
+      "password": "kk",
+      "nickname": "ㅏㅏㅏㅏ",
+      "address": "서울",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 2
+    },
+    {
+      "username": "",
+      "password": "",
+      "nickname": "",
+      "address": "",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 3
+    },
+    {
+      "username": "",
+      "password": "",
+      "nickname": "",
+      "address": "",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 4
     }
   ],
   "posts": [
@@ -37,7 +64,6 @@
       "content": " 전라내용",
       "category": "축제",
       "id": 5,
-
       "region": "전라"
     },
     {
@@ -60,6 +86,12 @@
       "category": "맛집",
       "id": 12,
       "region": "경상"
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
     }
   ],
   "comments": [
@@ -97,11 +129,6 @@
       "content": "강은빈",
       "detailpageId": "6",
       "id": 79
-    },
-    {
-      "content": "';ㅣ';ㅣ",
-      "detailpageId": "11",
-      "id": 80
     }
   ]
 }
