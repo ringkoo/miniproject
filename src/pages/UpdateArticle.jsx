@@ -50,9 +50,9 @@ function UpdateArticle() {
 
     mutate({ id: params.id, formData });
 
-    for (let data of formData) {
-      console.log(data);
-    }
+    // for (let data of formData) {
+    //   console.log(data);
+    // }
   };
   //   mutate({ id: params.id, title, content, image, category });
   //   // console.log(title);

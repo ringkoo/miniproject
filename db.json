@@ -43,11 +43,7 @@
       "region": "경기"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 6,
-      "region": "서울"
+      "id": 6
     },
     {
       "id": 7
@@ -88,6 +84,12 @@
     },
     {
       "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
     }
   ],
   "comments": [

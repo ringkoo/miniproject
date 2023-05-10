@@ -47,7 +47,7 @@ function Areadetail() {
 
   return (
     <>
-      <Navbar isActive={false} >동네 게시판</Navbar>
+      <Navbar isActive={false}>동네 게시판</Navbar>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Menu />
@@ -101,7 +101,7 @@ function Areadetail() {
           .slice()
           .reverse()
           .map((posts) => (
-            <SwiperSlide>
+            <SwiperSlide key={posts.id}>
               <div
                 style={{
                   border: "3px solid  #a1beff",
@@ -122,10 +122,9 @@ function Areadetail() {
                     height: "300px",
                   }}
                 >
-                  <img
-                    src={`http://서버주소/uploads/${data.id}.jpg`}
-                    alt="example"
-                  />
+                  {/* //   <img */}
+                  {/* // src={`http://서버주소/uploads/${data.id}.jpg`} */}
+                  {/* // alt="example" // /> */}
                 </div>
                 {/* <p style={{ marginLeft: "10px" }}>좋아요 수{posts.goodCount}</p> */}
                 <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
@@ -133,8 +132,7 @@ function Areadetail() {
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>
             </SwiperSlide>
-          ))
-          }
+          ))}
       </Swiper>
     </>
   );

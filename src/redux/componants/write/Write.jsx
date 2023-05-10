@@ -64,9 +64,9 @@ function Write() {
 
     mutation.mutate(formData);
 
-    for (let data of formData) {
-      console.log(data);
-    }
+    // for (let data of formData) {
+    //   console.log(data);
+    // }
 
     navigate("/areadetail");
     // }
