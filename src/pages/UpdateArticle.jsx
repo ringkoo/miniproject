@@ -49,6 +49,10 @@ function UpdateArticle() {
     formData.append("image", image);
 
     mutate({ id: params.id, formData });
+
+    for (let data of formData) {
+      console.log(data);
+    }
   };
   //   mutate({ id: params.id, title, content, image, category });
   //   // console.log(title);
@@ -72,7 +76,7 @@ function UpdateArticle() {
   }
   return (
     <>
-      <Navbar isActive={false} >게시글 수정</Navbar>
+      <Navbar isActive={false}>게시글 수정</Navbar>
 
       <Container>
         <LeftContainer>
@@ -93,7 +97,7 @@ function UpdateArticle() {
               />
             ) : (
               <ImageBox>
-                <img src="http://서버주소/uploads/example.jpg" alt="example" />
+                {/* <img src="http://서버주소/uploads/example.jpg" alt="example" /> */}
               </ImageBox>
             )}
             <input
@@ -118,7 +122,7 @@ function UpdateArticle() {
                 disabled
                 defaultValue={data.category}
               >
-                <option value="">장르</option>
+                <option value="">분야</option>
                 <option value="food">맛집</option>
                 <option value="travel">관광지</option>
                 <option value="fashion">축제</option>

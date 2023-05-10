@@ -27,7 +27,10 @@ const addArticle = async (formData) => {
 
 // 업데이트
 const updateArticle = async (id, formData) => {
-  await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`, formData);
+  await axios.put(
+    `${process.env.REACT_APP_SERVER_URL}/posts/${id.id}`,
+    formData
+  );
 };
 
 //게시글 삭제

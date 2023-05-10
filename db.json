@@ -50,8 +50,21 @@
       "title": " 제주제목 ",
       "content": " 제주내용",
       "category": "축제",
-      "id": 7,
-      "region": "제주"
+      "id": 11,
+      "region": "충청"
+    },
+    {
+      "title": " l ",
+      "content": " articles",
+      "category": "맛집",
+      "id": 12,
+      "region": "경상"
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
     }
     
   ],
@@ -85,6 +98,11 @@
       "content": "ㅣ;ㅏㅣ;ㅏ;ㅣ",
       "detailpageId": "7",
       "id": 78
+    },
+    {
+      "content": "강은빈",
+      "detailpageId": "6",
+      "id": 79
     }
   ]
 }
