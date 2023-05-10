@@ -24,29 +24,44 @@
       "isAdmin": true,
       "authKey": "어드민코드",
       "id": 4
+    },
+    {
+      "username": "kk@kk",
+      "password": "kk",
+      "nickname": "ㅏㅏㅏㅏ",
+      "address": "서울",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 2
+    },
+    {
+      "username": "",
+      "password": "",
+      "nickname": "",
+      "address": "",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 3
+    },
+    {
+      "username": "",
+      "password": "",
+      "nickname": "",
+      "address": "",
+      "isAdmin": false,
+      "authKey": "",
+      "id": 4
     }
   ],
   "posts": [
     {
-      "title": " 서울 ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 1,
-      "region": "서울"
+      "id": 1
     },
     {
-      "title": " 경기 ",
-      "content": " 경기내용",
-      "category": "맛집",
-      "id": 2,
-      "region": "경기"
+      "id": 2
     },
     {
-      "title": " 충청제목 ",
-      "content": " 충청내용",
-      "category": "관광지",
-      "id": 4,
-      "region": "충청"
+      "id": 4
     },
     {
       "title": " 전라제목 ",
