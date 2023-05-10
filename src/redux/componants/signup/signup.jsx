@@ -190,7 +190,7 @@ function Signbox(props) {
                   />
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* ID 중복확인 버튼*/}
-                    <Exbuttons
+                    {/* <Exbuttons
                       type='button'
                       onClick={() => {
                         try {
@@ -199,20 +199,20 @@ function Signbox(props) {
                           console.log(error)
                         }
                       }}
-                    //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                    //   const userExists = data.find(item => item.username === username);
-                    //   if (!userExists) {
-                    //     if (emailRegex.test(username)) {
-                    //       return alert('사용 가능한 이메일 입니다.')
-                    //     } else {
-                    //       return alert('이메일 형식을 확인해주세요. ex)test@test.com')
-                    //     }
-                    //   } else {
-                    //     setUsername('')
-                    //     return alert('이미 가입된 이메일 입니다')
-                    //   }
-                    // }}
-                    >확인</Exbuttons>
+                       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                       const userExists = data.find(item => item.username === username);
+                       if (!userExists) {
+                        if (emailRegex.test(username)) {
+                          return alert('사용 가능한 이메일 입니다.')
+                        } else {
+                          return alert('이메일 형식을 확인해주세요. ex)test@test.com')
+                        }
+                      } else {
+                        setUsername('')
+                        return alert('이미 가입된 이메일 입니다')
+                      }
+                    }}
+                    >확인</Exbuttons> */}
                   </div>
                 </div>
                 {/* 비밀번호 */}
@@ -257,7 +257,7 @@ function Signbox(props) {
                     maxLength='10' />
                   <div style={{ position: 'relative', left: '40%' }}>
                     {/* 닉네임 중복확인 버튼 */}
-                    <Exbuttons type='button'
+                    {/* <Exbuttons type='button'
                     // onClick={() => {
                     //   const nickNameRegex = /^[가-힣]+$/;
                     //   const nickExists = data.find(item => item.nickname === nickname);
@@ -273,7 +273,7 @@ function Signbox(props) {
                     //     return alert('이미 가입된 닉네임 입니다')
                     //   }
                     // }}
-                    >확인</Exbuttons>
+                    >확인</Exbuttons> */}
                   </div>
                 </div>
                 {/* 지역 선택 */}
