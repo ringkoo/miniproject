@@ -12,19 +12,48 @@
   ],
   "posts": [
     {
-      "title": " l ",
+      "title": " 서울 ",
       "content": " articles",
-      "category": "food",
+      "category": "맛집",
       "id": 1,
-      "address": "서울"
+      "region": "서울"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "food",
+      "title": " 경기 ",
+      "content": " 경기내용",
+      "category": "맛집",
       "id": 2,
-      "address": "경기"
+      "region": "경기"
+    },
+    {
+      "title": " 충청제목 ",
+      "content": " 충청내용",
+      "category": "관광지",
+      "id": 4,
+      "region": "충청"
+    },
+    {
+      "title": " 전라제목 ",
+      "content": " 전라내용",
+      "category": "축제",
+      "id": 5,
+      "region": "전라"
+    },
+    {
+      "title": " 경상제목 ",
+      "content": " 경상내용",
+      "category": "관광지",
+      "id": 6,
+      "region": "경상"
+    },
+    {
+      "title": " 제주제목 ",
+      "content": " 제주내용",
+      "category": "축제",
+      "id": 7,
+      "region": "제주"
     }
+    
   ],
   "comments": [
     {

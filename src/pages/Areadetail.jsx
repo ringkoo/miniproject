@@ -12,8 +12,8 @@ import Menu from "../redux/componants/menu/menu";
 import { Keyboard, Navigation, Pagination } from "swiper";
 import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
-
 import { useLocation } from "react-router-dom";
+
 function Areadetail() {
   const location = useLocation();
   ////  route state를 받아옴. 전달된 region 정보가 있는지 확인
@@ -32,8 +32,8 @@ function Areadetail() {
   if (region) {
     filteredData = data.filter((posts) => posts.region === region);
   }
-  if (category) {
-    filteredData = data.filter((posts) => posts.category === category);
+  if (category) { // 누르면
+    filteredData = data.filter((posts) => posts.category === category)
   }
   //  if(region && category) {
   //     filteredData = data.filter(

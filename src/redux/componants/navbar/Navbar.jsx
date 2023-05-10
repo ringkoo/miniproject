@@ -1,11 +1,13 @@
 import { AiTwotoneHome, AiFillCaretLeft } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { Navhead, Logintext, Navtext } from "./styles"
 
 function Navbar(props) {
     const navigate = useNavigate();
     return (
         <>
             <Navhead>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent:'space-between', width:'4%' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '4%' }}>
                     <AiTwotoneHome
                         style={{
                             fontSize: '30px'
