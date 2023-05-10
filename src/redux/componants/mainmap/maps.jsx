@@ -10,8 +10,13 @@ import {
   KyungsangButton,
   ChungcyungButton,
 } from "./styles";
+import { useCookies } from "react-cookie";
 
 function Mainmap() {
+
+  const [cookies] = useCookies("name");
+  const token = cookies.name;
+
   const navigate = useNavigate();
   return (
     <>

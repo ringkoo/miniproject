@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getUsers, loginUsers } from "../../../api/users";
 import Navbar from "../navbar/Navbar";
+import { useCookies } from "react-cookie"
 
 // 깃터짐 테스트용 주석
 
@@ -15,12 +16,17 @@ function Loginbox(props) {
   //입력값을 받을 state
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
+  //yarn add react-cookie
+  const [cookies, setCookies] = useCookies();
 
   const queryClient = useQueryClient();
+
   const mutation = useMutation(loginUsers, {
-    onSuccess: () => {
+    onSuccess: (tokenValue) => {
       queryClient.invalidateQueries("users")
-      alert("로그인이 완료되었습니다")
+      console.log("로그인이 완료되었습니다")
+      setCookies("authorization", tokenValue, { path: "/" })
       navigate('/')
     }
   });
@@ -116,7 +122,7 @@ function Loginbox(props) {
 
   return (
     <>
-      <Navbar isActive={true}/>
+      <Navbar isActive={true} />
       <Backgroundbox>
         {/* 로그인 */}
         <form onSubmit={handleSubmitButtonClick}>
