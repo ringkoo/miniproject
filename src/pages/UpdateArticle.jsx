@@ -36,18 +36,26 @@ function UpdateArticle() {
       navigate(`/detailpage/${params.id}`);
     },
   });
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("content", content);
-    formData.append("category", category);
-    formData.append("image", image);
+    const confirmed = window.confirm("글을 수정하시겠습니까?");
 
-    mutate({ id: params.id, formData });
+    if (confirmed) {
+      try {
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("category", category);
+        formData.append("image", image);
+
+        await mutate({ id: params.id, formData });
+        alert("글이 성공적으로 수정되었습니다.");
+      } catch (error) {
+        console.error(error);
+        alert("글 수정에 실패했습니다.");
+      }
+    }
   };
-
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setImage(file);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../redux/componants/navbar/Navbar";
 import { MenuButton } from "../redux/componants/menu/styles";
 import { useNavigate } from "react-router-dom";
