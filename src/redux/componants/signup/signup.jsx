@@ -165,7 +165,7 @@ function Signbox(props) {
 
   return (
     <>
-      <Navbar isActive={true}/>
+      <Navbar isActive={true} />
       <Backgroundbox>
         <div>
           {/* 회원가입 */}
@@ -184,6 +184,8 @@ function Signbox(props) {
                     width='250px'
                     height='30px'
                     marginbottom='30px'
+                    placeholder='email 형식의 30 자 내외로 입력해주세요'
+                    minLength='8'
                     maxLength='30'
                   />
                   <div style={{ position: 'relative', left: '40%' }}>
@@ -223,6 +225,8 @@ function Signbox(props) {
                   width='250px'
                   height='30px'
                   marginbottom='30px'
+                  placeholder='8~20 자 내외로 입력해주세요'
+                  minLength='8'
                   maxLength='20' />
                 {/* 비밀번호 확인 */}
                 <Inputs
@@ -233,7 +237,10 @@ function Signbox(props) {
                   widthinput='250px'
                   width='250px'
                   height='30px'
-                  marginbottom='30px' />
+                  marginbottom='30px'
+                  placeholder='8~20 자 내외로 입력해주세요'
+                  minLength='8'
+                  maxLength='20' />
                 {/* 닉네임 */}
                 <div style={{ display: "flex", alignItems: 'center', justifyContent: 'right' }}>
                   <Inputs
@@ -245,6 +252,7 @@ function Signbox(props) {
                     width='250px'
                     height='30px'
                     marginbottom='30px'
+                    placeholder='4~10 자 내외로 입력해주세요'
                     minLength='4'
                     maxLength='10' />
                   <div style={{ position: 'relative', left: '40%' }}>
@@ -312,7 +320,7 @@ function Signbox(props) {
           </form>
         </div>
       </Backgroundbox >
-      </>
+    </>
   );
 }
 
