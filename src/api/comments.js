@@ -28,7 +28,7 @@ export const deleteComments = async (id) => {
   if (!confirmed) {
     return;
   }
-
+  // console.log(id);
   const response = await axios.delete(
     `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
   );
