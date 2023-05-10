@@ -23,13 +23,17 @@ const SeoulButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -44,13 +48,17 @@ const KIButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -65,13 +73,17 @@ const KangwonButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -86,13 +98,17 @@ const ChungcyungButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -107,13 +123,17 @@ const KyungsangButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -128,13 +148,17 @@ const JyunlaButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
@@ -149,13 +173,17 @@ const JejuButton = styled.div`
     align-items:center;
     justify-content:center;
     border: 2px solid black;
-    background-color: white;
-    border-radius:50px;
-    width:45px;
-    height:45px;
-    transition: background-color 0.5s ease;
+    border-radius:55px;
+    background-image: url('/flag.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:55px;
+    height:55px;
+    color: white;
+    transition: color 0.4s ease;
     &:hover {
-        background-color: #BFADFF;
+        color: #BFADFF;
+        border-color: #BFADFF;
     }
     cursor: pointer;
 `;
