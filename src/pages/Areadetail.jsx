@@ -44,6 +44,7 @@ function Areadetail() {
   }
 
   let filteredData = data;
+  console.log(data);
   if (region) {
     filteredData = data.filter((posts) => posts.region === region);
   }
@@ -58,6 +59,22 @@ function Areadetail() {
       (posts) => posts.region === localStorageRegion
     );
   }
+
+  // let filteredData = data;
+  // if (data && region) {
+  //   filteredData = data.filter((posts) => posts.region === region);
+  // }
+  // if (data && category) {
+  //   filteredData = filteredData.filter(
+  //     (posts) =>
+  //       posts.category === category && posts.region === localStorageRegion
+  //   );
+  // }
+  // if (data && category === "") {
+  //   filteredData = filteredData.filter(
+  //     (posts) => posts.region === localStorageRegion
+  //   );
+  // }
 
   return (
     <>

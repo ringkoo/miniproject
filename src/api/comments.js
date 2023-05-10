@@ -8,7 +8,7 @@ export const postComment = async (id, content) => {
   }
 
   const response = await axios.post(
-    `${process.env.REACT_APP_SERVER_URL}/detailpage/${id}/comments`,
+    `${process.env.REACT_APP_SERVER_URL}/comments`,
     { content }
   );
   return response.data;
@@ -17,7 +17,7 @@ export const postComment = async (id, content) => {
 // 댓글 조회
 export const getComments = async (id) => {
   const response = await axios.get(
-    `${process.env.REACT_APP_SERVER_URL}/detailpage/${id}/comments`
+    `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
   );
   return response.data;
 };
@@ -26,9 +26,9 @@ export const getComments = async (id) => {
 export const deleteComments = async (id) => {
   const confirmed = window.confirm("정말로 삭제하시겠습니까?");
   if (!confirmed) {
-    return;
+    return; // 삭제 취소
   }
-
+  // console.log(id);
   const response = await axios.delete(
     `${process.env.REACT_APP_SERVER_URL}/comments/${id}`
   );
