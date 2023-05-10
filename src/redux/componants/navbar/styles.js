@@ -26,6 +26,7 @@ const Logintext = styled.span`
     height: 30px;
     background-color: #A1BEFF;
     transition: background-color 0.3s ease;
+    cursor: pointer;
     &:hover {
         background-color: lightgray;
     }

@@ -3,21 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getArticle, deleteArticle } from "../api/articles";
 import { postComment, getComments, deleteComments } from "../api/comments";
 import { useState } from "react";
-import {
-  WrapperTop,
-  SecondWrapper,
-  ArticleImage,
-  ArticleBody,
-  ArticleTitle,
-  WrapperBottom,
-  ArticleBottom,
-  CommentInput,
-  Button,
-  PostComment,
-  CommentWrapper,
-  CommentContent,
-  DeleteButtonWrapper,
-} from "../redux/componants/detailPage/styles";
+import {  WrapperTop,  SecondWrapper,  ArticleImage,  ArticleBody,  ArticleTitle,  WrapperBottom,  ArticleBottom,  CommentInput,  Button,  PostComment,  CommentWrapper,  CommentContent,  DeleteButtonWrapper} from "../redux/componants/detailPage/styles";
 import { useQuery, useMutation } from "react-query";
 import Navbar from "../redux/componants/navbar/Navbar";
 
@@ -81,7 +67,7 @@ function DetailPage() {
 
   return (
     <>
-    <Navbar isActive={false}>게시글 상세페이지</Navbar>
+      <Navbar isActive={false}>게시글 상세페이지</Navbar>
       <WrapperTop>
         <ArticleTitle>
           {data.category} / {data.title}

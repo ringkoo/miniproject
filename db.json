@@ -12,89 +12,48 @@
   ],
   "posts": [
     {
-      "title": " l ",
+      "title": " 서울 ",
       "content": " articles",
       "category": "맛집",
       "id": 1,
       "region": "서울"
     },
     {
-      "title": " l ",
-      "content": " articles",
+      "title": " 경기 ",
+      "content": " 경기내용",
       "category": "맛집",
       "id": 2,
       "region": "경기"
     },
     {
-      "title": " l ",
-      "content": " articles",
+      "title": " 충청제목 ",
+      "content": " 충청내용",
       "category": "관광지",
-      "id": 3,
-      "region": "경기"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "축제",
       "id": 4,
-      "region": "경기"
+      "region": "충청"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
+      "title": " 전라제목 ",
+      "content": " 전라내용",
+      "category": "축제",
       "id": 5,
-      "region": "경기"
+      "region": "전라"
     },
     {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
+      "title": " 경상제목 ",
+      "content": " 경상내용",
+      "category": "관광지",
       "id": 6,
-      "region": "서울"
+      "region": "경상"
     },
     {
-      "title": " l ",
-      "content": " articles",
+      "title": " 제주제목 ",
+      "content": " 제주내용",
       "category": "축제",
       "id": 7,
-      "region": "서울"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 8,
-      "region": "전라"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 9,
-      "region": "충청"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "관광지",
-      "id": 10,
-      "region": "전라"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "축제",
-      "id": 11,
-      "region": "충청"
-    },
-    {
-      "title": " l ",
-      "content": " articles",
-      "category": "맛집",
-      "id": 12,
-      "region": "경상"
+      "region": "제주"
     }
+    
   ],
   "comments": [
     {
