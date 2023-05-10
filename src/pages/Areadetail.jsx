@@ -60,7 +60,8 @@ function Areadetail() {
 
   return (
     <>
-      <Navbar isActive={true}>동네 게시판</Navbar>
+
+      <Navbar isActive={false} > {`${localStorageRegion} 게시판`}</Navbar>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Menu />
