@@ -10,7 +10,7 @@ const Map = styled.div`
   top: 6%;
   left : 33%;
   width: 650px;
-  height: 1000px;
+  height: 900px;
 `;
 
 const SeoulButton = styled.div`
@@ -41,7 +41,7 @@ const SeoulButton = styled.div`
 const KIButton = styled.div`
     position: absolute;
     top: 20%;
-    left: 35%;
+    left: 37%;
     font-size: 18px;
     font-weight: 700;
     display:flex;
@@ -65,8 +65,8 @@ const KIButton = styled.div`
 
 const KangwonButton = styled.div`
     position: absolute;
-    top: 10%;
-    left: 60%;
+    top: 12%;
+    left: 58%;
     font-size: 18px;
     font-weight: 700;
     display:flex;
@@ -90,8 +90,8 @@ const KangwonButton = styled.div`
 
 const ChungcyungButton = styled.div`
     position: absolute;
-    top: 35%;
-    left: 35%;
+    top: 38%;
+    left: 33%;
     font-size: 18px;
     font-weight: 700;
     display:flex;
@@ -115,7 +115,7 @@ const ChungcyungButton = styled.div`
 
 const KyungsangButton = styled.div`
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 60%;
     font-size: 18px;
     font-weight: 700;
@@ -140,7 +140,7 @@ const KyungsangButton = styled.div`
 
 const JyunlaButton = styled.div`
     position: absolute;
-    top: 55%;
+    top: 60%;
     left: 22%;
     font-size: 18px;
     font-weight: 700;
@@ -165,7 +165,7 @@ const JyunlaButton = styled.div`
 
 const JejuButton = styled.div`
     position: absolute;
-    top: 80%;
+    top: 87%;
     left: 25%;
     font-size: 18px;
     font-weight: 700;
