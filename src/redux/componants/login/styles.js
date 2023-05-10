@@ -18,6 +18,7 @@ const Wrapbox = styled.div`
     align-items: center;
     justify-content:space-evenly;
     padding-bottom: 100px;
+    border-radius:10px;
 `
 
 const Backgroundbox = styled.div`
