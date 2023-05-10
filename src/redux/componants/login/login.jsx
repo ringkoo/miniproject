@@ -5,6 +5,7 @@ import Buttons from "../buttons/Buttons";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getUsers, loginUsers } from "../../../api/users";
+import Navbar from "../navbar/Navbar";
 
 // 깃터짐 테스트용 주석
 
@@ -114,45 +115,48 @@ function Loginbox(props) {
   }
 
   return (
-    <Backgroundbox>
-      {/* 로그인 */}
-      <form onSubmit={handleSubmitButtonClick}>
-        <Wrapbox>
-          <Titlestyle>{props.title}</Titlestyle>
-          <div>
-            {/* ID input */}
-            <Inputs
-              value={username}
-              onChange={changeUsername}
-              type='email'
-              label='ID'
-              widthinput='200px'
-              width='210px'
-              height='30px'
-              marginbottom='30px'
-              maxLength='30' />
-            {/* PW input */}
-            <Inputs
-              value={password}
-              onChange={changePassword}
-              type="password"
-              label='PW'
-              widthinput='200px'
-              width='210px'
-              height='30px'
-              marginbottom='30px'
-              maxLength='20' />
-          </div>
-          <div style={{ display: 'flex', gap: '10px' }} >
-            <Buttons type='button' backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
-            <Buttons
-              backgroundcolor='darkgray'
-              type='submit'
+    <>
+      <Navbar />
+      <Backgroundbox>
+        {/* 로그인 */}
+        <form onSubmit={handleSubmitButtonClick}>
+          <Wrapbox>
+            <Titlestyle>{props.title}</Titlestyle>
+            <div>
+              {/* ID input */}
+              <Inputs
+                value={username}
+                onChange={changeUsername}
+                type='email'
+                label='ID'
+                widthinput='200px'
+                width='210px'
+                height='30px'
+                marginbottom='30px'
+                maxLength='30' />
+              {/* PW input */}
+              <Inputs
+                value={password}
+                onChange={changePassword}
+                type="password"
+                label='PW'
+                widthinput='200px'
+                width='210px'
+                height='30px'
+                marginbottom='30px'
+                maxLength='20' />
+            </div>
+            <div style={{ display: 'flex', gap: '10px' }} >
+              <Buttons type='button' backgroundcolor='darkgray' onClick={() => { navigate('/signup') }} >회원가입</Buttons>
+              <Buttons
+                backgroundcolor='darkgray'
+                type='submit'
               >로그인</Buttons>
-          </div>
-        </Wrapbox>
-      </form>
-    </Backgroundbox >
+            </div>
+          </Wrapbox>
+        </form>
+      </Backgroundbox >
+    </>
   );
 }
 
