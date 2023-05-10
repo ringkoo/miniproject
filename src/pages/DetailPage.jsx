@@ -166,16 +166,14 @@ function DetailPage() {
         {comments &&
           comments.map((comment) => (
             <CommentWrapper key={comment.id}>
+              {console.log(data)}
               <p style={{ marginLeft: "10px" }}>지역{comment.region} </p>
               <p style={{ marginLeft: "10px", flexGrow: 1 }}>
                 작성자
                 {comment.nickname}{" "}
               </p>
-
               <CommentContent>&nbsp; {comment.content}</CommentContent>
-
               <p style={{ marginRight: "20px" }}>{comment.createdAt}</p>
-
               <DeleteButtonWrapper>
                 {/* {localStorage.getItem("accessToken") &&
                 data.userId ===
