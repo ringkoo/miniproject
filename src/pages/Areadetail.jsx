@@ -14,6 +14,7 @@ import { getArticles } from "../api/articles";
 import { useQuery } from "react-query";
 
 import { useLocation } from "react-router-dom";
+
 function Areadetail() {
   const location = useLocation();
   const region = location.state?.region;
