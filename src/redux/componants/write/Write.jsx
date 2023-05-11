@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
@@ -22,8 +22,28 @@ function Write() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
+  const [category, setCategory] = useState("");
+  const [region, setRegion] = useState("");
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
   const mutation = useMutation(
-    (formData) => addArticle(formData, cookies.authorization),
+    () =>
+      addArticle(
+        {
+          title,
+          content,
+          image,
+          category,
+          region,
+        },
+        cookies.authorization
+      ),
     {
       onSuccess: async () => {
         queryClient.invalidateQueries("getArticle");
@@ -35,37 +55,30 @@ function Write() {
     }
   );
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState("");
-  const [region, setRegion] = useState("");
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !content || !category || !region) {
+    if (!title || !content || !category || !image || !region) {
       alert("제목, 내용, 분야,지역, 이미지를 모두 입력해주세요.");
       return;
     }
 
-    // const formData = new FormData();
-    // formData.append("title", title);
-    // formData.append("content", content);
-    // formData.append("category", category);
-    // formData.append("region", region);
-    // formData.append("image", image);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
+    formData.append("region", region);
+    formData.append("image", image);
 
-    mutation.mutate({ title, content, category, region });
+    mutation.mutate(formData, {
+      headers: {
+        Authorization: cookies.authorization,
+      },
+    });
 
-    // for (let data of formData) {
-    //   console.log(data);
-    // }
+    for (let data of formData) {
+      console.log(data);
+    }
   };
 
   return (
@@ -89,6 +102,7 @@ function Write() {
               <ImageBox>이미지 추가</ImageBox>
             )}
             <input
+              name="image"
               id="image"
               type="file"
               onChange={handleImageChange}
@@ -107,6 +121,7 @@ function Write() {
               }}
             >
               <Select
+                name="category"
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -118,6 +133,7 @@ function Write() {
               </Select>
               <Select
                 id="region"
+                name="region"
                 value={region}
                 onChange={(e) => setRegion(e.target.value)}
               >
@@ -134,6 +150,7 @@ function Write() {
               <Input
                 id="title"
                 type="text"
+                name="title"
                 placeholder="제목을 입력하세요"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -141,7 +158,7 @@ function Write() {
             </div>
             <Textarea
               id="content"
-              type="text"
+              name="content"
               placeholder="내용을 입력하세요."
               value={content}
               onChange={(e) => setContent(e.target.value)}

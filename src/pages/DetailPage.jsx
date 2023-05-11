@@ -56,12 +56,12 @@ function DetailPage() {
   //   fetchCurrentUser();
   // }, []);
 
-  const { mutate } = useMutation(
+  const { mutate, refetch } = useMutation(
     (content) => postComment(params.id, content, cookies.authorization),
     {
       onSuccess: () => {
         setCommentContent("");
-        refetchComments();
+        refetch();
       },
     }
   );
