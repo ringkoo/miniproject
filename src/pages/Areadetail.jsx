@@ -148,7 +148,7 @@ function Areadetail() {
                 }}
               >
                 <img
-                  src={`${process.env.REACT_APP_SERVER_URL}/uploads/${data.id}.jpg`}
+                  src={`${process.env.REACT_APP_SERVER_URL}/upload/${posts.id}.jpg`}
                   alt="example"
                 />
               </div>

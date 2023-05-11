@@ -33,7 +33,7 @@ function UpdateArticle() {
     getArticle(params.id)
   );
 
-  const { mutate } = useMutation(updateArticle(cookies.authorization), {
+  const { mutate } = useMutation(() => updateArticle(cookies.authorization), {
     onSuccess: () => {
       navigate(`/detailpage/${params.id}`);
     },
@@ -45,18 +45,13 @@ function UpdateArticle() {
 
     if (confirmed) {
       try {
-        // const formData = new FormData();
-        // formData.append("title", title);
-        // formData.append("content", content);
-        // formData.append("category", category);
-        // formData.append("image", image);
-        const requestData = {
-          title: title,
-          content: content,
-          category: category,
-          //  "image" :image,
-        };
-        await mutate({ id: params.id, requestData });
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("category", category);
+        formData.append("image", image);
+
+        await mutate({ id: params.id, formData });
         alert("글이 성공적으로 수정되었습니다.");
       } catch (error) {
         console.error(error);
@@ -99,14 +94,14 @@ function UpdateArticle() {
                 <img src="http://서버주소/uploads/example.jpg" alt="example" />
               </ImageBox>
             )}
-            {/* <input
+            <input
               id="image"
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               defaultValue={data.image}
               style={{ display: "none" }}
-            /> */}
+            />
           </ImageDiv>
         </LeftContainer>
 
