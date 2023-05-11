@@ -10,8 +10,8 @@ import {
 import Inputs from "../inputs/inputs";
 import Buttons from "../buttons/Buttons";
 import { useNavigate } from "react-router-dom";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getUsers, loginUsers } from "../../../api/users";
+import { useMutation, useQueryClient } from "react-query";
+import { loginUsers } from "../../../api/users";
 import Navbar from "../navbar/Navbar";
 import { useCookies } from "react-cookie";
 // 깃터짐 테스트용 주석
@@ -24,7 +24,7 @@ function Loginbox(props) {
   const [password, setPassword] = useState("");
 
   //yarn add react-cookie
-  const [cookies, setCookies] = useCookies();
+  const [cookies, setCookies, removeCookie] = useCookies(["authorization"]);
 
   const queryClient = useQueryClient();
 
@@ -35,7 +35,13 @@ function Loginbox(props) {
       setCookies("authorization", tokenValue, { path: "/" });
       navigate("/");
     },
+    onError: (error) => {
+      if (error.response.status !== null) {
+        alert(error.response.data.errorMessage);
+      }
+    },
   });
+
 
   // const { isLoading, isError, data } = useQuery("users", getUsers)
 

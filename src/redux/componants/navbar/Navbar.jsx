@@ -1,9 +1,20 @@
 import { AiTwotoneHome, AiFillCaretLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Navhead, Logintext, Navtext } from "./styles"
+import { useCookies } from "react-cookie";
 
 function Navbar(props) {
     const navigate = useNavigate();
+
+    const [cookies, setCookies, removeCookies] = useCookies("authorization");
+    const token = cookies.authorization;
+
+    const logoutHandler = () => {
+        removeCookies("authorization")
+        navigate('/login')
+        window.location.reload()
+    }
+
     return (
         <>
             <Navhead>
@@ -19,9 +30,10 @@ function Navbar(props) {
                 </div>
                 <Navtext>{props.children}</Navtext>
                 {
-                    props.isActive === true ?
-                        <Logintext onClick={() => { navigate('/login') }}>로그인</Logintext> :
-                        <Logintext onClick={() => { navigate('/login') }}>로그아웃</Logintext>
+                    
+                    !token ?
+                    <Logintext onClick={() => { navigate('/login') }}>로그인</Logintext>:
+                    <Logintext onClick={logoutHandler}>로그아웃</Logintext>
                 }
             </Navhead>
         </>
