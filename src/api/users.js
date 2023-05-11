@@ -14,6 +14,7 @@ export const addUsers = async (newUsers) => {
 export const loginUsers = async (inUsers) => {
   try {
     const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, inUsers);
+    console.log(response)
     const authorization = response.headers.get("authorization").split(" ")[1]
     return authorization
   } catch (error) {

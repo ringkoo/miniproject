@@ -10,8 +10,8 @@ import {
 import Inputs from "../inputs/inputs";
 import Buttons from "../buttons/Buttons";
 import { useNavigate } from "react-router-dom";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getUsers, loginUsers } from "../../../api/users";
+import { useMutation, useQueryClient } from "react-query";
+import { loginUsers } from "../../../api/users";
 import Navbar from "../navbar/Navbar";
 import { useCookies } from "react-cookie";
 // 깃터짐 테스트용 주석
@@ -32,6 +32,7 @@ function Loginbox(props) {
     onSuccess: (tokenValue) => {
       queryClient.invalidateQueries("users");
       console.log("로그인이 완료되었습니다");
+      console.log("현재 쿠키", tokenValue)
       setCookies("authorization", tokenValue, { path: "/" });
       navigate("/");
     },
