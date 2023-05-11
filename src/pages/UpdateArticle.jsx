@@ -3,6 +3,7 @@ import Navbar from "../redux/componants/navbar/Navbar";
 import { getArticle, updateArticle } from "../api/articles";
 import { useQuery, useMutation } from "react-query";
 import { useParams, useNavigate } from "react-router";
+import { useCookies } from "react-cookie";
 
 import {
   Container,
@@ -19,6 +20,7 @@ import {
 } from "../redux/componants/write/styles";
 
 function UpdateArticle() {
+  const [cookies] = useCookies(["authorization"]);
   const params = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState(params.title);
@@ -31,11 +33,12 @@ function UpdateArticle() {
     getArticle(params.id)
   );
 
-  const { mutate } = useMutation(updateArticle, {
+  const { mutate } = useMutation(updateArticle(cookies.authorization), {
     onSuccess: () => {
       navigate(`/detailpage/${params.id}`);
     },
   });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const confirmed = window.confirm("글을 수정하시겠습니까?");
@@ -88,12 +91,13 @@ function UpdateArticle() {
               />
             ) : (
               <ImageBox>
-                {/* <img src="http://서버주소/uploads/example.jpg" alt="example" /> */}
+                <img src="http://서버주소/uploads/example.jpg" alt="example" />
               </ImageBox>
             )}
             <input
               id="image"
               type="file"
+              accept="image/*"
               onChange={handleImageChange}
               defaultValue={data.image}
               style={{ display: "none" }}
@@ -112,9 +116,9 @@ function UpdateArticle() {
                 defaultValue={data.category}
               >
                 <option value="">분야</option>
-                <option value="food">맛집</option>
-                <option value="travel">관광지</option>
-                <option value="fashion">축제</option>
+                <option value="맛집">맛집</option>
+                <option value="관광지">관광지</option>
+                <option value="축제">축제</option>
               </Select>
               <Select
                 id="region"
