@@ -24,7 +24,7 @@ function Loginbox(props) {
   const [password, setPassword] = useState("");
 
   //yarn add react-cookie
-  const [cookies, setCookies] = useCookies();
+  const [cookies, setCookies, removeCookie] = useCookies(["authorization"]);
 
   const queryClient = useQueryClient();
 
@@ -32,11 +32,16 @@ function Loginbox(props) {
     onSuccess: (tokenValue) => {
       queryClient.invalidateQueries("users");
       console.log("로그인이 완료되었습니다");
-      console.log("현재 쿠키", tokenValue)
       setCookies("authorization", tokenValue, { path: "/" });
       navigate("/");
     },
+    onError: (error) => {
+      if (error.response.status !== null) {
+        alert(error.response.data.errorMessage);
+      }
+    },
   });
+
 
   // const { isLoading, isError, data } = useQuery("users", getUsers)
 
