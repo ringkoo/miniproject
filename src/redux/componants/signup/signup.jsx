@@ -30,7 +30,12 @@ function Signbox(props) {
       queryClient.invalidateQueries("signup")
       alert("회원가입이 완료되었습니다")
       navigate('/login')
-    }
+    },
+    onError: (error) => {
+      if (error.response.status !== null) {
+        alert(error.response.data.errorMessage);
+      }
+    },
   });
 
   // const { isLoading, isError, data } = useQuery("users", getUsers)
