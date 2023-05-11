@@ -18,12 +18,13 @@ import {
   CommentContent,
   DeleteButtonWrapper,
 } from "../redux/componants/detailPage/styles";
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import Navbar from "../redux/componants/navbar/Navbar";
 import { useCookies } from "react-cookie";
 
 function DetailPage() {
   const [cookies] = useCookies(["authorization"]);
+  const queryClient = useQueryClient();
   const params = useParams();
   const navigate = useNavigate();
   const { isLoading, isError, data } = useQuery("getArticle", () =>
@@ -74,7 +75,7 @@ function DetailPage() {
   // console.log(getComments);
   const handleDeleteComment = async (commentId) => {
     await deleteComments(commentId, cookies.authorization);
-
+    queryClient.invalidateQueries("getComments");
     refetchComments();
   };
 
@@ -158,8 +159,8 @@ function DetailPage() {
 
         {/* {localStorage.getItem("accessToken") ? ( */}
         <PostComment>
-          <p style={{ marginLeft: "10px" }}>지역 </p>
-          <p style={{ marginLeft: "10px" }}>닉네임 </p>
+          <p style={{ marginLeft: "10px" }}>{data.address} </p>
+          <p style={{ marginLeft: "10px" }}> {data.nickname} </p>
           <CommentInput
             placeholder="&nbsp;내용을 입력해주세요."
             value={commentContent}
@@ -179,7 +180,7 @@ function DetailPage() {
           data.comments.map((comment) => (
             <CommentWrapper key={comment.id}>
               {/* {console.log(data)} */}
-              <p style={{ marginLeft: "10px" }}>지역{comment.region} </p>
+              <p style={{ marginLeft: "10px" }}>{comment.address} </p>
               <p style={{ marginLeft: "10px", flexGrow: 1 }}>
                 {comment.nickname}{" "}
               </p>

@@ -19,6 +19,7 @@ const getArticle = async (id) => {
 const addArticle = async (formData, token) => {
   await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, formData, {
     headers: { Authorization: `Bearer ${token}` },
+    "Content-Type": "multipart/form-data",
   });
 };
 
@@ -26,6 +27,7 @@ const addArticle = async (formData, token) => {
 const updateArticle = async (id, formData, token) => {
   await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`, formData, {
     headers: { Authorization: `Bearer ${token}` },
+    // "Content-Type": "multipart/form-data",
   });
 };
 
