@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
-
+import { useCookies } from "react-cookie";
 import {
   Container,
   LeftContainer,
@@ -18,9 +18,11 @@ import {
 } from "./styles";
 
 function Write() {
+  const [cookies] = useCookies(["authorization"]);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const mutation = useMutation(addArticle, {
+
+  const mutation = useMutation(addArticle(cookies.authorization), {
     onSuccess: async () => {
       queryClient.invalidateQueries("getArticle");
       if (window.confirm("작성한 글을 등록하시겠습니까?")) {

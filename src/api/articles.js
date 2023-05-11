@@ -12,26 +12,30 @@ const getArticle = async (id) => {
     `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
   );
 
-  return response.data.postList;
+  return response.data;
 };
 
 //입력(post요청)
-const addArticle = async (formData) => {
-  await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, formData);
+const addArticle = async (formData, token) => {
+  await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts`, formData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 };
 
 // 업데이트
-const updateArticle = async (id, formData) => {
-  await axios.put(
-    `${process.env.REACT_APP_SERVER_URL}/posts/${id.id}`,
-    formData
-  );
+const updateArticle = async (id, formData, token) => {
+  await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`, formData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 };
 
 //게시글 삭제
-const deleteArticle = async (id) => {
+const deleteArticle = async (id, token) => {
   const response = await axios.delete(
-    `${process.env.REACT_APP_SERVER_URL}/posts/${id}`
+    `${process.env.REACT_APP_SERVER_URL}/posts/${id}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
   );
   return response.data;
 };

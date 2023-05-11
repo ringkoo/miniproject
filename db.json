@@ -10,22 +10,6 @@
       "id": 1
     },
     {
-      "id": 2
-    },
-    {
-      "asdf@asdf.com": "",
-      "id": 3
-    },
-    {
-      "username": "asdf@asdf.com",
-      "password": "asdfasdf",
-      "nickname": "오월십일지금",
-      "address": "서울",
-      "isAdmin": true,
-      "authKey": "어드민코드",
-      "id": 4
-    },
-    {
       "username": "kk@kk",
       "password": "kk",
       "nickname": "ㅏㅏㅏㅏ",
@@ -89,6 +73,90 @@
     },
     {
       "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": 37
+    },
+    {
+      "id": 38
+    },
+    {
+      "id": 39
+    },
+    {
+      "id": 40
+    },
+    {
+      "id": 41
     }
   ],
   "comments": [
@@ -128,19 +196,14 @@
       "id": 79
     },
     {
-      "content": "';ㅣ';ㅣ",
-      "detailpageId": "11",
-      "id": 80
+      "content": "ㅏㅣㅓㅏㅣㅓ",
+      "detailpageId": "15",
+      "id": 82
     },
     {
       "content": "안녕하세요",
       "detailpageId": "1",
       "id": 100
-    },
-    {
-      "content": "ㅎ롤호",
-      "detailpageId": "5",
-      "id": 102
     }
   ]
 }

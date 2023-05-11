@@ -44,7 +44,7 @@ function Areadetail() {
   }
 
   let filteredData = data;
-  console.log(data);
+  // console.log(data);
   if (region) {
     filteredData = data.filter((posts) => posts.region === region);
   }
@@ -150,13 +150,16 @@ function Areadetail() {
                     height: "300px",
                   }}
                 >
-                  {/* //   <img */}
-                  {/* // src={`http://서버주소/uploads/${data.id}.jpg`} */}
-                  {/* // alt="example" // /> */}
+                  <img
+                    src={`${process.env.REACT_APP_SERVER_URL}/uploads/${data.id}.jpg`}
+                    alt="example"
+                  />
                 </div>
 
                 <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
-                <p style={{ marginLeft: "10px" }}>작성시간{posts.createdAt}</p>
+                <p style={{ marginLeft: "10px" }}>
+                  작성시간&nbsp; {posts.createdAt}
+                </p>
                 <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
               </div>
             </SwiperSlide>
