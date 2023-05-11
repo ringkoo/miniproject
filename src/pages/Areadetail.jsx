@@ -147,10 +147,7 @@ function Areadetail() {
                   height: "300px",
                 }}
               >
-                <img
-                  src={`${process.env.REACT_APP_SERVER_URL}/upload/${posts.id}.jpg`}
-                  alt="example"
-                />
+                <img src="" alt="example" />
               </div>
 
               <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
