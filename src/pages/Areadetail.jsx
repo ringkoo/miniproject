@@ -125,45 +125,42 @@ function Areadetail() {
         modules={[Keyboard, Navigation, Pagination]}
         className="mySwiper"
       >
-        {filteredData
-          .slice()
-          .reverse()
-          .map((posts) => (
-            <SwiperSlide key={posts.id}>
+        {filteredData.map((posts) => (
+          <SwiperSlide key={posts.id}>
+            <div
+              style={{
+                border: "3px solid  #a1beff",
+                width: "400px",
+                height: "500px",
+                borderRadius: "8px",
+              }}
+              onClick={() => {
+                navigate(`/detailpage/${posts.id}`);
+              }}
+            >
+              <h1 style={{ marginLeft: "10px" }}>
+                {" "}
+                {posts.category} /{posts.title}
+              </h1>
               <div
                 style={{
-                  border: "3px solid  #a1beff",
-                  width: "400px",
-                  height: "500px",
-                  borderRadius: "8px",
-                }}
-                onClick={() => {
-                  navigate(`/detailpage/${posts.id}`);
+                  height: "300px",
                 }}
               >
-                <h1 style={{ marginLeft: "10px" }}>
-                  {" "}
-                  {posts.category} /{posts.title}
-                </h1>
-                <div
-                  style={{
-                    height: "300px",
-                  }}
-                >
-                  <img
-                    src={`${process.env.REACT_APP_SERVER_URL}/uploads/${data.id}.jpg`}
-                    alt="example"
-                  />
-                </div>
-
-                <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
-                <p style={{ marginLeft: "10px" }}>
-                  작성시간&nbsp; {posts.createdAt}
-                </p>
-                <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
+                <img
+                  src={`${process.env.REACT_APP_SERVER_URL}/uploads/${data.id}.jpg`}
+                  alt="example"
+                />
               </div>
-            </SwiperSlide>
-          ))}
+
+              <p style={{ marginLeft: "10px" }}>지역 {posts.region}</p>
+              <p style={{ marginLeft: "10px" }}>
+                작성시간&nbsp; {posts.createdAt}
+              </p>
+              <p style={{ marginLeft: "10px" }}>작성자 {posts.nickname}</p>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

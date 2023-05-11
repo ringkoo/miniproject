@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useMutation, useQueryClient } from "react-query";
 import { addArticle } from "../../../api/articles";
@@ -22,15 +22,18 @@ function Write() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const mutation = useMutation(addArticle(cookies.authorization), {
-    onSuccess: async () => {
-      queryClient.invalidateQueries("getArticle");
-      if (window.confirm("작성한 글을 등록하시겠습니까?")) {
-        navigate("/areadetail");
-        alert("글이 정상적으로 등록되었습니다.");
-      }
-    },
-  });
+  const mutation = useMutation(
+    (formData) => addArticle(formData, cookies.authorization),
+    {
+      onSuccess: async () => {
+        queryClient.invalidateQueries("getArticle");
+        if (window.confirm("작성한 글을 등록하시겠습니까?")) {
+          navigate("/areadetail");
+          alert("글이 정상적으로 등록되었습니다.");
+        }
+      },
+    }
+  );
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -46,19 +49,23 @@ function Write() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !content || !category || !image || !region) {
+    if (!title || !content || !category || !region) {
       alert("제목, 내용, 분야,지역, 이미지를 모두 입력해주세요.");
       return;
     }
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("content", content);
-    formData.append("category", category);
-    formData.append("region", region);
-    formData.append("image", image);
+    // const formData = new FormData();
+    // formData.append("title", title);
+    // formData.append("content", content);
+    // formData.append("category", category);
+    // formData.append("region", region);
+    // formData.append("image", image);
 
-    mutation.mutate(formData);
+    mutation.mutate({ title, content, category, region });
+
+    // for (let data of formData) {
+    //   console.log(data);
+    // }
   };
 
   return (
@@ -134,6 +141,7 @@ function Write() {
             </div>
             <Textarea
               id="content"
+              type="text"
               placeholder="내용을 입력하세요."
               value={content}
               onChange={(e) => setContent(e.target.value)}
